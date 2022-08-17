@@ -29,7 +29,7 @@
         </section>
         <section class="container">
           <div class="row">
-            <div class="col q-my-xxl">
+            <div class="col q-mt-xl q-mb-sm">
               <q-card bordered flat class="row justify-center items-center q-pa-lg">
                 <div class="q-mx-md text-h6">上衣</div>
                 <div class="q-mx-md text-h6">長褲</div>
@@ -41,7 +41,7 @@
         </section>
         <section class="container">
             <div class="row">
-                <div class="col-3 q-pa-md" v-for='product in products' :key='product._id'>
+                <div class="col-2-4 " v-for='product in products' :key='product._id'>
                   <ProductCard :product='product'/>
                 </div>
             </div>

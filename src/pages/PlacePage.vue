@@ -12,7 +12,7 @@
                       <div class="text-h5">取貨方式</div>
 
                       <q-separator class="q-my-md"/>
-                      <div class="q-my-md column">
+                      <div class="q-my-lg column">
                         <q-radio v-model="form.getway" :val=0 label="7-11貨到府款" color="black" />
                         <q-radio v-model="form.getway" :val=1 label="宅配到府" color="black" />
                       </div>
@@ -50,7 +50,7 @@
                             <div class="text-subtitle1 text-weight-medium">NT$:{{item.product.price*item.quantity }}</div>
                           </div>
                         </div>
-                        <q-separator class="q-mt-md" />
+                        <q-separator class="q-my-md" />
                       </q-card>
                       <q-card class="row reverse my-card q-mt-xl">
                         <div class="col-2 q-mt-xl">

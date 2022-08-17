@@ -4,7 +4,7 @@
             <div class="row q-mt-xl">
                 <div class="col-2" >
                     <router-link :to="'/about'"><div class="text-subtitle1 q-my-lg">關於我們</div></router-link>
-                    <router-link :to="'/'"><div class="text-subtitle1 q-my-lg">常見問題</div></router-link>
+                    <router-link :to="'/problem'"><div class="text-subtitle1 q-my-lg">常見問題</div></router-link>
                     <router-link :to="'/store'"><div class="text-subtitle1 q-my-lg">店鋪一覽</div></router-link>
                 </div>
                 <div class="col-10">

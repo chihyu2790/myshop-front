@@ -23,7 +23,7 @@
                         <q-card flat class="col-12 q-mb-lg" v-for="(product,idx) in styling.products" :key="idx">
                             <div class="row q-mb-lg ">
                                 <div class="col-4">
-                                    <q-img :src="product.product.image[0]" @click="toProduct(product.product._id) "></q-img>
+                                    <q-img class="pointer" :src="product.product.image[0]" @click="toProduct(product.product._id) "></q-img>
                                 </div>
                                 <div class="q-ml-md col">
                                     <div class="text-subtitle1 text-weight-medium">{{product.product.name}}</div>

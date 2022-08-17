@@ -6,7 +6,7 @@
             </div>
             <q-separator class="q-mt-lg q-mb-sm"/>
             <div class="row">
-                <div class="col-3 q-pa-xs" v-for="(styling,idx) in stylingItems" :key="idx" >
+                <div class="col-3 q-pa-xs pointer" v-for="(styling,idx) in stylingItems" :key="idx" >
                     <q-img
                     class="col-12"
                     :src="styling.image"

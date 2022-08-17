@@ -25,8 +25,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="flex col-3 q-pa-sm justify-center pointer" v-for="product in products.slice(0,8)" :key="product._id" @click="toProduct(product._id)">
-          <q-img :src="product.image[0]"/>
+        <div class="flex col-3 q-pa-md justify-center pointer q-mb-lg" v-for="product in products.slice(0,8)" :key="product._id" @click="toProduct(product._id)">
+          <q-img :src="product.image[0]" :ratio="1/1" />
           <div class="text-body1 q-mt-lg" >{{product.name}}</div>
         </div>
       </div>

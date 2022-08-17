@@ -59,7 +59,7 @@ export const useUserStore = defineStore({
           this.router.push('/')
         }
         if (this.role === 1) {
-          this.router.push('/admin/')
+          this.router.push('/admin/user')
         }
         if (this.role === 2) {
           this.router.push('/staff/')

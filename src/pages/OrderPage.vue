@@ -38,7 +38,8 @@
                   </template>
                   <template #body-cell-totalPrice="totalPrice">
                     <q-td :date="totalPrice">
-                      NT$ {{totalPrice.row.totalPrice}}
+                      <span v-if="totalPrice.row.totalPrice<1500" >NT$ {{totalPrice.row.totalPrice+80}}</span>
+                      <span v-else>NT$ {{totalPrice.row.totalPrice}}</span>
                     </q-td>
                   </template>
                   <template #body-cell-edit="edit">
