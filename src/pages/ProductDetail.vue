@@ -1,0 +1,154 @@
+<template>
+<q-page>
+    <section class="container">
+        <div class="row q-mt-lg">
+            <div class="col-1" >
+              <div v-for="(image,idx) in product.image" :key="idx" class="q-mb-md" >
+                <q-img :src="image" :ratio="1/1" @click="changeSlide(idx)" ></q-img>
+              </div>
+            </div>
+            <div class="col-7 q-px-md" >
+              <q-carousel
+                animated
+                v-model="slide"
+                arrows
+                infinite
+              >
+                <q-carousel-slide :name="idx+1" :img-src="image" v-for="(image,idx) in product.image" :key="idx" />
+                <!-- <q-carousel-slide :name="2" img-src="https://cdn.quasar.dev/img/parallax1.jpg" />
+                <q-carousel-slide :name="3" img-src="https://cdn.quasar.dev/img/parallax2.jpg" />
+                <q-carousel-slide :name="4" img-src="https://cdn.quasar.dev/img/quasar.jpg" /> -->
+              </q-carousel>
+              <!-- <q-card flat>
+                <img :src="product.image[0]" class="objectFit">
+              </q-card> -->
+            </div>
+            <div class="col-4">
+              <q-card class="my-card " flat>
+                <q-card-section>
+                  <div class="text-h6 q-mb-xl">{{ product.name }}</div>
+                  <div class="text-h4 text-weight-bold q-mb-lg">NT${{ product.price }}</div>
+                  <!-- {{ product.description }} -->
+                  <div class="text-subtitle1 text-weight-medium q-mb-lg">顏色:</div>
+                  <div class="q-mb-lg">
+                    <q-avatar v-for="(color,idx)  in product.color" class="q-mr-xs" :color="color" size="24px" :key="idx"/>
+                    <q-radio v-for="(color,idx) in product.color" v-model="colors" color="black" class="text-weight-medium" :val="color" :label="color" :key="idx"/>
+                  </div>
+                  <div class="text-subtitle1 text-weight-medium q-mb-lg">尺寸</div>
+                  <q-radio v-for="(size,idx) in product.size" v-model="sizes" :val="size" color="black" class="text-weight-medium" :label="size" :key="idx"/>
+                </q-card-section>
+
+                <q-separator />
+
+                <q-card-section>
+                  <div class="text-subtitle1 text-weight-medium q-mb-sm">數量</div>
+                </q-card-section>
+                <q-card-actions vertical>
+                  <q-form @submit.prevent='submitCart()'>
+                    <q-input outlined min='0' type='number' color="black" v-model.number="quantity" :rules='quantityRule'  />
+                    <br>
+                    <q-btn label="加入購物車" type='submit' color="red" unelevated class="width-hundred q-py-xl text-h6" />
+                  </q-form>
+                </q-card-actions>
+              </q-card>
+            </div>
+        </div>
+
+        <q-separator class="row q-my-xxxl"/>
+
+        <div class="row">
+          <div class="col-12 flex justify-center q-mb-md">
+            <q-img src="https://i.imgur.com/hFiccGF.jpg" class="pointer object-top" :ratio="4/1" @click="toProduct()">
+              <div class="row absolute-bottom text-center ">
+                <div class="col-12 text-h6 q-mb-sm text-weight-light">職場百搭單品 日本同步刊載</div>
+                <div class="col-12 text-h3">Freedom Styling 自由穿搭</div>
+              </div>
+            </q-img>
+          </div>
+          <div class="col-12">
+            <q-card bordered flat class="row  items-center q-pa-lg q-my-xl">
+              <div class="text-h6">關於商品</div>
+            </q-card>
+          </div>
+          <div class="col-7">
+            <div class="text-body1">{{ product.description }}</div>
+          </div>
+          <div class="col-12">
+            <q-card bordered flat class="row  items-center q-pa-lg q-my-xl">
+              <div class="text-h6">商品尺寸</div>
+            </q-card>
+        </div>
+        </div>
+          <!-- <q-img src="https://i.imgur.com/hFiccGF.jpg"></q-img> -->
+    </section>
+</q-page>
+</template>
+
+<script setup>
+import { reactive, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { api } from '../boot/axios'
+import Swal from 'sweetalert2'
+import { useUserStore } from '../stores/example-store'
+
+const route = useRoute()
+const router = useRouter()
+const user = useUserStore()
+
+const quantity = ref(0)
+const colors = ref('')
+const sizes = ref('')
+const slide = ref(1)
+
+const quantityRule = reactive([
+  v => v >= 1 || '數量錯誤'
+])
+const valid = ref(false)
+
+const product = reactive({
+  _id: '',
+  name: '',
+  price: 0,
+  category: '',
+  sell: false,
+  image: [],
+  color: [],
+  size: [],
+  description: ''
+})
+
+const changeSlide = (num) => {
+  slide.value = num + 1
+}
+
+const toProduct = () => {
+  router.push('/product/')
+}
+
+const submitCart = () => {
+  user.addCart({ product: product._id, quantity: quantity.value, color: colors.value, size: sizes.value })
+}
+
+const init = async () => {
+  try {
+    const { data } = await api.get('/products/' + route.params.id)
+    product._id = data.result._id
+    product.name = data.result.name
+    product.price = data.result.price
+    product.category = data.result.category
+    product.sell = data.result.sell
+    product.color = data.result.color
+    product.size = data.result.size
+    product.image = data.result.image
+    product.description = data.result.description
+  } catch (error) {
+    Swal.fire({
+      icon: 'error',
+      title: '失敗',
+      text: '取得商品資料失敗'
+    })
+    router.go(-1)
+  }
+}
+init()
+</script>
