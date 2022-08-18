@@ -14,7 +14,7 @@
             <div class="row q-mt-none q-mt-lg-xl">
               <div class="col-12 gt-lg col-lg-2" >
                 <router-link :to="'/about'"><div class="text-subtitle1 q-my-lg q-pr-md">關於我們</div></router-link>
-                <router-link :to="'/'"><div class="text-subtitle1 q-my-lg q-pr-md">常見問題</div></router-link>
+                <router-link :to="'/problem'"><div class="text-subtitle1 q-my-lg q-pr-md">常見問題</div></router-link>
                 <router-link :to="'/store'"><div class="text-subtitle1 q-my-lg q-pr-md">店鋪一覽</div></router-link>
               </div>
               <div class="col-12 col-lg-10">

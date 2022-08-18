@@ -51,8 +51,8 @@
             <template #body-cell-edit="edit">
                 <q-td :edit="edit">
                 <div class="column">
-                  <q-btn class="q-mb-sm" @click='updateCart()' outline >修改</q-btn>
-                  <q-btn @click='updateCart()' outline >下架</q-btn>
+                  <q-btn class="q-mb-sm" @click='openDialog(edit.row._id,edit.rowIndex)' outline >修改</q-btn>
+                  <q-btn @click='updateCart(edit.row._id)' outline >下架</q-btn>
                 </div>
                 </q-td>
             </template>
@@ -104,13 +104,13 @@
             <q-checkbox v-model="form.color" class="text-weight-medium"  val="indigo-10"  color="indigo-10" label="indigo-10" />
             <q-checkbox v-model="form.color" class="text-weight-medium "  val="pink-10"  color="pink-10" label="pink-10" />
             <div class="text-subtitle1 text-weight-medium q-my-md">商品尺寸{{form.size}}</div>
-            <q-checkbox v-model="form.size" class="text-weight-medium" val="XXS"  label="XXS" />
-            <q-checkbox v-model="form.size" class="text-weight-medium" val="XS" label="XS"  />
-            <q-checkbox v-model="form.size" class="text-weight-medium" val="S" label="S" />
-            <q-checkbox v-model="form.size" class="text-weight-medium" val="M" label="M" />
-            <q-checkbox v-model="form.size" class="text-weight-medium" val="L" label="L"  />
-            <q-checkbox v-model="form.size" class="text-weight-medium" val="XL" label="XL" />
-            <q-checkbox v-model="form.size" class="text-weight-medium" val="XXL" label="XXL" />
+            <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="XXS"  label="XXS" />
+            <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="XS" label="XS"  />
+            <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="S" label="S" />
+            <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="M" label="M" />
+            <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="L" label="L"  />
+            <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="XL" label="XL" />
+            <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="XXL" label="XXL" />
             <br>
             <div class="q-my-xxl">
               <q-btn outline class="q-py-sm q-px-xxl text-subtitle2 q-mr-md" color="black" label="取消" @click='form.dialog = false' :disabled='form.submitting' />
@@ -182,27 +182,38 @@ form.classify = computed(() => {
 
 const openDialog = (_id, idx) => {
   form._id = _id
+  console.log(rows[idx])
   if (idx > -1) {
-    form.name = products[idx].name
-    form.price = products[idx].price
-    form.category = products[idx].category
-    form.sell = products[idx].sell
-    form.description = products[idx].description
+    form.name = rows[idx].name
+    form.price = rows[idx].price
+    form.category = rows[idx].category
+    form.sell = rows[idx].sell
+    form.description = rows[idx].description
+    // form.category = rows[idx].category
+    form.size = rows[idx].size
+    form.color = rows[idx].color
+    // form.color = []
+    // form.color.push(...JSON.parse(JSON.stringify(rows[idx].color)))
+    // form.size = []
+    // form.size.push(...JSON.parse(JSON.stringify(rows[idx].size)))
+    chips.value = rows[idx].classify.toString().replace(/,/g, ' ')
+    // form.category.push(...JSON.parse(JSON.stringify(rows[idx].category)))
   } else {
     form.name = ''
     form.price = 0
     form.category = ''
     form.sell = false
     form.description = ''
+    form.image = []
+    form.color = []
+    form.size = []
+    chips.value = ''
+    form.classify = []
   }
-  form.image = []
-  form.color = []
-  form.size = []
   form.idx = idx
   form.dialog = true
   form.valid = false
   form.submitting = false
-  form.chips = ''
   form.classify.splice(0, form.classify.length)
 }
 
@@ -236,7 +247,7 @@ const submitForm = async () => {
   try {
     if (form._id.length === 0) {
       const { data } = await apiAuth.post('/products', fd)
-      products.push(data.result)
+      rows.push(data.result)
       Swal.fire({
         icon: 'success',
         title: '成功',
@@ -244,7 +255,7 @@ const submitForm = async () => {
       })
     } else {
       const { data } = await apiAuth.patch('/products/' + form._id, fd)
-      products[form.idx] = data.result
+      rows[form.idx] = data.result
       Swal.fire({
         icon: 'success',
         title: '成功',
