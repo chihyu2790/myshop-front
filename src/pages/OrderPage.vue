@@ -22,13 +22,14 @@
                         </q-card-section>
                 </q-card> -->
                 <q-table
-                :grid="$q.screen.xs"
+                :grid="$q.screen.sm"
                 flat
                 bordered
                 :rows="orders"
                 :columns="columns"
                 row-key="name"
                 :filter="filter"
+                :pagination="pagination"
                 >
                   <template #body-cell-date="date">
                     <q-td :date="date">
@@ -50,6 +51,19 @@
                       </div>
                     </q-td>
                   </template>
+                  <template v-slot:item="edit">
+                      <q-card class="q-pa-md q-ma-sm" bordered flat>
+                        <div class="column">
+                          <div class="text-subtitle1 text-weight-medium">訂單日期</div>
+                          <div class="text-subtitle1 text-weight-medium">{{new Date(edit.row.date).toLocaleDateString()}}</div>
+                          <div class="text-subtitle1 text-weight-medium">訂單編號</div>
+                          <div class="text-subtitle1 text-weight-medium">{{edit.row._id}}</div>
+                          <div class="text-subtitle1 text-weight-medium">價錢</div>
+                          <div class="text-subtitle1 text-weight-medium">{{edit.row.totalPrice}}</div>
+                          <q-btn outline class="q-px-xl q-m" color="black" label="詳細訂單資訊" :to="'/order/' + edit.row._id"  />
+                        </div>
+                      </q-card>
+                  </template>
                 </q-table>
           </div>
         </div>
@@ -64,6 +78,12 @@ import Swal from 'sweetalert2'
 import { useQuasar } from 'quasar'
 
 const $q = useQuasar()
+
+const pagination = reactive({
+  item: [],
+  page: 1,
+  rowsPerPage: 0
+})
 
 const columns = [
   { name: 'date', align: 'left', label: '訂單日期', field: 'date' },

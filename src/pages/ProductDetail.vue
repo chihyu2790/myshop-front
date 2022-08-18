@@ -1,14 +1,15 @@
 <template>
 <q-page>
     <section class="container">
-        <div class="row q-mt-lg">
-            <div class="col-1" >
+        <div class="row q-mt-none q-mt-sm-lg">
+            <div class="col-1 gt-lg" >
               <div v-for="(image,idx) in product.image" :key="idx" class="q-mb-md" >
                 <q-img :src="image" :ratio="1/1" @click="changeSlide(idx)" ></q-img>
               </div>
             </div>
-            <div class="col-7 q-px-md" >
+            <div class="col-12 col-sm-8 col-lg-7 q-px-sm q-px-sm-xl" >
               <q-carousel
+                class="product-carousel"
                 animated
                 v-model="slide"
                 arrows
@@ -23,7 +24,7 @@
                 <img :src="product.image[0]" class="objectFit">
               </q-card> -->
             </div>
-            <div class="col-4">
+            <div class="col-12 col-sm-4">
               <q-card class="my-card " flat>
                 <q-card-section>
                   <div class="text-h6 q-mb-xl">{{ product.name }}</div>
@@ -70,14 +71,17 @@
               <div class="text-h6">關於商品</div>
             </q-card>
           </div>
-          <div class="col-7">
+          <div class="col-12 col-lg-7">
             <div class="text-body1">{{ product.description }}</div>
           </div>
           <div class="col-12">
             <q-card bordered flat class="row  items-center q-pa-lg q-my-xl">
               <div class="text-h6">商品尺寸</div>
             </q-card>
-        </div>
+          </div>
+          <div class="col-12 col-lg-6 q-mb-xl">
+            <q-img src="https://i.imgur.com/Kc9CYsr.png"></q-img>
+          </div>
         </div>
           <!-- <q-img src="https://i.imgur.com/hFiccGF.jpg"></q-img> -->
     </section>

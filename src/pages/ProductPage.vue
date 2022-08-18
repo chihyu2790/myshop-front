@@ -1,5 +1,5 @@
 <template>
-    <q-page>
+    <q-page id="productPage">
         <section class="container">
           <div class="q-pa-0 q-mt-xxl">
             <q-carousel
@@ -41,7 +41,7 @@
         </section>
         <section class="container">
             <div class="row">
-                <div class="col-2-4 " v-for='product in products' :key='product._id'>
+                <div class="col-6 col-sm-4 col-2-4 " v-for='product in products' :key='product._id'>
                   <ProductCard :product='product'/>
                 </div>
             </div>

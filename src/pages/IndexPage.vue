@@ -1,8 +1,8 @@
 <template>
-  <q-page>
+  <q-page id="indexPage">
     <!-- -----------------------carousel----------------------- -->
     <section>
-      <div class="q-pa-0">
+      <div class=" q-pa-0 ">
         <q-carousel
           animated
           v-model="slide"
@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="flex col-3 q-pa-md justify-center pointer q-mb-lg" v-for="product in products.slice(0,8)" :key="product._id" @click="toProduct(product._id)">
+        <div class=" flex col-6 col-sm-4 col-lg-3 q-pa-md justify-center pointer q-mb-lg" v-for="product in products.slice(products.length-8,products.length)" :key="product._id" @click="toProduct(product._id)">
           <q-img :src="product.image[0]" :ratio="1/1" />
           <div class="text-body1 q-mt-lg" >{{product.name}}</div>
         </div>
@@ -37,6 +37,7 @@
       </div>
       <q-separator />
     </section>
+
     <!-- -----------------------stylings----------------------- -->
     <section class="container q-my-xxl">
       <div class="row">

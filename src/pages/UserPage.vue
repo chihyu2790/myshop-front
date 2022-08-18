@@ -2,12 +2,12 @@
   <q-page>
     <section class="container">
       <div class="row q-mt-xl">
-        <div class="col-2" >
+        <div class="col-2 " >
           <div class="text-h6">我的帳戶</div>
           <router-link :to="'/user'"><div class="text-subtitle1 q-my-lg">個人資料</div></router-link>
           <router-link :to="'/order'"><div class="text-subtitle1 q-my-lg">訂單查詢</div></router-link>
         </div>
-        <div class="col-10">
+        <div class="col-10 ">
           <div class="flex items-center text-center q-mb-lg">
             <div class="text-h4 text-weight-medium" v-if='openflag' >個人資料</div>
             <div class="text-h4 text-weight-medium" v-if='!openflag' >修改資料</div>
