@@ -2,34 +2,34 @@
   <q-page>
     <section class="container">
       <div class="row q-mt-xl">
-        <div class="col-2" >
+        <div class="col-2">
           <div class="text-h6">後台管理</div>
-          <router-link :to="'/admin/user'"><div class="text-subtitle1 q-my-lg">使用者管理</div></router-link>
-          <router-link :to="'/admin/product'"><div class="text-subtitle1 q-my-lg">商品管理</div></router-link>
-          <router-link :to="'/admin/store'"><div class="text-subtitle1 q-my-lg">店鋪管理</div></router-link>
-          <router-link :to="'/admin/order'"><div class="text-subtitle1 q-my-lg">訂單管理</div></router-link>
+          <router-link :to="'/admin/user'">
+            <div class="text-subtitle1 q-my-lg">使用者管理</div>
+          </router-link>
+          <router-link :to="'/admin/product'">
+            <div class="text-subtitle1 q-my-lg">商品管理</div>
+          </router-link>
+          <router-link :to="'/admin/store'">
+            <div class="text-subtitle1 q-my-lg">店鋪管理</div>
+          </router-link>
+          <router-link :to="'/admin/order'">
+            <div class="text-subtitle1 q-my-lg">訂單管理</div>
+          </router-link>
           <div class="text-subtitle1 q-my-lg">活動管理</div>
           <div class="text-subtitle1 q-my-lg">登出</div>
         </div>
         <div class="col-10">
           <div class="flex items-center text-center q-mb-lg">
-            <div class="text-h4 text-weight-medium" v-if='!form.dialog' >商品管理</div>
-            <div class="text-h4 text-weight-medium" v-if='form.dialog' >新增商品</div>
+            <div class="text-h4 text-weight-medium" v-if='!form.dialog'>商品管理</div>
+            <div class="text-h4 text-weight-medium" v-if='form.dialog'>新增商品</div>
             <q-space />
             <q-btn v-if='!form.dialog' class="q-px-xl" outline color="black" label="新增商品" @click="openDialog('', -1)" />
           </div>
-          <div class="text-body1 q-mb-md" >管理商品頁面</div>
+          <div class="text-body1 q-mb-md">管理商品頁面</div>
 
-          <q-table
-            :grid="$q.screen.xs"
-            flat
-            bordered
-            :rows="rows"
-            :columns="columns"
-            row-key="name"
-            :filter="filter"
-            v-if='!form.dialog'
-          >
+          <q-table :grid="$q.screen.xs" flat bordered :rows="rows" :columns="columns" row-key="name" :filter="filter"
+            v-if='!form.dialog'>
             <template v-slot:top-right>
               <q-input borderless dense debounce="300" v-model="filter" placeholder="Search">
                 <template v-slot:append>
@@ -40,83 +40,84 @@
 
             <template #body-cell-image="image">
               <q-td :img="img">
-                <q-avatar
-                square
-                size="100px"
-                >
+                <q-avatar square size="100px">
                   <img :src="image.row.image[0]" alt="" class="q-mb-xl">
                 </q-avatar>
               </q-td>
             </template>
             <template #body-cell-edit="edit">
-                <q-td :edit="edit">
+              <q-td :edit="edit">
                 <div class="column">
-                  <q-btn class="q-mb-sm" @click='openDialog(edit.row._id,edit.rowIndex)' outline >修改</q-btn>
-                  <q-btn @click='updateCart(edit.row._id)' outline >下架</q-btn>
+                  <q-btn class="q-mb-sm" @click='openDialog(edit.row._id, edit.rowIndex)' outline>修改</q-btn>
+                  <q-btn @click='updateCart(edit.row._id)' outline>下架</q-btn>
                 </div>
-                </q-td>
+              </q-td>
             </template>
           </q-table>
-          <q-card
-          flat
-          bordered
-            v-else
-            v-model="form.dialog"
-          >
-          <q-form @submit.prevent='submitForm' class="q-pa-md" >
-            <div style="max-width: 400px">
-              <div class="text-subtitle1 text-weight-medium">名稱:{{form.name}}</div>
-              <q-input v-model="form.name" :rules='[rules.required]' color="black" />
-              <div class="text-subtitle1 text-weight-medium">價格:{{form.price}}</div>
-              <q-input   v-model.number='form.price' min='0' type='number' :rules='[rules.required, rules.price]' color="black" />
-              <!-- <div class="text-subtitle1 text-weight-medium">分類:{{form.category}}</div>
+          <q-card flat bordered v-else v-model="form.dialog">
+            <q-form @submit.prevent='submitForm' class="q-pa-md">
+              <div style="max-width: 400px">
+                <div class="text-subtitle1 text-weight-medium">名稱:{{ form.name }}</div>
+                <q-input v-model="form.name" :rules='[rules.required]' color="black" />
+                <div class="text-subtitle1 text-weight-medium">價格:{{ form.price }}</div>
+                <q-input v-model.number='form.price' min='0' type='number' :rules='[rules.required, rules.price]'
+                  color="black" />
+                <!-- <div class="text-subtitle1 text-weight-medium">分類:{{form.category}}</div>
               <q-select  outlined v-model="form.category" :options="categories" label="Standard" :rules='[rules.required]' /> -->
-              <div class="text-subtitle1 text-weight-medium q-mb-sm">類別:{{form.classify}}</div>
-              <q-input  color="black" v-model="chips" :rules='[rules.required]' />
-              <q-chip v-for='(chip,ipx) in form.classify' :key='ipx'>{{chip}}</q-chip>
-              <div class="text-subtitle1 text-weight-medium q-mb-lg">上架:{{form.sell}}</div>
-              <q-checkbox v-model="form.sell" color="black" class="q-mb-md" />
-              <div class="text-subtitle1 text-weight-medium q-mb-lg">商品圖片{{form.image}}</div>
-              <q-file v-model='form.image' multiple :rules='[rules.size]' accept='image/*' filled bottom-slots counter>
-                <template v-slot:prepend>
-                  <q-icon name="cloud_upload" @click.stop.prevent />
-                </template>
-                <template v-slot:append>
-                  <q-icon name="close" @click.stop.prevent="model = null" class="cursor-pointer" />
-                </template>
+                <div class="text-subtitle1 text-weight-medium q-mb-sm">類別:{{ form.classify }}</div>
+                <q-input color="black" v-model="chips" :rules='[rules.required]' />
+                <q-chip v-for='(chip, ipx) in form.classify' :key='ipx'>{{ chip }}</q-chip>
+                <div class="text-subtitle1 text-weight-medium q-mb-lg">上架:{{ form.sell }}</div>
+                <q-checkbox v-model="form.sell" color="black" class="q-mb-md" />
+                <div class="text-subtitle1 text-weight-medium q-mb-lg">商品圖片{{ form.image }}</div>
+                <q-file v-model='form.image' multiple :rules='[rules.size]' accept='image/*' filled bottom-slots
+                  counter>
+                  <template v-slot:prepend>
+                    <q-icon name="cloud_upload" @click.stop.prevent />
+                  </template>
+                  <template v-slot:append>
+                    <q-icon name="close" @click.stop.prevent="model = null" class="cursor-pointer" />
+                  </template>
 
-                <template v-slot:hint>
-                </template>
-              </q-file>
-              <div class="text-subtitle1 text-weight-medium q-mb-lg">商品描述{{form.description}}</div>
-              <q-input class="q-mb-lg" v-model='form.description' type="textarea" filled color="black" />
-            </div>
-            <div class="text-subtitle1 text-weight-medium q-mb-md">商品顏色{{form.color}}</div>
-            <q-checkbox v-model="form.color" class="text-weight-medium"  val="black"  color="black" label="black" />
-            <q-checkbox v-model="form.color" class="text-weight-medium"  val="white"  color="white" label="white" />
-            <q-checkbox v-model="form.color" class="text-weight-medium"  val="grey"  color="grey" label="grey" />
-            <q-checkbox v-model="form.color" class="text-weight-medium"  val="grey-8"  color="grey-8" label="grey-8" />
-            <q-checkbox v-model="form.color" class="text-weight-medium"  val="brown-1"  color="brown-1" label="brown-1" />
-            <q-checkbox v-model="form.color" class="text-weight-medium"  val="brown-12"  color="brown-12" label="brown-12" />
-            <q-checkbox v-model="form.color" class="text-weight-medium"  val="brown"  color="brown" label="brown" />
-            <q-checkbox v-model="form.color" class="text-weight-medium"  val="blue-grey-3"  color="blue-grey-3" label="blue-grey-3" />
-            <q-checkbox v-model="form.color" class="text-weight-medium"  val="blue-grey-7"  color="blue-grey-7" label="blue-grey-7" />
-            <q-checkbox v-model="form.color" class="text-weight-medium"  val="indigo-10"  color="indigo-10" label="indigo-10" />
-            <q-checkbox v-model="form.color" class="text-weight-medium "  val="pink-10"  color="pink-10" label="pink-10" />
-            <div class="text-subtitle1 text-weight-medium q-my-md">商品尺寸{{form.size}}</div>
-            <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="XXS"  label="XXS" />
-            <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="XS" label="XS"  />
-            <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="S" label="S" />
-            <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="M" label="M" />
-            <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="L" label="L"  />
-            <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="XL" label="XL" />
-            <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="XXL" label="XXL" />
-            <br>
-            <div class="q-my-xxl">
-              <q-btn outline class="q-py-sm q-px-xxl text-subtitle2 q-mr-md" color="black" label="取消" @click='form.dialog = false' :disabled='form.submitting' />
-              <q-btn unelevated class="q-py-sm q-px-xxl text-subtitle2" type='submit' color="black text-white" label="確定" />
-            </div>
-          </q-form>
+                  <template v-slot:hint>
+                  </template>
+                </q-file>
+                <div class="text-subtitle1 text-weight-medium q-mb-lg">商品描述{{ form.description }}</div>
+                <q-input class="q-mb-lg" v-model='form.description' type="textarea" filled color="black" />
+              </div>
+              <div class="text-subtitle1 text-weight-medium q-mb-md">商品顏色{{ form.color }}</div>
+              <q-checkbox v-model="form.color" class="text-weight-medium" val="black" color="black" label="black" />
+              <q-checkbox v-model="form.color" class="text-weight-medium" val="white" color="white" label="white" />
+              <q-checkbox v-model="form.color" class="text-weight-medium" val="grey" color="grey" label="grey" />
+              <q-checkbox v-model="form.color" class="text-weight-medium" val="grey-8" color="grey-8" label="grey-8" />
+              <q-checkbox v-model="form.color" class="text-weight-medium" val="brown-1" color="brown-1"
+                label="brown-1" />
+              <q-checkbox v-model="form.color" class="text-weight-medium" val="brown-12" color="brown-12"
+                label="brown-12" />
+              <q-checkbox v-model="form.color" class="text-weight-medium" val="brown" color="brown" label="brown" />
+              <q-checkbox v-model="form.color" class="text-weight-medium" val="blue-grey-3" color="blue-grey-3"
+                label="blue-grey-3" />
+              <q-checkbox v-model="form.color" class="text-weight-medium" val="blue-grey-7" color="blue-grey-7"
+                label="blue-grey-7" />
+              <q-checkbox v-model="form.color" class="text-weight-medium" val="indigo-10" color="indigo-10"
+                label="indigo-10" />
+              <q-checkbox v-model="form.color" class="text-weight-medium " val="pink-10" color="pink-10"
+                label="pink-10" />
+              <div class="text-subtitle1 text-weight-medium q-my-md">商品尺寸{{ form.size }}</div>
+              <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="XXS" label="XXS" />
+              <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="XS" label="XS" />
+              <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="S" label="S" />
+              <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="M" label="M" />
+              <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="L" label="L" />
+              <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="XL" label="XL" />
+              <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="XXL" label="XXL" />
+              <div class="q-my-xxl">
+                <q-btn outline class="q-py-sm q-px-xxl text-subtitle2 q-mr-md" color="black" label="取消"
+                  @click='form.dialog = false' :disabled='form.submitting' />
+                <q-btn unelevated class="q-py-sm q-px-xxl text-subtitle2" type='submit' color="black text-white"
+                  label="確定" />
+              </div>
+            </q-form>
           </q-card>
         </div>
 
@@ -164,13 +165,13 @@ const form = reactive({
   submitting: false
 })
 const rules = reactive({
-  required (v) {
+  required(v) {
     return !!v || '必填'
   },
-  price (v) {
+  price(v) {
     return v > -1 || '必須大於等於 0'
   },
-  size (v) {
+  size(v) {
     return !v || !v.length || (v[0]?.type?.includes('image') && v[0]?.size < 1024 * 1024) || '檔案格式不符'
   }
 })
@@ -182,7 +183,6 @@ form.classify = computed(() => {
 
 const openDialog = (_id, idx) => {
   form._id = _id
-  console.log(rows[idx])
   if (idx > -1) {
     form.name = rows[idx].name
     form.price = rows[idx].price
@@ -208,7 +208,7 @@ const openDialog = (_id, idx) => {
     form.color = []
     form.size = []
     chips.value = ''
-    form.classify = []
+    // form.classify = []
   }
   form.idx = idx
   form.dialog = true
@@ -218,7 +218,6 @@ const openDialog = (_id, idx) => {
 }
 
 const submitForm = async () => {
-  // if (!form.valid) return
   form.submitting = true
 
   const fd = new FormData()

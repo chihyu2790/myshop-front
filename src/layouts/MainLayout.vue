@@ -1,43 +1,31 @@
 <template>
   <q-layout view="lHh Lpr lff">
-    <q-header  bordered class="bg-white text-black ">
-      <q-toolbar class="q-py-md container q-px-none" >
-          <q-btn
-            class="lt-lg"
-            flat
-            dense
-            round
-            icon="menu"
-            aria-label="Menu"
+    <q-header bordered class="bg-white text-black ">
+      <q-toolbar class="q-py-md container q-px-none">
+        <q-btn class="lt-lg" flat dense round icon="menu" aria-label="Menu" />
+        <!-- @click="toggleLeftDrawer" -->
+        <q-avatar class="gt-lg q-mr-md">
+          <img src="https://source.boringavatars.com/beam/200/chih2790" alt="">
+        </q-avatar>
+        <q-tabs class="gt-lg" shrink indicator-color="red">
+          <q-route-tab exact name='/' to='/' label="TOP" />
+          <q-route-tab exact name='/product' to='/product' label="SHOP" />
+          <q-route-tab exact name='/store' to='/store' label="STORE" />
+          <q-route-tab exact name='/about' to='/about' label="ABOUT" />
+          <q-route-tab exact name='/styling' to='/styling' label="STYLING" />
+        </q-tabs>
 
-          />
-          <!-- @click="toggleLeftDrawer" -->
-          <q-avatar class="gt-lg q-mr-md">
-            <img src="https://source.boringavatars.com/beam/200/chih2790" alt="">
-          </q-avatar>
-          <q-tabs
-          class="gt-lg"
-          shrink
-          indicator-color="red"
-          >
-            <q-route-tab exact name='/' to='/' label="TOP" />
-            <q-route-tab exact name='/product' to='/product' label="SHOP" />
-            <q-route-tab exact name='/store' to='/store' label="STORE" />
-            <q-route-tab exact name='/about' to='/about' label="ABOUT" />
-            <q-route-tab exact name='/styling' to='/styling' label="STYLING" />
-          </q-tabs>
-
-          <q-space />
-          <!-- <q-input borderless v-model="text" input-class="text-right" class="q-ml-md">
+        <q-space />
+        <!-- <q-input borderless v-model="text" input-class="text-right" class="q-ml-md">
             <template v-slot:append>
               <q-icon color="black" name="search" class="cursor-pointer" @click="text = ''"/>
             </template>
           </q-input> -->
-          <div>
-            <q-btn flat round color="black" icon="fa-regular fa-user" to='/login' size="sm"/>
-            <!-- <q-btn flat round color="black" icon="fa-regular fa-heart" to='/like' size="sm"/> -->
-            <q-btn flat round color="black" icon="fa-solid fa-cart-shopping" to='/cart' size="sm"/>
-          </div>
+        <div>
+          <q-btn flat round color="black" icon="fa-regular fa-user" to='/login' size="sm" />
+          <!-- <q-btn flat round color="black" icon="fa-regular fa-heart" to='/like' size="sm"/> -->
+          <q-btn class="q-ml-sm" flat round color="black" icon="fa-solid fa-cart-shopping" to='/cart' size="sm" />
+        </div>
 
         <!-- <div>Quasar v{{ $q.version }}</div> -->
 
@@ -98,10 +86,10 @@
             <div class="text-body1 text-weight-light q-mb-xs">會員權益</div>
           </div>
           <div class="col-3">
-            <div class="q-mb-lg" >
+            <div class="q-mb-lg">
               <q-icon class="q-mx-xs" name="fa-brands fa-instagram" size="md" />
-              <q-icon class="q-mx-xs" name="fa-brands fa-twitter" size="md"/>
-              <q-icon class="q-mx-xs" name="fa-brands fa-facebook" size="md"/>
+              <q-icon class="q-mx-xs" name="fa-brands fa-twitter" size="md" />
+              <q-icon class="q-mx-xs" name="fa-brands fa-facebook" size="md" />
             </div>
             <div class="text-body1 text-weight-light q-mb-xs">客服電話 : 02-1234-5678</div>
             <div class="text-body1 text-weight-light q-mb-xs">服務時間 : 週一至週五，09:30-18:00</div>
@@ -115,7 +103,7 @@
 
 <script setup>
 /*eslint-disable */
-import { defineComponent, ref ,reactive } from 'vue'
+import { defineComponent, ref, reactive } from 'vue'
 import EssentialLink from 'components/EssentialLink.vue'
 import { storeToRefs } from 'pinia'
 import { useUserStore } from '../stores/example-store'
@@ -173,7 +161,7 @@ const linksList = reactive([
 ])
 const leftDrawerOpen = ref(false)
 
-const toggleLeftDrawer =() => {
+const toggleLeftDrawer = () => {
   leftDrawerOpen.value = !leftDrawerOpen.value
 }
 // export default defineComponent({

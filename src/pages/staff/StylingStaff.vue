@@ -1,130 +1,134 @@
 <template>
-<q-page>
+  <q-page>
     <section class="container">
       <div class="row q-mt-xl">
-        <div class="col-2" >
+        <div class="col-2">
           <div class="text-h6">店員管理</div>
-          <router-link :to="'/staff'"><div class="text-subtitle1 q-my-lg">店員資料</div></router-link>
-          <router-link :to="'/staff/styling'"><div class="text-subtitle1 q-my-lg">穿搭管理</div></router-link>
+          <router-link :to="'/staff'">
+            <div class="text-subtitle1 q-my-lg">店員資料</div>
+          </router-link>
+          <router-link :to="'/staff/styling'">
+            <div class="text-subtitle1 q-my-lg">穿搭管理</div>
+          </router-link>
         </div>
         <div class="col-10">
           <div class="flex items-center text-center q-mb-lg">
-                <div class="text-h4 text-weight-medium" v-if='openflag' >穿搭管理</div>
-                <div class="text-h4 text-weight-medium" v-if='!openflag' >穿搭上傳</div>
-                <q-space />
-                <q-btn v-if='openflag' class="q-px-xl" outline color="black" label="新增穿搭" @click="openflag = false" />
-              </div>
-              <div class="text-body1 q-mb-md" >店員穿搭管理頁面</div>
+            <div class="text-h4 text-weight-medium" v-if='openflag'>穿搭管理</div>
+            <div class="text-h4 text-weight-medium" v-if='!openflag'>穿搭上傳</div>
+            <q-space />
+            <q-btn v-if='openflag' class="q-px-xl" outline color="black" label="新增穿搭" @click="openflag = false" />
+          </div>
+          <div class="text-body1 q-mb-md">店員穿搭管理頁面</div>
           <q-card v-if='!openflag' flat bordered class="q-pa-md">
+            <div class="text-h5">穿搭詳細</div>
+            <q-separator class="q-my-md" />
             <div class="text-h6 text-weight-medium ">穿搭資料</div>
             <q-separator class="q-my-md" />
 
-            <q-form @submit.prevent='submitForm' >
-              <div style="max-width: 400px" >
+            <q-form @submit.prevent='submitForm'>
+              <div style="max-width: 400px">
+                <div class="text-subtitle1 text-weight-medium">穿搭名稱</div>
+                <q-input v-model="editinfo.name" :rules='[rules.required]' color="black" />
                 <div class="text-subtitle1 text-weight-medium q-mb-lg">穿搭主圖</div>
                 <q-file v-model='editinfo.image' :rules='[rules.size]' accept='image/*' filled bottom-slots counter>
                   <template v-slot:prepend>
-                      <q-icon name="cloud_upload" @click.stop.prevent />
+                    <q-icon name="cloud_upload" @click.stop.prevent />
                   </template>
                   <template v-slot:append>
-                      <q-icon name="close" @click.stop.prevent="model = null" class="cursor-pointer" />
+                    <q-icon name="close" @click.stop.prevent="model = null" class="cursor-pointer" />
                   </template>
                   <template v-slot:hint>
                   </template>
                 </q-file>
+                <div class="text-subtitle1 text-weight-medium q-mb-lg">穿搭描述</div>
+                <q-input v-model="editinfo.description" class="q-mb-lg" type="textarea" filled color="black" />
+              </div>
+              <div class="row items-center q-pr-md">
+                <div class="text-h6">商品資料</div>
+                <q-space />
+                <q-icon name="fa-solid fa-plus" size="xs" class="pointer" @click='prompt = true' />
+              </div>
+              <q-separator class="q-my-md" />
+              <div class="row q-mb-md" v-for=" (cart, idx) in cartItems" :key="idx">
+                <q-img class="col-2 q-mr-sm" :src="cart.product.image[0]" style="height: 180px; max-width: 150px" />
+                <div class="col-10 column">
+                  <div class="text-subtitle1 text-weight-medium">商品名稱:</div>
+                  <div class="text-subtitle1 text-weight-medium">{{ cart.product.name }}</div>
+                  <q-space />
+                  <div class="text-subtitle1 text-weight-medium">商品顏色:{{ cart.color }}</div>
+                  <div class="text-subtitle1 text-weight-medium">商品尺寸:{{ cart.size }}</div>
                 </div>
-                <div class="row items-center q-pr-md">
-                  <div class="text-subtitle1 text-weight-medium">商品資料</div>
-                  <q-space/>
-                  <q-icon name="fa-solid fa-plus"  size="xs" class="pointer" @click='prompt=true' />
-                </div>
-                <q-separator class="q-my-md" />
-                <div class="row q-mb-md" v-for=" (cart,idx) in cartItems" :key="idx" >
-                  <q-img
-                  class="col-2 q-mr-sm"
-                  :src="cart.product.image[0]"
-                  style="height: 180px; max-width: 150px"
-                  />
-                  <div class="col-10 column">
-                    <div class="text-subtitle1 text-weight-medium">商品名稱:</div>
-                    <div class="text-subtitle1 text-weight-medium">{{cart.product.name}}</div>
-                    <q-space/>
-                    <div class="text-subtitle1 text-weight-medium">商品顏色:{{cart.color}}</div>
-                    <div class="text-subtitle1 text-weight-medium">商品尺寸:{{cart.size}}</div>
-                  </div>
-                </div>
-                <q-separator />
-                <div class="q-mt-xl">
-                  <q-btn outline class="q-py-sm q-px-xxl text-subtitle2 q-mr-md" color="black" label="取消" @click="deleteCart()" />
-                  <q-btn type='submit' unelevated color="black" class="q-py-sm q-px-xxl text-subtitle2" label="確定" />
-                </div>
+              </div>
+              <q-separator />
+              <div class="q-mt-xl">
+                <q-btn outline class="q-py-sm q-px-xxl text-subtitle2 q-mr-md" color="black" label="取消"
+                  @click="deleteCart()" />
+                <q-btn type='submit' unelevated color="black" class="q-py-sm q-px-xxl text-subtitle2" label="確定" />
+              </div>
             </q-form>
-          </q-card >
+          </q-card>
           <q-card flat v-else>
             <q-separator class="q-mb-lg" />
             <div class="row">
-              <div class="col-3 q-pa-xs" v-for="(styling,idx) in stylingItems" :key="idx" >
-                <q-img
-                  class="col-12"
-                  :src="styling.image"
-                  :ratio="4/5"
-                  >
-                    <div class="row absolute-top text-subtitle1 transparent-background">
-                      <q-space/>
-                      <q-icon name="fa-solid fa-x" class="pointer" @click="deleteStyling(styling._id)"/>
-                    </div>
-                  </q-img>
+              <div class="col-3 q-pa-xs" v-for="(styling, idx) in stylingItems" :key="idx">
+                <q-img class="col-12" :src="styling.image" :ratio="4 / 5">
+                  <div class="row absolute-top text-subtitle1 transparent-background">
+                    <q-space />
+                    <q-icon name="fa-solid fa-x" class="pointer" @click="deleteStyling(styling._id)" />
+                  </div>
+                </q-img>
               </div>
             </div>
           </q-card>
           <q-dialog v-model="prompt" persistent @hide="cleanform()">
-            <q-card style="min-width: 800px" class="q-pa-md" >
-            <q-form @submit.prevent='submitCart()'>
-              <div class="text-h5">商品資訊</div>
-              <q-separator class="q-my-md" />
-              <div style="width: 250px">
-                <div class="text-subtitle1 text-weight-medium">商品名稱</div>
-                <q-input v-model="search" color="black" >
-                  <template v-slot:prepend>
-                    <q-icon name="fa-solid fa-magnifying-glass" size="xs" />
-                  </template>
-                </q-input>
-              </div>
-              <div class="row q-mt-xl">
-                <q-card square flat class="row col-3 q-pa-xs" v-for="(item,idx) in filtereditems" :key="idx">
-                  <span class="col-12">{{item.name}}</span>
-                  <q-img
-                  class="col-12"
-                  :src="item.image[0]"
-                  style="height: 180px; max-width: 150px"
-                  />
-                </q-card>
-              </div>
+            <q-card style="min-width: 800px" class="q-pa-md">
+              <q-form @submit.prevent='submitCart()'>
+                <div class="text-h5">商品資訊</div>
+                <q-separator class="q-my-md" />
+                <div style="width: 250px">
+                  <div class="text-subtitle1 text-weight-medium">商品名稱</div>
+                  <q-input v-model="search" color="black">
+                    <template v-slot:prepend>
+                      <q-icon name="fa-solid fa-magnifying-glass" size="xs" />
+                    </template>
+                  </q-input>
+                </div>
+                <div class="row q-mt-xl">
+                  <q-card square flat class="row col-3 q-pa-xs" v-for="(item, idx) in filtereditems" :key="idx">
+                    <span class="col-12">{{ item.name }}</span>
+                    <q-img class="col-12" :src="item.image[0]" style="height: 180px; max-width: 150px" />
+                  </q-card>
+                </div>
 
-              <div class="text-subtitle1 text-weight-medium q-my-lg">商品顏色</div>
-              <div class="q-my-lg" v-if="filtereditems.length === 1">
-                <div v-for="item in filtereditems" :key="item.id">
-                  <q-avatar v-for="(color,idx) in item.color" class="q-mr-xs" :color="color" size="24px" :key="idx"/>
-                  <q-radio v-for="(color,idx) in item.color" v-model="colors" color="black" class="text-weight-medium" :val="color" :label="color" :key="idx"/>
+                <div class="text-subtitle1 text-weight-medium q-my-lg">商品顏色</div>
+                <div class="q-my-lg" v-if="filtereditems.length === 1">
+                  <div v-for="item in filtereditems" :key="item.id">
+                    <q-avatar v-for="(color, idx) in item.color" class="q-mr-xs" :color="color" size="24px"
+                      :key="idx" />
+                    <q-radio v-for="(color, idx) in item.color" v-model="colors" color="black"
+                      class="text-weight-medium" :val="color" :label="color" :key="idx" />
+                  </div>
                 </div>
-              </div>
-              <div class="text-subtitle1 text-weight-medium q-my-lg">商品尺寸</div>
-              <div v-if="filtereditems.length === 1">
-                <div v-for="item in filtereditems" :key="item.id">
-                  <q-radio v-for="(size,idx) in item.size" v-model="sizes" :val="size" color="black" class="text-weight-medium" :label="size" :key="idx"/>
+                <div class="text-subtitle1 text-weight-medium q-my-lg">商品尺寸</div>
+                <div v-if="filtereditems.length === 1">
+                  <div v-for="item in filtereditems" :key="item.id">
+                    <q-radio v-for="(size, idx) in item.size" v-model="sizes" :val="size" color="black"
+                      class="text-weight-medium" :label="size" :key="idx" />
+                  </div>
                 </div>
-              </div>
-              <div class="q-mt-xl">
-              <q-btn outline class="q-py-sm q-px-xxl text-subtitle2 q-mr-md" color="black" label="取消" v-close-popup />
-              <q-btn type='submit' unelevated class="q-py-sm q-px-xxl text-subtitle2" color="black text-white" label="確定" v-close-popup />
-              </div>
-            </q-form>
+                <div class="q-mt-xl">
+                  <q-btn outline class="q-py-sm q-px-xxl text-subtitle2 q-mr-md" color="black" label="取消"
+                    v-close-popup />
+                  <q-btn type='submit' unelevated class="q-py-sm q-px-xxl text-subtitle2" color="black text-white"
+                    label="確定" v-close-popup />
+                </div>
+              </q-form>
             </q-card>
           </q-dialog>
         </div>
       </div>
     </section>
-</q-page>
+  </q-page>
 </template>
 
 <script setup>
@@ -147,6 +151,8 @@ const prompt = ref(false)
 const rows = reactive([])
 
 const editinfo = reactive({
+  name: '',
+  description: '',
   image: null
 })
 
@@ -155,7 +161,7 @@ const openflag = ref(true)
 const searchinfo = ref('')
 
 const rules = reactive({
-  required (v) {
+  required(v) {
     return !!v || '必填'
   }
 })

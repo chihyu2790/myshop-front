@@ -1,11 +1,11 @@
 <template>
-    <section class="container">
-        <div class="row">
-            <div class="col-3 q-pa-md" v-for='product in products' :key='product._id'>
-                  <ProductCard :product='product'/>
-            </div>
-        </div>
-    </section>
+  <section class="container">
+    <div class="row">
+      <div class="col-3 q-pa-md" v-for='product in products' :key='product._id'>
+        <ProductCard :product='product' />
+      </div>
+    </div>
+  </section>
 </template>
 <script setup>
 import { reactive } from 'vue'

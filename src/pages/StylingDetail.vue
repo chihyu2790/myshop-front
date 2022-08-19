@@ -1,44 +1,50 @@
 <template>
-    <q-page>
-        <section class="container">
-            <div class="row q-mt-lg">
-                <div class="col-6">
-                    <q-img
-                    :src="styling.image"
-                    >
-                    </q-img>
-                </div>
-                <div class="q-ml-xl q-mt-xs col">
-                    <div class="row">
-                        <q-avatar size="80px">
-                            <img :src="userInfo.avatar">
-                        </q-avatar>
-                        <div class="q-ml-md column justify-center">
-                            <div class="text-h6 text-weight-bold">{{userInfo.name}}</div>
-                            <div class="text-h6 text-weight-regular">{{userInfo.stores.name}}</div>
-                        </div>
-                    </div>
-                    <div class="row q-mt-xl">
-                        <div class="text-h5 text-weight-bold q-mb-lg">穿搭單品</div>
-                        <q-card flat class="col-12 q-mb-lg" v-for="(product,idx) in styling.products" :key="idx">
-                            <div class="row q-mb-lg ">
-                                <div class="col-4">
-                                    <q-img class="pointer" :src="product.product.image[0]" @click="toProduct(product.product._id) "></q-img>
-                                </div>
-                                <div class="q-ml-md col">
-                                    <div class="text-subtitle1 text-weight-medium">{{product.product.name}}</div>
-                                    <div class="text-subtitle1 text-weight-medium">尺寸:{{product.size}}</div>
-                                    <div class="text-subtitle1 text-weight-medium">顏色:{{product.color}}</div>
-                                </div>
-                            </div>
-                            <q-separator />
-                        </q-card>
-                    </div>
-                </div>
+  <q-page>
+    <section class="container">
+      <div class="row q-mt-lg q-mb-xxxxl">
+        <div class="col-6">
+          <q-img :src="styling.image">
+          </q-img>
+        </div>
+        <div class="q-ml-xl q-mt-xs col">
+          <div class="row">
+            <q-avatar size="60px">
+              <img :src="userInfo.avatar">
+            </q-avatar>
+            <div class="q-ml-md column justify-center">
+              <div class="text-subtitle1 text-weight-bold">{{ userInfo.name }}</div>
+              <div class=" row items-center text-center">
+                <div class="text-subtitle1 ">{{ userInfo.stores.name }}</div>
+                <q-icon class="q-ml-xs" name="fa-solid fa-angle-right" />
+              </div>
             </div>
-            <div class="col-12"></div>
-        </section>
-    </q-page>
+          </div>
+          <div class="row q-mt-xl">
+            <div class="col-12 column">
+              <!-- <div class="text-subtitle1 text-weight-medium">{{ styling.name }}</div> -->
+              <div class="text-body2 text-weight-regular">{{ styling.description }}</div>
+            </div>
+            <div class="text-h5 text-weight-bold q-my-lg">穿搭單品</div>
+            <q-card flat class="col-12 q-mb-lg" v-for="(product, idx) in styling.products" :key="idx">
+              <div class="row q-mb-lg ">
+                <div class="col-4">
+                  <q-img class="pointer" :src="product.product.image[0]" @click="toProduct(product.product._id)">
+                  </q-img>
+                </div>
+                <div class="q-ml-md col">
+                  <div class="text-subtitle1 text-weight-bold q-mb-xs">{{ product.product.name }}</div>
+                  <div class="text-body2 text-weight-thin q-mb-xs">尺寸:{{ product.size }}</div>
+                  <div class="text-body2 text-weight-thin q-mb-xs">顏色:{{ product.color }}</div>
+                </div>
+              </div>
+              <q-separator />
+            </q-card>
+          </div>
+        </div>
+      </div>
+      <div class="col-12"></div>
+    </section>
+  </q-page>
 </template>
 
 <script setup>
@@ -57,6 +63,8 @@ const styling = reactive({
   _id: '',
   staff: '',
   image: '',
+  nmae: '',
+  description: '',
   products: []
 })
 
@@ -83,7 +91,9 @@ const init = async () => {
     styling.staff = data.result.staff
     styling.image = data.result.image
     styling.products = data.result.products
-    // console.log(styling)
+    styling.name = data.result.name
+    styling.description = data.result.description
+    console.log(styling)
     initStaff()
   } catch (error) {
     Swal.fire({

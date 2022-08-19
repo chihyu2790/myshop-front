@@ -1,23 +1,18 @@
 <template>
-    <q-page>
-        <section class="container">
-            <div class="q-mt-xxl">
-                <div class="text-h4 text-weight-bold">STYLING BOOK</div>
-            </div>
-            <q-separator class="q-mt-lg q-mb-sm"/>
-            <div class="row">
-                <div class="col-3 q-pa-xs pointer" v-for="(styling,idx) in stylingItems" :key="idx" >
-                    <q-img
-                    class="col-12"
-                    :src="styling.image"
-                    :ratio="4/5"
-                    @click="toStyling(styling._id)"
-                    >
-                    </q-img>
-                </div>
-            </div>
-        </section>
-    </q-page>
+  <q-page>
+    <section class="container">
+      <div class="q-mt-xxl">
+        <div class="text-h4 text-weight-bold">STYLING BOOK</div>
+      </div>
+      <q-separator class="q-mt-lg q-mb-sm" />
+      <div class="row">
+        <div class="col-3 q-pa-xs pointer" v-for="(styling, idx) in stylingItems" :key="idx">
+          <q-img class="col-12" :src="styling.image" :ratio="4 / 5" @click="toStyling(styling._id)">
+          </q-img>
+        </div>
+      </div>
+    </section>
+  </q-page>
 </template>
 
 <script setup>

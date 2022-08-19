@@ -1,83 +1,83 @@
 <template>
-    <q-page>
-        <section class="container">
-            <div class="row">
-                <div class="col">
-                  <q-form @submit="checkout">
-                    <q-card flat class="q-my-xl ">
-                      <div class="text-h4 text-weight-medium">訂單資訊</div>
+  <q-page>
+    <section class="container">
+      <div class="row">
+        <div class="col">
+          <q-form @submit="checkout">
+            <q-card flat class="q-my-xl ">
+              <div class="text-h4 text-weight-medium">訂單資訊</div>
 
-                      <q-separator class="q-my-md"/>
+              <q-separator class="q-my-md" />
 
-                      <div class="text-h5">取貨方式</div>
+              <div class="text-h5">取貨方式</div>
 
-                      <q-separator class="q-my-md"/>
-                      <div class="q-my-lg column">
-                        <q-radio v-model="form.getway" :val=0 label="7-11貨到府款" color="black" />
-                        <q-radio v-model="form.getway" :val=1 label="宅配到府" color="black" />
-                      </div>
-                      <div class="text-h5">取貨人資訊</div>
-                      <q-separator class="q-my-md"/>
-                      <div style="max-width: 600px">
-                        <div class="text-subtitle1 text-weight-medium">取貨人名字:</div>
-                        <q-input v-model="form.getname" :rules='[rules.required]' color="black"  />
-                        <div class="text-subtitle1 text-weight-medium">取貨人電話:</div>
-                        <q-input v-model="form.getphone" :rules='[rules.required]' color="black" />
-                        <div class="text-subtitle1 text-weight-medium">取貨人地址:</div>
-                        <q-input v-model="form.getaddress" :rules='[rules.required]' color="black" />
-                        <div class="text-subtitle1 text-weight-medium">取貨人e-mail:</div>
-                        <q-input class="q-mb-lg" v-model="form.getemail" :rules='[rules.required]' color="black" />
-                      </div>
-                      <div class="text-h5">商品資訊</div>
+              <q-separator class="q-my-md" />
+              <div class="q-my-lg column">
+                <q-radio v-model="form.getway" :val=0 label="7-11貨到府款" color="black" />
+                <q-radio v-model="form.getway" :val=1 label="宅配到府" color="black" />
+              </div>
+              <div class="text-h5">取貨人資訊</div>
+              <q-separator class="q-my-md" />
+              <div style="max-width: 600px">
+                <div class="text-subtitle1 text-weight-medium">取貨人名字:</div>
+                <q-input v-model="form.getname" :rules='[rules.required]' color="black" />
+                <div class="text-subtitle1 text-weight-medium">取貨人電話:</div>
+                <q-input v-model="form.getphone" :rules='[rules.required]' color="black" />
+                <div class="text-subtitle1 text-weight-medium">取貨人地址:</div>
+                <q-input v-model="form.getaddress" :rules='[rules.required]' color="black" />
+                <div class="text-subtitle1 text-weight-medium">取貨人e-mail:</div>
+                <q-input class="q-mb-lg" v-model="form.getemail" :rules='[rules.required]' color="black" />
+              </div>
+              <div class="text-h5">商品資訊</div>
 
-                      <q-separator class="q-my-md"/>
-                      <q-card class="my-card" flat v-for='(item,idx) in cart' :key='item._id' >
-                        <div class="row">
-                          <q-img
-                          class="col-2"
-                          :src='item.product.image[0]'
-                          />
-                          <div class="col-7 column q-ml-md">
-                            <div class="text-h6">{{ item.product.name }}</div>
-                            <q-space/>
-                            <div class="text-subtitle1 text-weight-medium">商品尺寸:{{ item.size }}</div>
-                            <div class="text-subtitle1 text-weight-medium">商品顏色:{{ item.color }}</div>
-                            <div class="text-subtitle1 text-weight-medium">數量:{{ item.quantity }}</div>
-                          </div>
-                          <div class="col column items-end">
-                            <q-icon name="fa-solid fa-x" size="sm" class="pointer" @click="deleteCart(idx)"></q-icon>
-                            <q-space/>
-                            <div class="text-subtitle1 text-weight-medium">NT$:{{item.product.price*item.quantity }}</div>
-                          </div>
-                        </div>
-                        <q-separator class="q-my-md" />
-                      </q-card>
-                      <q-card class="row reverse my-card q-mt-xl">
-                        <div class="col-2 q-mt-xl">
-                          <div class="row justify-between">
-                            <div class="text-subtitle1 text-weight-medium">商品金額</div>
-                            <div class="text-subtitle1 text-weight-regular">{{totalPrice}}</div>
-                          </div>
-                          <div class="row justify-between">
-                            <div class="text-subtitle1 text-weight-medium">運費</div>
-                            <div class="text-subtitle1 text-weight-regular">80</div>
-                          </div>
-                          <div class="row justify-between">
-                            <div class="text-subtitle1 text-weight-medium">總金額</div>
-                            <div class="text-subtitle1 text-weight-regular">{{addPrice}}</div>
-                          </div>
-                        </div>
-                      </q-card>
-                      <q-separator class="q-my-md"/>
-                      <div class="row reverse q-mt-xl">
-                        <q-btn unelevated color="black" class="q-py-sm q-px-xxl text-subtitle2" label="商品結帳" type="submit" />
-                      </div>
-                    </q-card>
-                  </q-form>
+              <q-separator class="q-my-md" />
+              <q-card class="my-card" flat v-for='(item, idx) in cart' :key='item._id'>
+                <div class="row">
+                  <q-img class="col-2" :src='item.product.image[0]' />
+                  <div class="col-7 column q-ml-md">
+                    <div class="text-h6">{{ item.product.name }}</div>
+                    <q-space />
+                    <div class="text-subtitle1 text-weight-medium">商品尺寸:{{ item.size }}</div>
+                    <div class="text-subtitle1 text-weight-medium">商品顏色:{{ item.color }}</div>
+                    <div class="text-subtitle1 text-weight-medium">數量:{{ item.quantity }}</div>
+                  </div>
+                  <div class="col column items-end">
+                    <q-icon name="fa-solid fa-x" size="sm" class="pointer" @click="deleteCart(idx)"></q-icon>
+                    <q-space />
+                    <div class="text-subtitle1 text-weight-medium">NT$:{{ item.product.price * item.quantity }}</div>
+                  </div>
                 </div>
-            </div>
-        </section>
-    </q-page>
+                <q-separator class="q-my-md" />
+              </q-card>
+              <q-card class="row reverse my-card q-mt-xl">
+                <div class="col-2 q-mt-xl">
+                  <div class="row justify-between">
+                    <div class="text-subtitle1 text-weight-medium">商品金額</div>
+                    <div class="text-subtitle1 text-weight-regular">{{ totalPrice }}</div>
+                  </div>
+                  <div class="row justify-between">
+                    <div class="text-subtitle1 text-weight-medium">運費</div>
+                    <div class="text-subtitle1 text-weight-regular">80</div>
+                  </div>
+                  <div class="row justify-between">
+                    <div class="text-subtitle1 text-weight-medium">總金額</div>
+                    <div class="text-subtitle1 text-weight-regular">{{ addPrice }}</div>
+                  </div>
+                </div>
+              </q-card>
+              <q-separator class="q-my-md" />
+              <div class="row reverse q-mt-xl">
+                <div class="col-3">
+                  <q-btn unelevated square color="red" class="q-py-sm full-width text-subtitle1 text-weight-medium"
+                    label="商品結帳" type="submit" />
+                </div>
+              </div>
+            </q-card>
+          </q-form>
+        </div>
+      </div>
+    </section>
+  </q-page>
 </template>
 
 <script setup>
@@ -100,13 +100,13 @@ const form = reactive({
 })
 
 const rules = reactive({
-  required (v) {
+  required(v) {
     return !!v || '必填'
   },
-  price (v) {
+  price(v) {
     return v > -1 || '必須大於等於 0'
   },
-  size (v) {
+  size(v) {
     return !v || !v.length || (v[0]?.type?.includes('image') && v[0]?.size < 1024 * 1024) || '檔案格式不符'
   }
 })

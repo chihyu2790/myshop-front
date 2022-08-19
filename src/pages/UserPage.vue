@@ -2,23 +2,27 @@
   <q-page>
     <section class="container">
       <div class="row q-mt-xl">
-        <div class="col-2 " >
+        <div class="col-2 ">
           <div class="text-h6">我的帳戶</div>
-          <router-link :to="'/user'"><div class="text-subtitle1 q-my-lg">個人資料</div></router-link>
-          <router-link :to="'/order'"><div class="text-subtitle1 q-my-lg">訂單查詢</div></router-link>
+          <router-link :to="'/user'">
+            <div class="text-subtitle1 q-my-lg">個人資料</div>
+          </router-link>
+          <router-link :to="'/order'">
+            <div class="text-subtitle1 q-my-lg">訂單查詢</div>
+          </router-link>
         </div>
         <div class="col-10 ">
           <div class="flex items-center text-center q-mb-lg">
-            <div class="text-h4 text-weight-medium" v-if='openflag' >個人資料</div>
-            <div class="text-h4 text-weight-medium" v-if='!openflag' >修改資料</div>
+            <div class="text-h4 text-weight-medium" v-if='openflag'>個人資料</div>
+            <div class="text-h4 text-weight-medium" v-if='!openflag'>修改資料</div>
             <q-space />
           </div>
-          <div class="text-body1 q-mb-md" >個人資訊頁面</div>
+          <div class="text-body1 q-mb-md">個人資訊頁面</div>
           <q-card flat bordered v-if="openflag" class="q-pa-md">
             <div class="text-subtitle1 text-weight-bold">名字:</div>
-            <div class="text-subtitle1 q-mb-md">{{userinfo.name}}</div>
+            <div class="text-subtitle1 q-mb-md">{{ userinfo.name }}</div>
             <div class="text-subtitle1 text-weight-bold">性別:</div>
-            <div class="text-subtitle1 q-mb-md">{{userinfo.sex}}</div>
+            <div class="text-subtitle1 q-mb-md">{{ userinfo.sex }}</div>
             <div class="text-subtitle1 text-weight-bold">生日:</div>
             <div class="text-subtitle1 q-mb-md">{{ new Date(userinfo.birthday).toLocaleDateString() }}</div>
             <div class="text-subtitle1 text-weight-bold">地址:</div>
@@ -28,8 +32,8 @@
             <div class="text-subtitle1 text-weight-bold">電子郵件信箱:</div>
             <div class="text-subtitle1 q-mb-md">{{ userinfo.email }}</div>
             <div class="q-my-xxl">
-              <q-btn outline class="q-py-sm q-px-xxl text-subtitle2 q-mr-md" label="登出" color="black" @click='logout'/>
-              <q-btn label="修改" class="q-py-sm q-px-xxl text-subtitle2" unelevated color="black" @click='goEdit()'/>
+              <q-btn outline class="q-py-sm q-px-xxl text-subtitle2 q-mr-md" label="登出" color="black" @click='logout' />
+              <q-btn label="修改" class="q-py-sm q-px-xxl text-subtitle2" unelevated color="black" @click='goEdit()' />
             </div>
           </q-card>
           <q-card flat bordered v-else class="col-3 q-pa-md">
@@ -50,7 +54,8 @@
               <div class="text-subtitle1 text-weight-medium">電子郵件信箱:</div>
               <q-input v-model="editinfo.email" :rules='[rules.required]' color="black" />
               <div class="q-my-xxl">
-                <q-btn outline class="q-py-sm q-px-xxl text-subtitle2 q-mr-md" color="black" label="取消" @click='changeFlag()'/>
+                <q-btn outline class="q-py-sm q-px-xxl text-subtitle2 q-mr-md" color="black" label="取消"
+                  @click='changeFlag()' />
                 <q-btn type='submit' unelevated class="q-py-sm q-px-xxl text-subtitle2" color="black" label="確定" />
               </div>
             </q-form>
@@ -100,7 +105,7 @@ const editinfo = reactive({
 })
 
 const rules = reactive({
-  required (v) {
+  required(v) {
     return !!v || '必填'
   }
 })

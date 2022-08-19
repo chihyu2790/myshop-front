@@ -4,49 +4,19 @@
       <div class="row q-mt-xl">
         <div class="col-6">
           <q-card class="q-px-lg q-pb-lg" style="height: 650px" flat>
-            <div class="text-h4 text-weight-bold q-mb-xl" >會員註冊</div>
-            <q-form
-              @submit="register"
-              class="q-gutter-md"
-            >
-              <div class="text-body1" >電子郵件信箱  <span class="bg-red text-white">*必填*</span></div>
-              <q-input
-                color="black"
-                square
-                filled
-                type="email"
-                v-model="form.email"
-                placeholder="電子郵件信箱"
-                lazy-rules
-                :rules="rules.email"
-
-              />
-              <div class="text-body1" >帳號  <span class="bg-red text-white">*必填*</span></div>
-              <q-input
-                color="black"
-                square
-                filled
-                type="text"
-                v-model="form.account"
-                placeholder="使用者帳號"
-                lazy-rules
-                :rules="rules.account"
-
-              />
-              <div class="text-body1" >密碼  <span class="bg-red text-white">*必填*</span></div>
-              <q-input
-                color="black"
-                square
-                filled
-                type="password"
-                v-model="form.password"
-                placeholder="請輸入密碼"
-                lazy-rules
-                :rules="rules.password"
-
-              />
+            <div class="text-h4 text-weight-bold q-mb-xl">會員註冊</div>
+            <q-form @submit="register" class="q-gutter-md">
+              <div class="text-body1">電子郵件信箱 <span class="bg-red text-white">*必填*</span></div>
+              <q-input color="black" square filled type="email" v-model="form.email" placeholder="電子郵件信箱" lazy-rules
+                :rules="rules.email" />
+              <div class="text-body1">帳號 <span class="bg-red text-white">*必填*</span></div>
+              <q-input color="black" square filled type="text" v-model="form.account" placeholder="使用者帳號" lazy-rules
+                :rules="rules.account" />
+              <div class="text-body1">密碼 <span class="bg-red text-white">*必填*</span></div>
+              <q-input color="black" square filled type="password" v-model="form.password" placeholder="請輸入密碼"
+                lazy-rules :rules="rules.password" />
               <div>
-                <q-btn unelevated label="會員註冊" class="width-hundred q-py-md text-h6" type="submit" color="red"/>
+                <q-btn unelevated label="會員註冊" class="width-hundred q-py-md text-h6" type="submit" color="red" />
               </div>
             </q-form>
           </q-card>
