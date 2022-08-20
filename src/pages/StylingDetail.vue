@@ -2,11 +2,11 @@
   <q-page>
     <section class="container">
       <div class="row q-mt-lg q-mb-xxxxl">
-        <div class="col-6">
+        <div class="col-12 col-sm-6">
           <q-img :src="styling.image">
           </q-img>
         </div>
-        <div class="q-ml-xl q-mt-xs col">
+        <div class="q-ml-none q-ml-sm-md q-ml-lg-xl q-mt-xl q-mt-sm-xs col-12 col-sm">
           <div class="row">
             <q-avatar size="60px">
               <img :src="userInfo.avatar">
@@ -19,10 +19,11 @@
               </div>
             </div>
           </div>
-          <div class="row q-mt-xl">
+          <div class="row q-mt-lg">
             <div class="col-12 column">
               <!-- <div class="text-subtitle1 text-weight-medium">{{ styling.name }}</div> -->
-              <div class="text-body2 text-weight-regular">{{ styling.description }}</div>
+              <div class="text-body2 text-weight-regular q-mb-lg">{{ styling.description }}</div>
+              <div class="text-body2 text-weight-regular">{{ new Date(styling.date).toLocaleDateString() }} 更新</div>
             </div>
             <div class="text-h5 text-weight-bold q-my-lg">穿搭單品</div>
             <q-card flat class="col-12 q-mb-lg" v-for="(product, idx) in styling.products" :key="idx">
@@ -42,7 +43,6 @@
           </div>
         </div>
       </div>
-      <div class="col-12"></div>
     </section>
   </q-page>
 </template>
@@ -65,6 +65,7 @@ const styling = reactive({
   image: '',
   nmae: '',
   description: '',
+  date: '',
   products: []
 })
 
@@ -79,7 +80,6 @@ const userInfo = reactive({
   }
 })
 
-// 跳不了頁
 const toProduct = (productId) => {
   router.push('/product/' + productId)
 }
@@ -93,7 +93,7 @@ const init = async () => {
     styling.products = data.result.products
     styling.name = data.result.name
     styling.description = data.result.description
-    console.log(styling)
+    styling.date = data.result.date
     initStaff()
   } catch (error) {
     Swal.fire({

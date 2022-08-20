@@ -24,7 +24,7 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 const toStyling = (stylingId) => {
-  console.log(stylingId)
+  // console.log(stylingId)
   router.push('/styling/' + stylingId)
 }
 
@@ -35,7 +35,7 @@ const init = async () => {
     stylingItems.splice(0, stylingItems.length)
     stylingItems.push(...data.result)
   } catch (error) {
-    console.log(error)
+    // console.log(error)
     Swal.fire({
       icon: 'error',
       title: '失敗',

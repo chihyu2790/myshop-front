@@ -22,7 +22,8 @@
         <div class="col-10">
           <div class="flex items-center text-center q-mb-lg">
             <div class="text-h4 text-weight-medium" v-if='!form.dialog'>商品管理</div>
-            <div class="text-h4 text-weight-medium" v-if='form.dialog'>新增商品</div>
+            <div class="text-h4 text-weight-medium" v-if='form.dialog && form._id == ""'>新增商品</div>
+            <div class="text-h4 text-weight-medium" v-if='form.dialog && form._id != ""'>編輯商品</div>
             <q-space />
             <q-btn v-if='!form.dialog' class="q-px-xl" outline color="black" label="新增商品" @click="openDialog('', -1)" />
           </div>
@@ -293,7 +294,7 @@ const init = async () => {
     const { data } = await apiAuth.get('/products/all')
     rows.push(...data.result)
   } catch (error) {
-    console.log(error)
+    // console.log(error)
     Swal.fire({
       icon: 'error',
       title: '失敗',

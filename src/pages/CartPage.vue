@@ -107,7 +107,7 @@ const init = async () => {
     const { data } = await apiAuth.get('/users/cart')
     cart.splice(0, cart.length)
     cart.push(...data.result)
-    console.log(cart)
+    // console.log(cart)
   } catch (error) {
     Swal.fire({
       icon: 'error',

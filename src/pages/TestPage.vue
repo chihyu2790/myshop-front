@@ -56,7 +56,7 @@ const prompt = ref(false)
 
 const chips = computed(() => {
   const chip = text.value.split(/\s+/)
-  console.log(chip)
+  // console.log(chip)
   return chip
 })
 

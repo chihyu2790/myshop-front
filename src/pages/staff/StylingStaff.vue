@@ -245,7 +245,7 @@ const init = async () => {
     const { data } = await apiAuth.get('/products')
     rows.push(...data.result)
   } catch (error) {
-    console.log(error)
+    // console.log(error)
     Swal.fire({
       icon: 'error',
       title: '失敗',
@@ -260,7 +260,7 @@ const initCart = async () => {
     cartItems.splice(0, cartItems.length)
     cartItems.push(...data.result)
   } catch (error) {
-    console.log(error)
+    // console.log(error)
     Swal.fire({
       icon: 'error',
       title: '失敗',
@@ -275,7 +275,7 @@ const initStyling = async () => {
     stylingItems.splice(0, stylingItems.length)
     stylingItems.push(...data.result)
   } catch (error) {
-    console.log(error)
+    // console.log(error)
     Swal.fire({
       icon: 'error',
       title: '失敗',

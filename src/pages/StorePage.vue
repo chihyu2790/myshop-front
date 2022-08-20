@@ -24,13 +24,17 @@
           <div class="flex items-center text-center q-mb-xl q-mb-lg-lg q-mt-lg q-mt-lg-none">
             <div class="text-h4 text-weight-medium">店鋪一覽</div>
           </div>
-          <q-card flat bordered class="q-pa-md q-mb-lg" v-for="store in stores" :key="store._id">
-            <div class="text-subtitle1 text-weight-bold q-mb-lg">{{ store.name }}</div>
-            <div class="text-subtitle1 text-weight-medium">{{ store.phone }}</div>
-            <div class="text-subtitle1 text-weight-medium">店鋪位址: {{ store.address }}</div>
-            <div class="text-subtitle1 text-weight-medium">營業時間: {{ store.time }}</div>
-            <div class="text-subtitle1 text-weight-medium">販售系列: {{ store.sells }}</div>
-          </q-card>
+          <div class="row">
+            <div class="col-12 col-lg-6 q-pa-sm" v-for="store in stores" :key="store._id">
+              <q-card flat bordered class=" q-pa-md full-height">
+                <div class="text-subtitle1 text-weight-bold q-mb-lg">{{ store.name }}</div>
+                <div class="text-subtitle1 text-weight-medium">{{ store.phone }}</div>
+                <div class="text-subtitle1 text-weight-medium">店鋪位址: {{ store.address }}</div>
+                <div class="text-subtitle1 text-weight-medium">營業時間: {{ store.time }}</div>
+                <div class="text-subtitle1 text-weight-medium">販售系列: {{ store.sells }}</div>
+              </q-card>
+            </div>
+          </div>
         </div>
       </div>
     </section>

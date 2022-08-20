@@ -109,9 +109,9 @@ const init = async () => {
       }, 0)
       return order
     }))
-    console.log(orders)
+    // console.log(orders)
   } catch (error) {
-    console.log(error)
+    // console.log(error)
     Swal.fire({
       icon: 'error',
       title: '失敗',

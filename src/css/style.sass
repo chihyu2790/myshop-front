@@ -12,6 +12,16 @@ a, a:hover, a:visited, a:link, a:active
     color:#000
     outline: none
 
+.text-shadow
+    text-shadow: 0px 0px 5px rgb(0 0 0 / 85%)
+    
+
+.absolute-center-left1
+    position: absolute
+    top: 50%
+    left: 70%
+    transform: translate(-50%, -50%)
+
 .pointer
     cursor: pointer
 
@@ -29,9 +39,17 @@ a, a:hover, a:visited, a:link, a:active
 .q-px-xxl
     padding-right: 60px
     padding-left: 60px
+.q-px-xxll
+    padding-right: 100px
+    padding-left: 100px
 .q-px-xxxl
     padding-right: 150px
     padding-left: 150px
+
+.q-px-sm-xxxl
+    @media (min-width: $breakpoint-sm)
+        padding-right: 150px
+        padding-left: 150px
 .q-my-xxl
     margin-top: 60px
     margin-bottom: 60px
@@ -72,15 +90,33 @@ a, a:hover, a:visited, a:link, a:active
         height: 800px
     @media (min-width: $breakpoint-lg)
 
+
+.text-h3-rwd
+    font-size: 1rem
+    @media (min-width: $breakpoint-sm) 
+        font-size: 2.4rem
+    @media (min-width: $breakpoint-lg)
+        font-size: 3rem
+
 //------------------------indexPage------------------------
 //------------------------indexPage------------------------
 //------------------------indexPage------------------------
     
 #indexPage .q-carousel
-    height: 800px
-
+    height: 700px
+    @media (min-width: $breakpoint-lg)
+        height: 800px
     .q-carousel__slide
-        background-position: unset
+        background-position: 50%
+        @media (min-width: $breakpoint-lg)
+            background-position: unset
+
+#indexPage .q-item__label
+  overflow: hidden
+  display: -webkit-box
+  -webkit-line-clamp: 1
+  -webkit-box-orient: vertical
+
 
 //------------------------ProductPage------------------------
 //------------------------ProductPage------------------------
@@ -88,9 +124,10 @@ a, a:hover, a:visited, a:link, a:active
 
 #productPage .q-carousel
     height: 600px
-
     .q-carousel__slide
-        background-position: unset
+        background-position: 50%
+        @media (min-width: $breakpoint-lg)
+            background-position: unset
     
 //------------------------ProductDetail------------------------
 //------------------------ProductDetail------------------------
@@ -98,3 +135,5 @@ a, a:hover, a:visited, a:link, a:active
 
 #productDetail .btn-square .q-btn--rectangle
     border-radius: 0px
+
+    

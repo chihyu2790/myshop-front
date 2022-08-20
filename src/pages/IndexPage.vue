@@ -4,8 +4,25 @@
     <section>
       <div class=" q-pa-0 ">
         <q-carousel animated v-model="slide" arrows navigation infinite>
-          <q-carousel-slide :name="1" img-src="https://i.imgur.com/Xkp5ekZ.jpg" />
-          <q-carousel-slide :name="2" img-src="https://i.imgur.com/IOJCYl3.jpg" />
+
+          <q-carousel-slide :name="1" img-src="https://i.imgur.com/Xkp5ekZ.jpg" class="relative-position">
+            <div class="absolute-center text-white column items-center justify-center text-shadow ">
+              <div class="text-h4 text-weight-medium ">SHOP</div>
+              <div class="text-h4 text-weight-medium ">NEW OPEN</div>
+              <div class="text-h4 text-weight-regular q-my-sm">8.30</div>
+              <div class="text-h6 text-weight-medium q-mb-sm">誠品生活南西 1F</div>
+              <q-btn unelevated outline label="詳細資料馬上看" />
+            </div>
+          </q-carousel-slide>
+          <q-carousel-slide :name="2" img-src="https://i.imgur.com/IOJCYl3.jpg" class="relative-position">
+            <div class="absolute-center-left1 text-white column items-end justify-center text-shadow ">
+              <div class="text-h4 text-weight-medium ">早秋時尚</div>
+              <div class="text-h4 text-weight-medium ">NEW OPEN</div>
+              <div class="text-h4 text-weight-regular q-my-sm">8.30</div>
+              <div class="text-h6 text-weight-medium q-mb-sm">誠品生活南西 1F</div>
+              <q-btn unelevated outline label="詳細資料馬上看" />
+            </div>
+          </q-carousel-slide>
           <q-carousel-slide :name="3" img-src="https://i.imgur.com/gcgnMO3.jpg" />
           <q-carousel-slide :name="4" img-src="https://i.imgur.com/jLrO7h0.jpg" />
         </q-carousel>
@@ -28,7 +45,7 @@
       </div>
       <div class="row">
         <div class="col-12 flex justify-center q-my-xxl">
-          <q-btn label="更多熱門商品" class="q-py-md q-px-xxxl" outline color="black" to="/product" />
+          <q-btn label="更多熱門商品" class="q-py-md q-px-xxll q-px-sm-xxxl" outline color="black" to="/product" />
         </div>
       </div>
       <q-separator />
@@ -44,9 +61,9 @@
       <div class="row">
         <div class="col-12 flex justify-center q-mb-md q-pa-xl">
           <q-img src="https://i.imgur.com/1QeFiIc.jpg" class="pointer" :ratio="5 / 2" @click="toStylings()">
-            <div class="row absolute-bottom text-center ">
-              <div class="col-12 text-h6 q-mb-sm text-weight-light">時尚穿搭型錄 日本同步刊載</div>
-              <div class="col-12 text-h3">Staff Styling 時尚顧問穿搭</div>
+            <div class="row absolute-bottom text-center gt-sm">
+              <div class="gt-md col-12 text-h6 q-mb-none q-mb-lg-sm text-weight-light">時尚穿搭型錄 日本同步刊載</div>
+              <div class="col-12 text-h3 text-h3-rwd">Staff Styling 時尚顧問穿搭</div>
             </div>
           </q-img>
         </div>
@@ -64,7 +81,7 @@
       <q-separator inset />
 
       <div class="row">
-        <div class="col-6">
+        <div class="col-12 col-lg-6">
           <q-list>
             <q-item>
               <q-item-section>
@@ -103,7 +120,7 @@
             <q-separator inset />
           </q-list>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-lg-6">
           <q-list>
             <q-item>
               <q-item-section>

@@ -140,7 +140,7 @@ const deleteCart = async (idx) => {
 }
 
 const checkout = () => {
-  console.log(form)
+  // console.log(form)
   user.checkout(form)
 }
 
@@ -149,7 +149,7 @@ const init = async () => {
     const { data } = await apiAuth.get('/users/cart')
     cart.splice(0, cart.length)
     cart.push(...data.result)
-    console.log(cart)
+    // console.log(cart)
     // console.log(cart[1].product)
   } catch (error) {
     Swal.fire({

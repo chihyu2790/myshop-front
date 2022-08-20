@@ -62,7 +62,7 @@ const rules = reactive({
 
 const register = async () => {
   try {
-    console.log(router)
+    // console.log(router)
     await api.post('/users', form)
     await Swal.fire({
       icon: 'success',

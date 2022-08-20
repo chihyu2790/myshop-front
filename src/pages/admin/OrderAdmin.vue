@@ -112,19 +112,6 @@
           </q-card>
         </div>
       </div>
-
-      <!-- <div v-if='!dialog' class="row">
-                <div class="col-3 q-pa-md" v-for='(order,idx) in orders' :key='idx'>
-                    <q-card >
-                        <div class="text-subtitle2">ID:{{ order._id }}</div>
-                        <div class="text-subtitle2">時間:{{ new Date(order.date).toLocaleDateString() }}</div>
-                        <div class="text-subtitle2">使用者:{{ order.user.account }}</div>
-                        <q-btn label="刪除" @click="deletee(order._id)" color="black"/>
-                        <q-btn label="修改" @click="openDialog(order._id, idx)" color="black"/>
-                    </q-card>
-
-                </div>
-            </div> -->
     </section>
   </q-page>
 </template>
@@ -160,7 +147,7 @@ const form = reactive({
 const dialog = ref(false)
 
 const openDialog = (_id, idx) => {
-  console.log(orders[idx])
+  // console.log(orders[idx])
   form._id = orders[idx]._id
   // form.name = orders[idx].user
   // form.date = orders[idx].date
@@ -245,7 +232,7 @@ const deletee = async (orderid) => {
 
 const submitForm = async () => {
   try {
-    console.log(form)
+    // console.log(form)
     const { data } = await apiAuth.patch('/orders/' + form._id, form)
     // orders[form.idx] = data.result
     Swal.fire({
@@ -274,9 +261,9 @@ const init = async () => {
       }, 0)
       return order
     }))
-    console.log(orders)
+    // console.log(orders)
   } catch (error) {
-    console.log(error)
+    // console.log(error)
     Swal.fire({
       icon: 'error',
       title: '失敗',

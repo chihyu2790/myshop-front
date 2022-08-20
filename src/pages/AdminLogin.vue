@@ -37,8 +37,10 @@
           <div class="col">
             <div class="text-h6 text-weight-bold q-mb-md">切換登入權限</div>
             <div class="column">
-              <q-radio v-model="value" :val=true label="管理員登入" color="black" />
-              <q-radio v-model="value" :val=false label="店員登入" color="black" />
+              <q-radio checked-icon="fa-solid fa-square-full" keep-color unchecked-icon="fa-regular fa-square-full"
+                v-model="value" :val=true label="管理員登入" color="black" size="lg" />
+              <q-radio checked-icon="fa-solid fa-square-full" keep-color unchecked-icon="fa-regular fa-square-full"
+                v-model="value" :val=false label="店員登入" color="black" size="lg" />
             </div>
           </div>
         </q-card>
@@ -75,13 +77,13 @@ const rules = reactive({
 
 const login = () => {
   form.role = 1
-  console.log(form)
+  // console.log(form)
   user.login(form)
 }
 
 const staffLogin = () => {
   form.role = 2
-  console.log(form)
+  // console.log(form)
   user.login(form)
 }
 </script>

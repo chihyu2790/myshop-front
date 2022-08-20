@@ -120,6 +120,7 @@ const addPrice = computed(() => {
 const init = async () => {
   try {
     const { data } = await apiAuth.get('/orders/' + route.params.id)
+    console.log(data.result)
     order._id = data.result._id
     order.date = data.result.date
     order.getaddress = data.result.getaddress
@@ -128,7 +129,7 @@ const init = async () => {
     order.getphone = data.result.getphone
     order.getway = data.result.getway
     order.products = data.result.products
-    console.log(data.result)
+    // console.log(data.result)
   } catch (error) {
     Swal.fire({
       icon: 'error',
