@@ -6,7 +6,7 @@
           <q-img :src="styling.image">
           </q-img>
         </div>
-        <div class="q-ml-none q-ml-sm-md q-ml-lg-xl q-mt-xl q-mt-sm-xs col-12 col-sm">
+        <div class="q-ml-none q-ml-sm-md q-ml-lg-xl q-mt-lg q-mt-sm-xs col-12 col-sm">
           <div class="row">
             <q-avatar size="60px">
               <img :src="userInfo.avatar">

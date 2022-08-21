@@ -24,16 +24,16 @@
             <div class="text-h5 text-weight-bold q-mb-xl">{{ product.name }}</div>
             <div class="text-h4 text-weight-bold q-mb-md">NT${{ product.price }}</div>
             <div class="text-subtitle1 text-weight-regular text-red q-mb-md">消費滿1500免運費</div>
-            <div class="text-subtitle1 text-weight-medium q-mb-lg">顏色:</div>
+            <div class="text-subtitle1 text-weight-medium q-mb-lg">顏色: {{ colors }}</div>
             <div class="q-mb-lg">
               <!-- <q-avatar v-for="(color, idx)  in product.color" class="q-mr-xs" :color="color" size="24px" :key="idx" /> -->
               <q-radio v-for="(color, idx) in product.color" checked-icon="fa-solid fa-circle-dot" keep-color size="xl"
                 dense unchecked-icon="fa-solid fa-circle" v-model="colors" :color="color"
                 class="text-weight-medium q-pr-md" :val="color" :key="idx" />
             </div>
-            <div class="text-subtitle1 text-weight-medium q-mb-lg">尺寸:</div>
+            <div class="text-subtitle1 text-weight-medium q-mb-lg">尺寸: {{ sizes }}</div>
             <q-radio v-for="(size, idx) in product.size" checked-icon="fa-solid fa-square-full" keep-color dense
-              unchecked-icon="fa-regular fa-square-full" v-model="sizes" :val="size" color="grey-9" size="lg"
+              unchecked-icon="fa-regular fa-square-full" v-model="sizes" :val="size" color="black" size="lg"
               class="text-weight-medium q-pr-md q-mb-md" :label="size" :key="idx" />
 
             <q-separator class="q-my-md " />

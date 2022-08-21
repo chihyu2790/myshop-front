@@ -67,33 +67,33 @@
           <div class="col-3 ">
             <div class="text-h5 q-mb-lg">關於我們</div>
 
-            <div class="text-body1 text-weight-light q-mb-xs">品牌故事</div>
-            <div class="text-body1 text-weight-light q-mb-xs">店鋪資訊</div>
-            <div class="text-body1 text-weight-light q-mb-xs">隱私權及網站使用條款</div>
+            <div class="text-body1 text-weight-thin q-mb-sm">品牌故事</div>
+            <div class="text-body1 text-weight-thin q-mb-sm">店鋪資訊</div>
+            <div class="text-body1 text-weight-thin q-mb-sm">隱私權及網站使用條款</div>
           </div>
           <div class="col-3">
             <div class="text-h5 q-mb-lg">購物說明</div>
-            <div class="text-body1 text-weight-light q-mb-xs">購物指南(購前聲明)</div>
-            <div class="text-body1 text-weight-light q-mb-xs">付款方式</div>
-            <div class="text-body1 text-weight-light q-mb-xs">售後服務說明</div>
-            <div class="text-body1 text-weight-light q-mb-xs">運送方式</div>
+            <div class="text-body1 text-weight-thin q-mb-sm">購物指南(購前聲明)</div>
+            <div class="text-body1 text-weight-thin q-mb-sm">付款方式</div>
+            <div class="text-body1 text-weight-thin q-mb-sm">售後服務說明</div>
+            <div class="text-body1 text-weight-thin q-mb-sm">運送方式</div>
           </div>
           <div class="col-3">
             <div class="text-h5 q-mb-lg">客服資訊</div>
-            <div class="text-body1 text-weight-light q-mb-xs">常見問題</div>
-            <div class="text-body1 text-weight-light q-mb-xs">聯絡我們</div>
-            <div class="text-body1 text-weight-light q-mb-xs">防詐騙宣導</div>
-            <div class="text-body1 text-weight-light q-mb-xs">會員權益</div>
+            <div class="text-body1 text-weight-thin q-mb-sm">常見問題</div>
+            <div class="text-body1 text-weight-thin q-mb-sm">聯絡我們</div>
+            <div class="text-body1 text-weight-thin q-mb-sm">防詐騙宣導</div>
+            <div class="text-body1 text-weight-thin q-mb-sm">會員權益</div>
           </div>
           <div class="col-3">
             <div class="q-mb-lg">
-              <q-icon class="q-mx-xs" name="fa-brands fa-instagram" size="md" />
-              <q-icon class="q-mx-xs" name="fa-brands fa-twitter" size="md" />
-              <q-icon class="q-mx-xs" name="fa-brands fa-facebook" size="md" />
+              <q-icon class="q-mr-sm" name="fa-brands fa-instagram" size="md" />
+              <q-icon class="q-mr-sm" name="fa-brands fa-twitter" size="md" />
+              <q-icon class="q-mr-sm" name="fa-brands fa-facebook" size="md" />
             </div>
-            <div class="text-body1 text-weight-light q-mb-xs">客服電話 : 02-1234-5678</div>
-            <div class="text-body1 text-weight-light q-mb-xs">服務時間 : 週一至週五，09:30-18:00</div>
-            <div class="text-body1 text-weight-light q-mb-xs">aaa1234567@gmail.com</div>
+            <div class="text-body1 text-weight-thin q-mb-sm">客服電話 : 02-1234-5678</div>
+            <div class="text-body1 text-weight-thin q-mb-sm">服務時間 : 週一至週五，09:30-18:00</div>
+            <div class="text-body1 text-weight-thin q-mb-sm">aaa1234567@gmail.com</div>
           </div>
         </div>
       </section>

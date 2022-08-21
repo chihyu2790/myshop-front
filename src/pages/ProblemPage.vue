@@ -1,5 +1,5 @@
 <template>
-  <q-page>
+  <q-page id="problemPage">
     <div class="row lt-lg justify-center border-black bg-grey-2 q-py-xs">
       <q-tabs indicator-color="red" shrink>
         <q-route-tab exact name='/about' to='/about' label="關於我們" />
