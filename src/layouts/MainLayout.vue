@@ -2,12 +2,12 @@
   <q-layout view="lHh Lpr lff">
     <q-header bordered class="bg-white text-black ">
       <q-toolbar class="q-py-md container q-px-none">
-        <q-btn class="lt-xl" flat dense round icon="menu" aria-label="Menu" />
+        <q-btn class="lt-lg" flat dense round icon="menu" aria-label="Menu" />
         <!-- @click="toggleLeftDrawer" -->
-        <q-avatar class="gt-lg q-mr-md">
+        <q-avatar class="gt-md q-mr-md">
           <img src="https://source.boringavatars.com/beam/200/chih2790" alt="">
         </q-avatar>
-        <q-tabs class="gt-lg" shrink indicator-color="red">
+        <q-tabs class="gt-md" shrink indicator-color="red">
           <q-route-tab exact name='/' to='/' label="TOP" />
           <q-route-tab exact name='/product' to='/product' label="SHOP" />
           <q-route-tab exact name='/store' to='/store' label="STORE" />
@@ -59,7 +59,7 @@
       <router-view />
     </q-page-container>
 
-    <q-footer bordered class="bg-grey-1 text-black gt-lg">
+    <q-footer bordered class="bg-grey-1 text-black gt-md">
       <!-- <q-toolbar>
         <q-toolbar-title>
           <div>Title</div>

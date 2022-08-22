@@ -1,9 +1,9 @@
 <template>
   <q-page>
     <section class="container">
-      <div class="row q-mt-xl">
-        <div class="col">
-          <q-card class="q-px-lg q-pb-lg" flat>
+      <div class="row q-mt-sm q-mt-lg-xl">
+        <div class="col-12 col-lg">
+          <q-card class="q-px-none q-px-lg-lg q-pb-lg" flat>
             <div class="text-h4 text-weight-bold q-mb-xl">會員登入</div>
             <q-form @submit="login" class="q-gutter-md">
               <div class="text-body1">會員帳號</div>
@@ -19,9 +19,12 @@
             </q-form>
           </q-card>
         </div>
-        <q-separator vertical />
-        <div class="col">
-          <q-card class="q-px-lg q-pb-lg" style="height: 500px" flat>
+        <q-separator vertical class="gt-md" />
+        <div class="lt-lg col-12 q-my-md">
+          <q-separator />
+        </div>
+        <div class="col-12 col-lg">
+          <q-card class="q-px-none q-px-lg-lg q-pb-lg" style="height: 500px" flat>
             <div class="text-h4 text-weight-bold q-mb-xl">會員註冊</div>
             <div class="text-body1 q-mb-lg">所有的購買功能，包含訂購商品、商品評論等，皆須要登入會員，如沒有加入會員，請先註冊會員[免費]。</div>
             <div class="text-body1 q-mb-xl">點擊「會員註冊」後開始進行註冊。</div>

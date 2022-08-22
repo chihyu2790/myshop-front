@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col">
           <q-form @submit="checkout">
-            <q-card flat class="q-my-xl ">
+            <q-card flat class="q-my-sm q-my-lg-xl ">
               <div class="text-h4 text-weight-medium">訂單資訊</div>
 
               <q-separator class="q-my-md" />
@@ -49,8 +49,8 @@
                 </div>
                 <q-separator class="q-my-md" />
               </q-card>
-              <q-card class="row reverse my-card q-mt-xl">
-                <div class="col-2 q-mt-xl">
+              <q-card class="row reverse my-card q-mt-sm q-mt-lg-xl">
+                <div class="col-12 col-lg-2 q-mt-lg-xl">
                   <div class="row justify-between">
                     <div class="text-subtitle1 text-weight-medium">商品金額</div>
                     <div class="text-subtitle1 text-weight-regular">{{ totalPrice }}</div>
@@ -67,7 +67,7 @@
               </q-card>
               <q-separator class="q-my-md" />
               <div class="row reverse q-mt-xl">
-                <div class="col-3">
+                <div class="col-12 col-sm-6 col-lg-3">
                   <q-btn unelevated square color="red" class="q-py-sm full-width text-subtitle1 text-weight-medium"
                     label="商品結帳" type="submit" />
                 </div>

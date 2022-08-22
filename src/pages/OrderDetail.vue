@@ -1,8 +1,20 @@
 <template>
   <q-page>
+    <!-- tabs -->
+    <!-- tabs -->
+    <!-- tabs -->
+    <div class="row lt-lg justify-center border-black bg-grey-2 q-py-xs">
+      <q-tabs indicator-color="red" shrink>
+        <q-route-tab exact name='/user' to='/user' label="個人資料" />
+        <q-route-tab exact name='/order' to='/order' label="訂單查詢" />
+      </q-tabs>
+    </div>
+    <!-- tabs -->
+    <!-- tabs -->
+    <!-- tabs -->
     <section class="container">
-      <div class="row q-mt-xl">
-        <div class="col-2">
+      <div class="row q-mt-none q-mt-lg-xl">
+        <div class="col-2 gt-md">
           <div class="text-h6">我的帳戶</div>
           <router-link :to="'/user'">
             <div class="text-subtitle1 q-my-lg">個人資料</div>
@@ -11,8 +23,8 @@
             <div class="text-subtitle1 q-my-lg">訂單查詢</div>
           </router-link>
         </div>
-        <div class="col-10">
-          <div class="flex items-center text-center q-mb-lg">
+        <div class="col-12 col-lg-10">
+          <div class="flex items-center text-center q-mb-lg q-mt-lg q-mt-lg-none">
             <div class="text-h4 text-weight-medium">訂單詳細</div>
             <q-space />
           </div>
@@ -52,8 +64,8 @@
             <div class="text-body2 text-weight-regular q-mb-xs">取貨人地址:{{ order.getaddress }}</div>
             <div class="text-body2 text-weight-regular q-mb-xs">取貨人信箱:{{ order.getemail }}</div>
             <q-separator class="q-my-md" />
-            <q-card class="row reverse my-card q-my-xl">
-              <div class="col-2 q-mt-xl">
+            <q-card class="row reverse my-card q-mt-sm q-mt-lg-xl">
+              <div class="col-12 col-lg-2 q-mt-lg-xl">
                 <div class="row justify-between">
                   <div class="text-subtitle1 text-weight-medium">商品金額</div>
                   <div class="text-subtitle1 text-weight-regular">{{ totalPrice }}</div>

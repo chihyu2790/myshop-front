@@ -9,7 +9,7 @@
     </div>
     <section class="container">
       <div class="row q-mt-none q-mt-lg-xl">
-        <div class="col-12 gt-lg col-lg-2">
+        <div class="col-12 gt-md col-lg-2">
           <router-link :to="'/about'">
             <div class="text-subtitle1 q-my-lg q-pr-md">關於我們</div>
           </router-link>

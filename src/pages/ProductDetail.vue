@@ -2,7 +2,7 @@
   <q-page id="productDetail">
     <section class="container">
       <div class="row q-mt-none q-mt-sm-lg">
-        <div class="col-1 gt-lg">
+        <div class="col-1 gt-md">
           <div v-for="(image, idx) in product.image" :key="idx" class="q-mb-md">
             <q-img :src="image" :ratio="1 / 1" @click="changeSlide(idx)"></q-img>
           </div>
