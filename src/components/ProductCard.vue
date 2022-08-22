@@ -5,7 +5,8 @@
             <!-- style="max-height: 250px" -->
 
             <div class="q-my-sm">
-                <q-avatar class="q-mr-xs" size="xs" v-for="(color, idx) in product.color" :color="color" :key="idx" />
+                <q-avatar class="q-mr-xs drop-shadow" size="xs" v-for="(color, idx) in product.color" :color="color"
+                    :key="idx" />
             </div>
 
             <!-- <div>

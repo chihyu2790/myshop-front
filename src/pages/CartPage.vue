@@ -109,6 +109,7 @@ const init = async () => {
     cart.push(...data.result)
     // console.log(cart)
   } catch (error) {
+    console.log(error)
     Swal.fire({
       icon: 'error',
       title: '失敗',

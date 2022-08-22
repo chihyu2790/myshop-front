@@ -47,9 +47,13 @@
 
 <script setup>
 import { reactive, ref, computed } from 'vue'
+import Swal from 'sweetalert2'
+import { api } from '../boot/axios.js'
 const form = reactive({
   color: []
 })
+
+const products = reactive([])
 
 const text = ref('')
 const prompt = ref(false)
@@ -59,5 +63,24 @@ const chips = computed(() => {
   // console.log(chip)
   return chip
 })
+
+const formm = reactive({
+  classify: '女裝'
+})
+
+const init = async () => {
+  try {
+    const { data } = await api.post('/products/genre/', formm)
+    products.push(...data.result)
+    console.log(products)
+  } catch (error) {
+    Swal.fire({
+      icon: 'error',
+      title: '失敗',
+      text: '伺服器錯誤'
+    })
+  }
+}
+init()
 
 </script>

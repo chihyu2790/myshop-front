@@ -36,8 +36,7 @@
             <div class="text-subtitle1 text-weight-medium">營業時間: {{store.time}}</div>
             <div class="text-subtitle1 text-weight-medium">販售系列: {{store.sells}}</div>
           </q-card> -->
-            <q-table :grid="$q.screen.xs" flat bordered :rows="stores" :columns="columns" row-key="name"
-              :filter="filter">
+            <q-table :grid="$q.screen.xs" flat bordered :rows="stores" :columns="columns" row-key="name">
               <template #body-cell-edit="edit">
                 <q-td :edit="edit">
                   <div class="column">
@@ -136,7 +135,7 @@ const deletee = async (storeid) => {
 
 const openform = (_id, idx) => {
   storeId.value = _id
-  console.log(storeId.value)
+  // console.log(storeId.value)
   opendialog.value = true
 
   form.name = stores[idx].name

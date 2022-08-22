@@ -32,7 +32,7 @@
             <div class="text-subtitle1 q-mb-md text-weight-bold">大頭貼:</div>
             <q-img :src="userinfo.avatar" style="height: 140px; max-width: 150px" />
             <div class="text-subtitle1 q-mt-md text-weight-bold">店鋪位置:</div>
-            <div class="text-subtitle1 q-mb-md">{{ userinfo.stores.name }}</div>
+            <div class="text-subtitle1 q-mb-md">{{ userinfo.stores?.name }}</div>
             <div class="text-subtitle1 text-weight-bold">自我介紹:</div>
             <div class="text-subtitle1 q-mb-md">{{ userinfo.description }}</div>
             <q-btn color="black" class="q-py-sm q-px-lg text-subtitle2 q-mt-xl" outline label="修改店員資料"
@@ -153,7 +153,7 @@ const editForm = async () => {
   } catch (error) {
     Swal.fire({
       icon: 'error',
-      title: '失敗',
+      title: '編輯失敗',
       text: error.isAxiosError ? error.response.data.message : error.message
     })
   }

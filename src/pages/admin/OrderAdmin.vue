@@ -26,8 +26,7 @@
             <q-space />
           </div>
           <div class="text-body1 q-mb-md">管理訂單頁面</div>
-          <q-table v-if='!dialog' :grid="$q.screen.xs" flat bordered :rows="orders" :columns="columns" row-key="name"
-            :filter="filter">
+          <q-table v-if='!dialog' :grid="$q.screen.xs" flat bordered :rows="orders" :columns="columns" row-key="name">
             <template #body-cell-date="date">
               <q-td :date="date">
                 <!-- {{date.row.date}} -->
@@ -79,7 +78,7 @@
                   <div class="col-8 q-ml-md">
                     <div class="row items-center text-subtitle2 text-weight-medium">
                       商品顏色:
-                      <q-avatar :color="product.color" size="xs" class="q-ml-xs" :key="idx" />
+                      <q-avatar :color="product.color" size="xs" class="q-ml-xs" />
                     </div>
                     <q-radio class="q-my-md" color="black" v-for="(color, idx) in product.product.color"
                       v-model="product.color" :val="color" :label="color" :key="idx" />

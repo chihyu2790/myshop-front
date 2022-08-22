@@ -32,11 +32,12 @@ export default route(function (/* { store, ssrContext } */) {
 
   Router.beforeEach((to, from, next) => {
     const user = useUserStore()
-    if (user.isLogin && !user.isAdmin && (to.path === '/register' || to.path === '/login')) {
+    if (user.isLogin && !user.isAdmin && !user.isStaff && (to.path === '/register' || to.path === '/login')) {
       next('/user')
-    }
-    if (user.isLogin && (to.path === '/register' || to.path === '/login')) {
-      next('/')
+    } else if (user.isLogin && user.isAdmin && (to.path === '/register' || to.path === '/login')) {
+      next('/admin/user')
+    } else if (user.isLogin && user.isStaff && (to.path === '/register' || to.path === '/login')) {
+      next('/staff')
     } else if (to.meta.login && !user.isLogin) {
       next('/login')
     } else if (to.meta.admin && !user.isAdmin) {

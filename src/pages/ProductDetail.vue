@@ -29,7 +29,7 @@
               <!-- <q-avatar v-for="(color, idx)  in product.color" class="q-mr-xs" :color="color" size="24px" :key="idx" /> -->
               <q-radio v-for="(color, idx) in product.color" checked-icon="fa-solid fa-circle-dot" keep-color size="xl"
                 dense unchecked-icon="fa-solid fa-circle" v-model="colors" :color="color"
-                class="text-weight-medium q-pr-md" :val="color" :key="idx" />
+                class="text-weight-medium q-pr-md drop-shadow" :val="color" :key="idx" />
             </div>
             <div class="text-subtitle1 text-weight-medium q-mb-lg">尺寸: {{ sizes }}</div>
             <q-radio v-for="(size, idx) in product.size" checked-icon="fa-solid fa-square-full" keep-color dense

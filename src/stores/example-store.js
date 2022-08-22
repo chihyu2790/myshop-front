@@ -47,7 +47,6 @@ export const useUserStore = defineStore({
         const { data } = await api.post('/users/login', form)
         this.token = data.result.token
         this.account = data.result.account
-        // console.log('form表單身分是:', form.role)
         this.role = data.result.role
         this.cart = data.result.cart
         Swal.fire({

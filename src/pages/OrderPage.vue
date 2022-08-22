@@ -25,7 +25,7 @@
                             <q-btn outline style="color: black;" :label=order._id :to="'/order/' + order._id" />
                         </q-card-section>
                 </q-card> -->
-          <q-table :grid="$q.screen.sm" flat bordered :rows="orders" :columns="columns" row-key="name" :filter="filter"
+          <q-table :grid="$q.screen.sm" flat bordered :rows="orders" :columns="columns" row-key="name"
             :pagination="pagination">
             <template #body-cell-date="date">
               <q-td :date="date">

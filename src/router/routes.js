@@ -188,7 +188,7 @@ const routes = [
   },
   {
     path: '/admin',
-    component: () => import('layouts/AdminLayout.vue'),
+    component: () => import('layouts/MainLayout.vue'),
     children: [
       {
         path: '',
@@ -265,6 +265,7 @@ const routes = [
         meta: {
           title: 'staff-styling',
           login: true,
+          staff: true,
           admin: false
         }
       }

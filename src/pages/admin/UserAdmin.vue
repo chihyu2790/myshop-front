@@ -2,12 +2,20 @@
   <q-page>
     <section class="container">
       <div class="row q-mt-xl">
-        <div class="col-2" >
+        <div class="col-2">
           <div class="text-h6">後台管理</div>
-          <router-link :to="'/admin/user'"><div class="text-subtitle1 q-my-lg">使用者管理</div></router-link>
-          <router-link :to="'/admin/product'"><div class="text-subtitle1 q-my-lg">商品管理</div></router-link>
-          <router-link :to="'/admin/store'"><div class="text-subtitle1 q-my-lg">店鋪管理</div></router-link>
-          <router-link :to="'/admin/order'"><div class="text-subtitle1 q-my-lg">訂單管理</div></router-link>
+          <router-link :to="'/admin/user'">
+            <div class="text-subtitle1 q-my-lg">使用者管理</div>
+          </router-link>
+          <router-link :to="'/admin/product'">
+            <div class="text-subtitle1 q-my-lg">商品管理</div>
+          </router-link>
+          <router-link :to="'/admin/store'">
+            <div class="text-subtitle1 q-my-lg">店鋪管理</div>
+          </router-link>
+          <router-link :to="'/admin/order'">
+            <div class="text-subtitle1 q-my-lg">訂單管理</div>
+          </router-link>
           <div class="text-subtitle1 q-my-lg">活動管理</div>
           <div class="text-subtitle1 q-my-lg">登出</div>
         </div>
@@ -16,23 +24,15 @@
             <div class="text-h4 text-weight-medium">使用者管理</div>
             <q-space />
           </div>
-          <div class="text-body1 q-mb-md" >管理使用者頁面</div>
-          <q-table
-          :grid="$q.screen.xs"
-          flat
-          bordered
-          :rows="users"
-          :columns="columns"
-          row-key="name"
-          :filter="filter"
-          >
-          <template #body-cell-edit="edit">
-            <q-td :edit="edit">
-              <div class="column">
-                <q-btn class="q-px-sm" @click='deletee(edit.row._id)' outline >刪除使用者</q-btn>
-              </div>
-            </q-td>
-          </template>
+          <div class="text-body1 q-mb-md">管理使用者頁面</div>
+          <q-table :grid="$q.screen.xs" flat bordered :rows="users" :columns="columns" row-key="name">
+            <template #body-cell-edit="edit">
+              <q-td :edit="edit">
+                <div class="column">
+                  <q-btn class="q-px-sm" @click='deletee(edit.row._id)' outline>刪除使用者</q-btn>
+                </div>
+              </q-td>
+            </template>
           </q-table>
         </div>
       </div>

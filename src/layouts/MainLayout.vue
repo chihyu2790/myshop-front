@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr lff">
     <q-header bordered class="bg-white text-black ">
       <q-toolbar class="q-py-md container q-px-none">
-        <q-btn class="lt-lg" flat dense round icon="menu" aria-label="Menu" />
+        <q-btn class="lt-xl" flat dense round icon="menu" aria-label="Menu" />
         <!-- @click="toggleLeftDrawer" -->
         <q-avatar class="gt-lg q-mr-md">
           <img src="https://source.boringavatars.com/beam/200/chih2790" alt="">
@@ -22,9 +22,12 @@
             </template>
           </q-input> -->
         <div>
-          <q-btn flat round color="black" icon="fa-regular fa-user" to='/login' size="sm" />
+          <q-btn flat round color="black" icon="fa-solid fa-user" to='/login' size="sm" />
           <!-- <q-btn flat round color="black" icon="fa-regular fa-heart" to='/like' size="sm"/> -->
-          <q-btn class="q-ml-sm" flat round color="black" icon="fa-solid fa-cart-shopping" to='/cart' size="sm" />
+          <q-btn v-if="!isAdmin && !isStaff" class="q-ml-sm" flat round color="black" icon="fa-solid fa-cart-shopping"
+            to='/cart' size="sm" />
+          <q-btn v-if="isAdmin" flat round class="q-ml-sm" color="black" icon="fa-solid fa-wrench" to='/admin/user'
+            size="sm" />
         </div>
 
         <!-- <div>Quasar v{{ $q.version }}</div> -->
@@ -110,7 +113,7 @@ import { useUserStore } from '../stores/example-store'
 
 const user = useUserStore()
 const { logout } = user
-const { isLogin, isAdmin, cart } = storeToRefs(user)
+const { isLogin, isAdmin, cart, isStaff } = storeToRefs(user)
 
 const text = ref('')
 
