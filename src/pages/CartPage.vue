@@ -13,7 +13,7 @@
           <q-card flat class="q-my-md" v-for='(item, idx) in cart' :key='item._id'>
             <div class="row">
               <q-img class="col-2 col-sm-3" :src='item.product.image[0]' />
-              <div class="col-7 col-sm-7 column q-ml-md">
+              <div class="col-7 column q-ml-xs q-ml-lg-md">
                 <div class="text-h6 over-2line">{{ item.product.name }}</div>
                 <q-space />
                 <div class="text-subtitle1 text-weight-medium">商品尺寸:{{ item.size }}</div>

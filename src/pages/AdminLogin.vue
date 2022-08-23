@@ -1,9 +1,9 @@
 <template>
   <q-page>
     <section class="container">
-      <div class="row q-mt-xl">
-        <div class="col-6">
-          <q-card v-if="value" flat class="q-px-lg q-pb-lg">
+      <div class="row q-mt-sm q-mt-lg-xl">
+        <div class="col-12 col-lg-6">
+          <q-card v-if="value" flat class="q-px-none q-px-lg-lg q-pb-lg">
             <div class="text-h4 text-weight-bold q-mb-xl">管理員登入</div>
             <q-form @submit="login" class="q-gutter-md">
               <div class="text-body1">管理員帳號</div>
@@ -17,7 +17,7 @@
               </div>
             </q-form>
           </q-card>
-          <q-card v-else flat class="q-px-lg q-pb-lg">
+          <q-card v-else flat class="q-px-none q-px-lg-lg q-pb-lg">
             <div class="text-h4 text-weight-bold q-mb-xl">店員登入</div>
             <q-form @submit="staffLogin" class="q-gutter-md">
               <div class="text-body1">店員帳號</div>
@@ -32,8 +32,11 @@
             </q-form>
           </q-card>
         </div>
-        <q-separator vertical />
-        <q-card flat class="q-px-lg q-pb-lg">
+        <q-separator vertical class="gt-md" />
+        <div class="lt-lg col-12 q-my-md">
+          <q-separator />
+        </div>
+        <q-card flat class="col-12 col-lg q-px-none q-px-lg-lg q-pb-lg">
           <div class="col">
             <div class="text-h6 text-weight-bold q-mb-md">切換登入權限</div>
             <div class="column">

@@ -28,20 +28,76 @@
         <div class="q-mx-md text-h5 text-weight-regular q-mb-sm">舒適材質、貼心機能、精心設計</div>
         <div class="q-mx-md text-h5 text-weight-regular">給你精心設計的穿搭體驗</div>
       </div>
+      <!-- <div class="row">
+        <div class="col q-mt-md q-mb-sm">
+          <q-card bordered flat class="row  items-center q-pa-lg">
+            <div class="q-mx-md text-h6">所有商品</div>
+          </q-card>
+        </div>
+      </div> -->
+    </section>
+    <!-- <section class="container">
+      <div class="row">
+        <div class="col-6 col-sm-4 col-2-4 " v-for='product in products' :key='product._id'>
+          <ProductCard :product='product' />
+        </div>
+      </div>
+    </section> -->
+    <section class="container">
       <div class="row">
         <div class="col q-mt-md q-mb-sm">
           <q-card bordered flat class="row  items-center q-pa-lg">
             <div class="q-mx-md text-h6">所有商品</div>
-            <!-- <div class="q-mx-md text-h6">長褲</div>
-            <div class="q-mx-md text-h6">牛仔褲</div>
-            <div class="q-mx-md text-h6">長裙</div> -->
           </q-card>
         </div>
       </div>
+      <div class="row">
+        <div class="col-6 col-sm-4 col-2-4 " v-for='product in typeProductsOne' :key='product._id'>
+          <ProductCard :product='product' />
+        </div>
+      </div>
     </section>
+
     <section class="container">
       <div class="row">
-        <div class="col-6 col-sm-4 col-2-4 " v-for='product in products' :key='product._id'>
+        <div class="col q-mt-md q-mb-sm">
+          <q-card bordered flat class="row  items-center q-pa-lg">
+            <div class="q-mx-md text-h6">短版</div>
+          </q-card>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 col-sm-4 col-2-4 " v-for='product in typeProductsTwo' :key='product._id'>
+          <ProductCard :product='product' />
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="row">
+        <div class="col q-mt-md q-mb-sm">
+          <q-card bordered flat class="row  items-center q-pa-lg">
+            <div class="q-mx-md text-h6">5分袖</div>
+          </q-card>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 col-sm-4 col-2-4 " v-for='product in typeProductsThree' :key='product._id'>
+          <ProductCard :product='product' />
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="row">
+        <div class="col q-mt-md q-mb-sm">
+          <q-card bordered flat class="row  items-center q-pa-lg">
+            <div class="q-mx-md text-h6">長袖</div>
+          </q-card>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 col-sm-4 col-2-4 " v-for='product in typeProductsFour' :key='product._id'>
           <ProductCard :product='product' />
         </div>
       </div>
@@ -60,6 +116,15 @@ const slide = ref(1)
 
 const products = reactive([])
 
+const typeProductsOne = reactive([])
+const typeProductsTwo = reactive([])
+const typeProductsThree = reactive([])
+const typeProductsFour = reactive([])
+
+const form = reactive({
+  classify: ''
+})
+
 const init = async () => {
   try {
     const { data } = await api.get('/products')
@@ -72,5 +137,66 @@ const init = async () => {
     })
   }
 }
+
+const allInit = async () => {
+  try {
+    form.classify = '女裝'
+    const { data } = await api.post('/products/genre/', form)
+    typeProductsOne.push(...data.result)
+    twoInit()
+  } catch (error) {
+    Swal.fire({
+      icon: 'error',
+      title: '失敗',
+      text: '女裝分類抓取錯誤'
+    })
+  }
+}
+
+const twoInit = async () => {
+  try {
+    form.classify = '短版'
+    const { data } = await api.post('/products/genre/', form)
+    typeProductsTwo.push(...data.result)
+    threeInit()
+  } catch (error) {
+    Swal.fire({
+      icon: 'error',
+      title: '失敗',
+      text: '女裝分類抓取錯誤'
+    })
+  }
+}
+
+const threeInit = async () => {
+  try {
+    form.classify = '5分袖'
+    const { data } = await api.post('/products/genre/', form)
+    typeProductsThree.push(...data.result)
+    fourInit()
+  } catch (error) {
+    Swal.fire({
+      icon: 'error',
+      title: '失敗',
+      text: '女裝分類抓取錯誤'
+    })
+  }
+}
+
+const fourInit = async () => {
+  try {
+    form.classify = '長袖'
+    const { data } = await api.post('/products/genre/', form)
+    typeProductsFour.push(...data.result)
+  } catch (error) {
+    Swal.fire({
+      icon: 'error',
+      title: '失敗',
+      text: '女裝分類抓取錯誤'
+    })
+  }
+}
 init()
+allInit()
+
 </script>

@@ -43,7 +43,7 @@
             <q-card class="my-card" v-for="product in order.products" :key="product._id">
               <div class="row">
                 <q-img class="col-2" :src='product.product.image[0]' />
-                <div class="col-7 column q-ml-md">
+                <div class="col-7 column q-ml-xs q-ml-lg-md">
                   <div class="text-h6">{{ product.product.name }}</div>
                   <q-space />
                   <div class="text-subtitle1 text-weight-medium">商品顏色:{{ product.color }}</div>
