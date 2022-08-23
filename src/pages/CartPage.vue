@@ -96,8 +96,11 @@ const addPrice = computed(() => {
 })
 
 const deleteCart = async (idx) => {
+  // console.log('product:' + cart[idx].product._id)
+  // console.log('color:' + cart[idx].color)
+  // console.log('size:' + cart[idx].size)
   const result = await user.deleteCart({ product: cart[idx].product._id, color: cart[idx].color, size: cart[idx].size })
-  init()
+  // init()
 }
 
 const init = async () => {
@@ -105,7 +108,7 @@ const init = async () => {
     const { data } = await apiAuth.get('/users/cart')
     cart.splice(0, cart.length)
     cart.push(...data.result)
-    // console.log(cart)
+    console.log(cart)
   } catch (error) {
     console.log(error)
     Swal.fire({

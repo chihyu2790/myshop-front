@@ -129,6 +129,7 @@ export const useUserStore = defineStore({
     },
     async deleteCart (data) {
       try {
+        // console.log(data.product)
         await apiAuth.patch('/users/cartitems', data)
         return true
       } catch (error) {
