@@ -17,7 +17,7 @@
             <div class="text-subtitle1 q-my-lg">訂單管理</div>
           </router-link>
           <div class="text-subtitle1 q-my-lg">活動管理</div>
-          <div class="text-subtitle1 q-my-lg">登出</div>
+          <div class="text-subtitle1 q-my-lg" @click="logout">登出</div>
         </div>
         <div class="col-10">
           <div class="flex items-center text-center q-mb-lg">
@@ -43,8 +43,11 @@
 import { reactive } from 'vue'
 import Swal from 'sweetalert2'
 import { apiAuth } from '../../boot/axios'
-
+import { useUserStore } from '../../stores/example-store'
 const users = reactive([])
+const user = useUserStore()
+
+const { logout } = user
 
 const columns = [
   { name: 'account', align: 'left', label: 'account', field: 'account' },
