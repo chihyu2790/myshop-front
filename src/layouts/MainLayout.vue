@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr lff">
     <q-header bordered class="bg-white text-black ">
       <q-toolbar class="q-py-md container q-px-none">
-        <q-btn class="lt-lg" flat dense round icon="menu" aria-label="Menu" />
+        <q-btn class="lt-lg" flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
         <!-- @click="toggleLeftDrawer" -->
         <q-avatar class="gt-md q-mr-md">
           <img src="https://source.boringavatars.com/beam/200/chih2790" alt="">
@@ -35,6 +35,9 @@
       </q-toolbar>
     </q-header>
 
+    <q-drawer v-model="leftDrawerOpen" overlay bordered class="bg-white" show-if-above>
+      <q-btn class="q-py-md" flat icon="fa-solid fa-xmark" aria-label="Menu" color="dark" @click="toggleLeftDrawer" />
+    </q-drawer>
     <!-- <q-drawer
       v-model="leftDrawerOpen"
       show-if-above
@@ -114,7 +117,7 @@ import { useUserStore } from '../stores/example-store'
 const user = useUserStore()
 const { logout } = user
 const { isLogin, isAdmin, cart, isStaff } = storeToRefs(user)
-
+const leftDrawerOpen = ref(false)
 const text = ref('')
 
 const linksList = reactive([
@@ -162,7 +165,6 @@ const linksList = reactive([
     link: 'https://awesome.quasar.dev'
   }
 ])
-const leftDrawerOpen = ref(false)
 
 const toggleLeftDrawer = () => {
   leftDrawerOpen.value = !leftDrawerOpen.value

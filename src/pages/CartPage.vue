@@ -100,7 +100,7 @@ const deleteCart = async (idx) => {
   // console.log('color:' + cart[idx].color)
   // console.log('size:' + cart[idx].size)
   const result = await user.deleteCart({ product: cart[idx].product._id, color: cart[idx].color, size: cart[idx].size })
-  // init()
+  init()
 }
 
 const init = async () => {

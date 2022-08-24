@@ -28,9 +28,9 @@ a, a:hover, a:visited, a:link, a:active
 .container
     width: 95%
     margin: auto
-    @media (min-width: $breakpoint-sm) 
+    @media (min-width: $breakpoint-xs) 
         width: 90%
-    @media (min-width: $breakpoint-lg)
+    @media (min-width: $breakpoint-md)
         width: 70%
 
 .objectFit
@@ -140,7 +140,7 @@ a, a:hover, a:visited, a:link, a:active
     
 #indexPage .q-carousel
     height: 700px
-    @media (min-width: $breakpoint-lg)
+    @media (min-width: $breakpoint-sm)
         height: 800px
     .q-carousel__slide
         background-position: 50%
@@ -153,6 +153,12 @@ a, a:hover, a:visited, a:link, a:active
   -webkit-line-clamp: 1
   -webkit-box-orient: vertical
 
+.q-drawer-container
+    display: block
+    @media (min-width: $breakpoint-xs)
+        display: none
+    @media (min-width: $breakpoint-md)
+        display: block
 
 //------------------------ProductPage------------------------
 //------------------------ProductPage------------------------

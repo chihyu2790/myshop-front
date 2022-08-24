@@ -87,17 +87,105 @@
                 <q-input class="q-mb-lg" v-model='form.description' type="textarea" filled color="black" />
               </div>
               <div class="text-subtitle1 text-weight-medium q-mb-md">商品顏色{{ form.color }}</div>
-              <q-checkbox v-model="form.color" class="text-weight-medium" val="black" color="black" label="black" />
+              <div class=" row">
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1 text-body2" label="black"
+                  val="black" color="black" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" val="white" label="white"
+                  color="white" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" val="grey" label="grey"
+                  color="grey" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" val="grey-1"
+                  label="grey-1" color="grey-1" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" val="grey-8"
+                  label="grey-8" color="grey-8" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" val="grey-14"
+                  label="grey-14" color="grey-14" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1 text-caption
+" label="yellow-10" val="yellow-10" color="yellow-10" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="orange-3"
+                  val="orange-3" color="orange-3" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="orange-6"
+                  val="orange-6" color="orange-6" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="orange-11"
+                  val="orange-11" color="orange-11" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="brown-1"
+                  val="brown-1" color="brown-1" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="brown-2"
+                  val="brown-2" color="brown-2" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="brown-9"
+                  val="brown-9" color="brown-9" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="brown-12"
+                  val="brown-12" color="brown-12" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="brown" val="brown"
+                  color="brown" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="blue-grey-3"
+                  val="blue-grey-3" color="blue-grey-3" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="blue-grey-7"
+                  val="blue-grey-7" color="blue-grey-7" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="blue-2"
+                  val="blue-2" color="blue-2" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="blue-9"
+                  val="blue-9" color="blue-9" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="blue-11"
+                  val="blue-11" color="blue-11" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="blue-12"
+                  val="blue-12" color="blue-12" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="indigo-10"
+                  val="indigo-10" color="indigo-10" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="deep-purple-2"
+                  val="deep-purple-2" color="deep-purple-2" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="pink-7"
+                  val="pink-7" color="pink-7" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="pink-10"
+                  val="pink-10" color="pink-10" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="red-10"
+                  val="red-10" color="red-10" />
+              </div>
+              <!-- <q-checkbox v-model="form.color" class="text-weight-medium" val="black" color="black" label="black" />
               <q-checkbox v-model="form.color" class="text-weight-medium" val="white" color="white" label="white" />
               <q-checkbox v-model="form.color" class="text-weight-medium" val="grey" color="grey" label="grey" />
               <q-checkbox v-model="form.color" class="text-weight-medium" val="grey-1" color="grey-1" label="grey-1" />
               <q-checkbox v-model="form.color" class="text-weight-medium" val="grey-8" color="grey-8" label="grey-8" />
+              <q-checkbox v-model="form.color" class="text-weight-medium" val="grey-14" color="grey-14"
+                label="grey-14" />
               <q-checkbox v-model="form.color" class="text-weight-medium" val="yellow-10" color="yellow-10"
                 label="yellow-10" />
+              <q-checkbox v-model="form.color" class="text-weight-medium" val="orange-3" color="orange-3"
+                label="orange-3" />
+              <q-checkbox v-model="form.color" class="text-weight-medium" val="orange-6" color="orange-6"
+                label="orange-6" />
               <q-checkbox v-model="form.color" class="text-weight-medium" val="orange-11" color="orange-11"
                 label="orange-11" />
               <q-checkbox v-model="form.color" class="text-weight-medium" val="brown-1" color="brown-1"
                 label="brown-1" />
+              <q-checkbox v-model="form.color" class="text-weight-medium" val="brown-2" color="brown-2"
+                label="brown-2" />
               <q-checkbox v-model="form.color" class="text-weight-medium" val="brown-12" color="brown-12"
                 label="brown-12" />
               <q-checkbox v-model="form.color" class="text-weight-medium" val="brown" color="brown" label="brown" />
@@ -105,8 +193,12 @@
                 label="blue-grey-3" />
               <q-checkbox v-model="form.color" class="text-weight-medium" val="blue-grey-7" color="blue-grey-7"
                 label="blue-grey-7" />
+              <q-checkbox v-model="form.color" class="text-weight-medium" val="blue-2" color="blue-2" label="blue-2" />
+              <q-checkbox v-model="form.color" class="text-weight-medium" val="blue-9" color="blue-9" label="blue-9" />
               <q-checkbox v-model="form.color" class="text-weight-medium" val="blue-11" color="blue-11"
                 label="blue-11" />
+              <q-checkbox v-model="form.color" class="text-weight-medium" val="blue-12" color="blue-12"
+                label="blue-12" />
               <q-checkbox v-model="form.color" class="text-weight-medium" val="indigo-10" color="indigo-10"
                 label="indigo-10" />
               <q-checkbox v-model="form.color" class="text-weight-medium" val="deep-purple-2" color="deep-purple-2"
@@ -114,7 +206,7 @@
               <q-checkbox v-model="form.color" class="text-weight-medium " val="pink-7" color="pink-7" label="pink-7" />
               <q-checkbox v-model="form.color" class="text-weight-medium " val="pink-10" color="pink-10"
                 label="pink-10" />
-              <q-checkbox v-model="form.color" class="text-weight-medium " val="red-10" color="red-10" label="red-10" />
+              <q-checkbox v-model="form.color" class="text-weight-medium " val="red-10" color="red-10" label="red-10" /> -->
               <div class="text-subtitle1 text-weight-medium q-my-md">商品尺寸{{ form.size }}</div>
               <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="XXS" label="XXS" />
               <q-checkbox color="black" v-model="form.size" class="text-weight-medium" val="XS" label="XS" />

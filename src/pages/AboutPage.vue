@@ -65,7 +65,7 @@
                                 </q-img>
                             </div>
                             <div class="col-4 column justify-center q-pl-md">
-                                <div class="text-body1 ">Based on the concept of “THE LIFE
+                                <div class="text-body1 text-grey-6">Based on the concept of “THE LIFE
                                     FASHION” ,we expresses the
                                     idea of fashion life style and fun coordination, by adding personal touch into a
                                     wide range of chic garments and trendy accessories.</div>
