@@ -22,7 +22,26 @@
             </template>
           </q-input> -->
         <div>
-          <q-btn flat round color="black" icon="fa-solid fa-user" to='/login' size="sm" />
+          <q-btn v-if="isLogin" flat round no-icon-animation icon="fa-solid fa-user" size="sm" color="black">
+            <q-menu class="no-shadow border-all-black" square anchor="bottom end" self="top right" auto-close
+              :offset="[2, 4]">
+              <q-list>
+                <q-item color="black" clickable v-close-popup to="/login">
+                  <q-item-section>
+                    <q-item-label v-if="isAdmin">會員管理</q-item-label>
+                    <q-item-label v-else>個人檔案</q-item-label>
+                  </q-item-section>
+                </q-item>
+
+                <q-item clickable v-close-popup @click="logout">
+                  <q-item-section>
+                    <q-item-label>登出</q-item-label>
+                  </q-item-section>
+                </q-item>
+              </q-list>
+            </q-menu>
+          </q-btn>
+          <q-btn v-else flat round color="black" icon="fa-solid fa-user" to='/login' size="sm" />
           <!-- <q-btn flat round color="black" icon="fa-regular fa-heart" to='/like' size="sm"/> -->
           <q-btn v-if="!isAdmin && !isStaff" class="q-ml-sm" flat round color="black" icon="fa-solid fa-cart-shopping"
             to='/cart' size="sm" />
@@ -37,6 +56,15 @@
 
     <q-drawer v-model="leftDrawerOpen" overlay bordered class="bg-white" show-if-above>
       <q-btn class="q-py-md" flat icon="fa-solid fa-xmark" aria-label="Menu" color="dark" @click="toggleLeftDrawer" />
+      <q-list>
+        <EssentialLink v-for="link in essentialLinks" :key="link.title" :link="link" />
+      </q-list>
+      <q-separator inset />
+      <q-list class="q-mt-md">
+        <q-item clickable v-ripple>
+          <q-item-section class="text-body1 text-weight-regular" @click="logout">登出</q-item-section>
+        </q-item>
+      </q-list>
     </q-drawer>
     <!-- <q-drawer
       v-model="leftDrawerOpen"
@@ -123,48 +151,37 @@ const text = ref('')
 const linksList = reactive([
 
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
+    title: 'TOP',
+    // caption: 'quasar.dev',
+    // icon: 'school',
+    link: '/'
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
+    title: 'SHOP',
+    // caption: 'github.com/quasarframework',
+    // icon: 'code',
+    link: '/product'
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
+    title: 'STORE',
+    // caption: 'chat.quasar.dev',
+    // icon: 'chat',
+    link: '/store'
   },
   {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
+    title: 'ABOUT',
+    // caption: 'forum.quasar.dev',
+    // icon: 'record_voice_over',
+    link: '/about'
   },
   {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
+    title: 'STYLING',
+    // caption: '@quasarframework',
+    // icon: 'rss_feed',
+    link: '/styling'
   }
 ])
+const essentialLinks = ref(linksList)
 
 const toggleLeftDrawer = () => {
   leftDrawerOpen.value = !leftDrawerOpen.value

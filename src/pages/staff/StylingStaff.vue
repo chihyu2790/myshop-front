@@ -20,9 +20,9 @@
           </div>
           <div class="text-body1 q-mb-md">店員穿搭管理頁面</div>
           <q-card v-if='!openflag' flat bordered class="q-pa-md">
-            <div class="text-h5">穿搭詳細</div>
-            <q-separator class="q-my-md" />
-            <div class="text-h6 text-weight-medium ">穿搭資料</div>
+            <!-- <div class="text-h5">穿搭詳細</div>
+            <q-separator class="q-my-md" /> -->
+            <div class="text-h5 text-weight-medium ">穿搭資料</div>
             <q-separator class="q-my-md" />
 
             <q-form @submit.prevent='submitForm'>
@@ -41,10 +41,10 @@
                   </template>
                 </q-file>
                 <div class="text-subtitle1 text-weight-medium q-mb-lg">穿搭描述</div>
-                <q-input v-model="editinfo.description" class="q-mb-lg" type="textarea" filled color="black" />
+                <q-input v-model="editinfo.description" class="q-mb-xl" type="textarea" filled color="black" />
               </div>
               <div class="row items-center q-pr-md">
-                <div class="text-h6">商品資料</div>
+                <div class="text-h5">商品資料</div>
                 <q-space />
                 <q-icon name="fa-solid fa-plus" size="xs" class="pointer" @click='prompt = true' />
               </div>
@@ -70,7 +70,7 @@
           <q-card flat v-else>
             <q-separator class="q-mb-lg" />
             <div class="row">
-              <div class="col-3 q-pa-xs" v-for="(styling, idx) in stylingItems" :key="idx">
+              <div class="col-3 full-height q-pa-xs" v-for="(styling, idx) in stylingItems" :key="idx">
                 <q-img class="col-12" :src="styling.image" :ratio="4 / 5">
                   <div class="row absolute-top text-subtitle1 transparent-background">
                     <q-space />
@@ -91,13 +91,19 @@
                     <template v-slot:prepend>
                       <q-icon name="fa-solid fa-magnifying-glass" size="xs" />
                     </template>
+                    <template v-slot:append>
+                      <q-icon name="close" @click="search = ''" class="cursor-pointer" />
+                    </template>
                   </q-input>
                 </div>
                 <div class="row q-mt-xl">
-                  <q-card square flat class="row col-3 q-pa-xs" v-for="(item, idx) in filtereditems" :key="idx">
-                    <span class="col-12">{{ item.name }}</span>
-                    <q-img class="col-12" :src="item.image[0]" style="height: 180px; max-width: 150px" />
-                  </q-card>
+                  <div class=" col-3  q-pa-sm q-mb-md cursor-pointer" @click="search = item.name"
+                    v-for="(item, idx) in filtereditems" :key="idx">
+                    <q-card flat square class="column justify-between full-height">
+                      <div class="q-mb-xs">{{ item.name }}</div>
+                      <q-img :src="item.image[0]" :ratio="1" />
+                    </q-card>
+                  </div>
                 </div>
 
                 <div class="text-subtitle1 text-weight-medium q-my-lg">商品顏色</div>
@@ -205,6 +211,7 @@ const submitForm = async () => {
       title: '成功',
       text: '新增穿搭成功'
     })
+
     openflag.value = true
   } catch (error) {
     Swal.fire({

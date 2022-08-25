@@ -1,5 +1,5 @@
 <template>
-  <q-page>
+  <q-page class="q-mb-xxxl">
     <!-- tabs -->
     <!-- tabs -->
     <!-- tabs -->
@@ -44,8 +44,8 @@
             <div class="text-subtitle1 text-weight-bold">電子郵件信箱:</div>
             <div class="text-subtitle1 q-mb-md">{{ userinfo.email }}</div>
             <div class="q-my-xxl">
-              <q-btn outline class="q-py-sm q-px-xxl text-subtitle2 q-mr-md" label="登出" color="black" @click='logout' />
-              <q-btn label="修改" class="q-py-sm q-px-xxl text-subtitle2" unelevated color="black" @click='goEdit()' />
+              <!-- <q-btn outline class="q-py-sm q-px-xxl text-subtitle2 q-mr-md" label="登出" color="black" @click='logout' /> -->
+              <q-btn label="修改使用者資料" class="q-py-sm q-px-lg text-subtitle2" outline color="black" @click='goEdit()' />
             </div>
           </q-card>
           <q-card flat bordered v-else class="col-3 row q-pa-md">

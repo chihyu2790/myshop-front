@@ -1,49 +1,45 @@
 <template>
-  <q-item
-    clickable
-    tag="a"
-    target="_blank"
-    :href="link"
-  >
-    <q-item-section
-      v-if="icon"
-      avatar
-    >
+  <q-item clickable tag="a" exact active-class="my-menu-link" :to="link.link">
+    <!-- <q-item-section v-if="icon" avatar>
       <q-icon :name="icon" />
-    </q-item-section>
+    </q-item-section> -->
 
     <q-item-section>
-      <q-item-label>{{ title }}</q-item-label>
-      <q-item-label caption>{{ caption }}</q-item-label>
+      <q-item-label>{{ link.title }}</q-item-label>
+      <!-- <q-item-label caption>{{ caption }}</q-item-label> -->
     </q-item-section>
   </q-item>
 </template>
 
-<script set>
-import { defineComponent } from 'vue'
+<script setup>
 
-export default defineComponent({
-  name: 'EssentialLink',
-  props: {
-    title: {
-      type: String,
-      required: true
-    },
+defineProps([
+  'link'
+])
+// import { defineComponent } from 'vue'
 
-    caption: {
-      type: String,
-      default: ''
-    },
+// export default defineComponent({
+//   name: 'EssentialLink',
+//   props: {
+//     title: {
+//       type: String,
+//       required: true
+//     },
 
-    link: {
-      type: String,
-      default: '#'
-    },
+//     caption: {
+//       type: String,
+//       default: ''
+//     },
 
-    icon: {
-      type: String,
-      default: ''
-    }
-  }
-})
+//     link: {
+//       type: String,
+//       default: '#'
+//     },
+
+//     icon: {
+//       type: String,
+//       default: ''
+//     }
+//   }
+// })
 </script>

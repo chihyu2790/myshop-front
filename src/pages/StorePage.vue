@@ -1,5 +1,5 @@
 <template>
-  <q-page>
+  <q-page class="q-mb-xxxl">
     <div class="row lt-lg justify-center border-black bg-grey-2 q-py-xs">
       <q-tabs indicator-color="red" shrink>
         <q-route-tab exact name='/about' to='/about' label="關於我們" />
@@ -8,7 +8,7 @@
       </q-tabs>
     </div>
     <section class="container">
-      <div class="row q-mt-none q-mt-lg-xl">
+      <div class="row q-mt-none q-mt-lg-xl ">
         <div class="col-12 gt-md col-lg-2">
           <router-link :to="'/about'">
             <div class="text-subtitle1 q-my-lg q-pr-md">關於我們</div>

@@ -1,5 +1,5 @@
 <template>
-  <q-page>
+  <q-page class="q-mb-xxxl">
     <section class="container">
       <div class="q-mt-xxl">
         <div class="text-h4 text-weight-bold">STYLING BOOK</div>

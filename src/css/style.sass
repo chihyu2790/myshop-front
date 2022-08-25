@@ -9,11 +9,22 @@
 
 a, a:hover, a:visited, a:link, a:active
     text-decoration: none
-    color:#000
+    color:#000 
     outline: none
 
+.q-menu
+    a, a:hover, a:visited, a:link, a:active
+        text-decoration: none
+        color:#000 !important
+        outline: none
+
 .text-shadow
-    text-shadow: 0px 0px 3px rgb(0 0 0 / 80%)
+    text-shadow: 0px 0px 1px rgb(0 0 0 / 100%), 0px 0px 3px rgb(0 0 0 / 60%),0px 0px 15px rgb(0 0 0 / 20%)
+    // text-shadow: 0px 0px 1px rgb(0 0 0 / 100%)
+    // text-shadow: 0px 0px 2px rgb(0 0 0 / 100%)
+    // text-shadow: 0px 0px 3px rgb(0 0 0 / 80%)
+    // text-shadow: 0px 0px 3px rgb(0 0 0 / 80%)
+    // text-shadow: 0px 0px 5px rgb(0 0 0 / 80%)
     
 
 .absolute-center-left1
@@ -21,6 +32,9 @@ a, a:hover, a:visited, a:link, a:active
     top: 50%
     left: 70%
     transform: translate(-50%, -50%)
+
+.height-auto
+    height: auto
 
 .pointer
     cursor: pointer
@@ -86,6 +100,10 @@ a, a:hover, a:visited, a:link, a:active
 .border-black
     border-bottom: 1px solid rgba(0, 0, 0, 0.12)
 
+.border-all-black
+    border:1px solid rgba(0, 0, 0, 0.12)
+
+
 .border-white
     border: 1px solid rgba(255, 255, 255, 1)
 
@@ -134,10 +152,20 @@ a, a:hover, a:visited, a:link, a:active
     -webkit-line-clamp: 3
     -webkit-box-orient: vertical
 
+//------------------------MainLayout------------------------
+
+.my-menu-link 
+    // color: white
+    background: $grey-4
+
 //------------------------indexPage------------------------
 //------------------------indexPage------------------------
 //------------------------indexPage------------------------
-    
+
+.black-bg
+    // background: rgba(0,0 ,0 ,0.3 )
+    padding: 1rem
+
 #indexPage .q-carousel
     height: 700px
     @media (min-width: $breakpoint-xs)
@@ -154,11 +182,11 @@ a, a:hover, a:visited, a:link, a:active
     -webkit-box-orient: vertical
 
 .q-drawer-container
-    display: block
+    
     @media (min-width: $breakpoint-xs)
-        display: none
-    @media (min-width: $breakpoint-md)
         display: block
+    @media (min-width: $breakpoint-md)
+        display: none
 
 //------------------------ProductPage------------------------
 //------------------------ProductPage------------------------

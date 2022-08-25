@@ -1,10 +1,10 @@
 <template>
-  <q-page>
+  <q-page class="q-mb-xxxl">
     <section class="container">
       <div class="row">
         <div class="col">
           <q-form @submit="checkout">
-            <q-card flat class="q-my-sm q-my-lg-xl ">
+            <q-card flat class="q-mt-sm q-mt-lg-xl ">
               <div class="text-h4 text-weight-medium">訂單資訊</div>
 
               <q-separator class="q-my-md" />

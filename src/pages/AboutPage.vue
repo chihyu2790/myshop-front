@@ -1,5 +1,5 @@
 <template>
-    <q-page>
+    <q-page class="q-mb-xxxl">
         <!-- tabs -->
         <!-- tabs -->
         <!-- tabs -->
@@ -41,12 +41,12 @@
                             <div class=" text-h4 text-weight-regular q-mt-sm">品牌介紹</div>
                             <q-separator class="q-my-lg" />
                             <div class="q-px-xl">
-                                <div class="text-h5 q-px-xl text-left q-mb-lg">
+                                <div class="text-h6 q-px-xl text-weight-regular text-left q-mb-lg">
                                     提供人在生活中加上「STYLE」，創造出屬於自己風格的一種幸福感。</div>
-                                <div class="text-h5 q-px-xl text-left q-mb-lg">來自日本服飾集團旗下的品牌。以「THE
+                                <div class="text-h6 q-px-xl text-weight-regular text-left q-mb-lg">來自日本服飾集團旗下的品牌。以「THE
                                     LIFE
                                     FASHION」為概念，融合日常元素的簡約風格設計，提供適合各種場合的穿搭提案，滿足對時尚敏感的你。</div>
-                                <div class="text-h5 q-px-xl text-left q-mb-xl">
+                                <div class="text-h6 q-px-xl text-weight-regular text-left q-mb-xl">
                                     在日常與時尚「相遇」，和自己的生活「互相結合」，每一刻都能享受時尚，愉快地挑選舒適且極具巧思的穿搭。</div>
                             </div>
                         </div>
@@ -75,11 +75,12 @@
                             <div class=" text-h4 text-weight-regular q-mt-md">品牌介紹</div>
                             <div class="q-px-xl">
                                 <q-separator class="q-my-lg" />
-                                <div class="text-h5 q-px-xl text-left q-mb-lg ">
+                                <div class="text-h6 q-px-xl text-weight-regular text-left q-mb-lg ">
                                     強調在休閒舒適的格局中，以平價商品為中心，將日常生活中的衣服，加上流行元素，以基本剪裁為重點要件。
                                 </div>
-                                <div class="text-h5 q-px-xl text-left q-mb-lg">推出適時合宜的服飾，在時尚與價格中提供顧客最符合當今潮流的時尚穿搭。</div>
-                                <div class="text-h5 q-px-xl text-left q-mb-xl">
+                                <div class="text-h6 q-px-xl text-weight-regular text-left q-mb-lg">
+                                    推出適時合宜的服飾，在時尚與價格中提供顧客最符合當今潮流的時尚穿搭。</div>
+                                <div class="text-h6 q-px-xl text-weight-regular text-left q-mb-xl">
                                     我們所秉持的理念在於流行不僅屬於某一部份族群，而是要推廣到大眾的日常生活中，從時尚和自我創造的過程裡，獲得更大的滿足與快樂。</div>
                             </div>
                         </div>

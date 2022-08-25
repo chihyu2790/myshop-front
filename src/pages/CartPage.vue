@@ -1,11 +1,11 @@
 <template>
-  <q-page>
+  <q-page class="q-mb-xxxl">
     <section class="container">
       <div class="row q-mb-lg-xl">
         <div class="col-12">
           <q-img src="https://i.imgur.com/hFiccGF.jpg" class="pointer object-top" :ratio="7 / 1">
           </q-img>
-          <div class="text-h5 text-weight-medium q-my-md">購物車</div>
+          <div class="text-h4 text-weight-medium q-my-md">購物車</div>
           <q-separator class="q-my-sm" />
         </div>
         <div class="col-12 col-lg-8 q-pr-none q-pr-lg-md">
@@ -108,7 +108,7 @@ const init = async () => {
     const { data } = await apiAuth.get('/users/cart')
     cart.splice(0, cart.length)
     cart.push(...data.result)
-    console.log(cart)
+    // console.log(cart)
   } catch (error) {
     console.log(error)
     Swal.fire({

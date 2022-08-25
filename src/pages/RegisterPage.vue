@@ -1,9 +1,9 @@
 <template>
   <q-page>
     <section class="container">
-      <div class="row q-mt-xl">
-        <div class="col-6">
-          <q-card class="q-px-lg q-pb-lg" style="height: 650px" flat>
+      <div class="row q-mt-xl justify-center">
+        <div class="col-12 col-lg-6">
+          <q-card class="q-px-none q-px-lg-lg q-pb-lg" style="height: 650px" flat>
             <div class="text-h4 text-weight-bold q-mb-xl">會員註冊</div>
             <q-form @submit="register" class="q-gutter-md">
               <div class="text-body1">電子郵件信箱 <span class="bg-red text-white">*必填*</span></div>

@@ -38,6 +38,8 @@ export default route(function (/* { store, ssrContext } */) {
       next('/admin/user')
     } else if (user.isLogin && user.isStaff && (to.path === '/register' || to.path === '/login')) {
       next('/staff')
+    } else if (!user.isLogin && (to.path === '/cart')) {
+      next('/login')
     } else if (to.meta.login && !user.isLogin) {
       next('/login')
     } else if (to.meta.admin && !user.isAdmin) {

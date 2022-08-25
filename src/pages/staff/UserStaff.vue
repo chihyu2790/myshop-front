@@ -10,6 +10,7 @@
           <router-link :to="'/staff/styling'">
             <div class="text-subtitle1 q-my-lg">穿搭管理</div>
           </router-link>
+          <div class="text-subtitle1 q-my-lg pointer" @click="logout">登出</div>
         </div>
         <div class="col-10">
           <div class="flex items-center text-center q-mb-lg">
@@ -92,7 +93,7 @@ import { apiAuth } from '../../boot/axios'
 import { useUserStore } from '../../stores/example-store'
 
 const user = useUserStore()
-
+const { logout } = user
 const openflag = ref(true)
 
 const stores = reactive([])

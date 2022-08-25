@@ -1,13 +1,13 @@
 <template>
-  <q-page id="indexPage">
+  <q-page id="indexPage" class="q-mb-xxxl">
     <!-- -----------------------carousel----------------------- -->
     <section>
       <div class=" q-pa-0 ">
         <q-carousel animated v-model="slide" arrows navigation infinite>
 
           <q-carousel-slide :name="1" img-src="https://i.imgur.com/Xkp5ekZ.jpg" class="relative-position">
-            <div class="absolute-center text-white column items-center justify-center text-shadow ">
-              <q-btn unelevated outline class="q-mt-xl q-mb-lg" label="NEW" padding="xs xl" />
+            <div class="black-bg absolute-center text-white column items-center justify-center text-shadow ">
+              <q-btn unelevated outline class=" q-mb-lg" label="NEW" padding="xs xl" />
               <div class="text-h4 text-weight-medium ">SHOP OPEN</div>
               <div class="text-h4 text-weight-regular q-mb-sm">8.30</div>
               <div class="text-h5 text-weight-regular q-mb-lg">誠品生活南西 1F</div>
@@ -15,7 +15,7 @@
             </div>
           </q-carousel-slide>
           <q-carousel-slide :name="2" img-src="https://i.imgur.com/IOJCYl3.jpg" class="relative-position">
-            <div class="absolute-center text-white column items-center justify-center text-shadow ">
+            <div class="black-bg absolute-center text-white column items-center justify-center text-shadow ">
               <q-btn unelevated outline label="NEW" padding="xs xl" />
               <div class="text-h4 text-weight-medium q-my-md">多層次穿搭</div>
               <div class="text-h6 text-weight-regular ">襯衫與外套新登場</div>
@@ -24,7 +24,7 @@
             </div>
           </q-carousel-slide>
           <q-carousel-slide :name="3" img-src="https://i.imgur.com/jLrO7h0.jpg" class="relative-position">
-            <div class="absolute-center text-white column items-center justify-center text-shadow ">
+            <div class="black-bg absolute-center text-white column items-center justify-center text-shadow ">
               <div class="text-h5 text-weight-medium">FREE STYLING</div>
               <q-btn unelevated outline class="q-my-md" label="NEW" padding="xs xl" />
               <div class="text-h4 text-weight-medium q-my-sm">#輕便褲</div>
@@ -34,7 +34,7 @@
           </q-carousel-slide>
           <!-- <q-carousel-slide :name="3" img-src="https://i.imgur.com/gcgnMO3.jpg" /> -->
           <q-carousel-slide :name="4" img-src="https://i.imgur.com/gcgnMO3.jpg" class="relative-position">
-            <div class="absolute-center text-white column items-center justify-center text-shadow ">
+            <div class="black-bg absolute-center text-white column items-center justify-center text-shadow ">
               <q-btn unelevated outline class="q-mt-xl q-mb-lg" label="NEW" padding="xs xl" />
               <div class="text-h5 text-weight-medium ">極致講究的系列服飾，</div>
               <div class="text-h5 text-weight-regular q-my-xs">舒適材質、貼心機能、精心設計</div>

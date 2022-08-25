@@ -1,5 +1,5 @@
 <template>
-  <q-page id="productPage">
+  <q-page id="productPage" class="q-mb-xxxl">
     <section class="container">
       <div class="q-pa-0">
         <q-carousel animated v-model="slide" arrows navigation infinite>
@@ -45,10 +45,8 @@
     </section> -->
     <section class="container">
       <div class="row">
-        <div class="col q-mt-md q-mb-sm">
-          <q-card bordered flat class="row  items-center q-pa-lg">
-            <div class="q-mx-md text-h6">所有商品</div>
-          </q-card>
+        <div class="col q-mt-md q-mb-lg">
+          <div class="q-mx-md text-h4 text-weight-medium">所有商品</div>
         </div>
       </div>
       <div class="row">
@@ -61,9 +59,12 @@
     <section class="container">
       <div class="row">
         <div class="col q-mt-md q-mb-sm">
-          <q-card bordered flat class="row  items-center q-pa-lg">
+          <!-- <q-card bordered flat class="row  items-center q-pa-lg">
             <div class="q-mx-md text-h6">短版</div>
-          </q-card>
+          </q-card> -->
+          <div class="col q-mt-md q-mb-lg">
+            <div class="q-mx-md text-h4 text-weight-medium">短版</div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -76,9 +77,12 @@
     <section class="container">
       <div class="row">
         <div class="col q-mt-md q-mb-sm">
-          <q-card bordered flat class="row  items-center q-pa-lg">
+          <!-- <q-card bordered flat class="row  items-center q-pa-lg">
             <div class="q-mx-md text-h6">5分袖</div>
-          </q-card>
+          </q-card> -->
+          <div class="col q-mt-md q-mb-lg">
+            <div class="q-mx-md text-h4 text-weight-medium">5分袖</div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -91,9 +95,12 @@
     <section class="container">
       <div class="row">
         <div class="col q-mt-md q-mb-sm">
-          <q-card bordered flat class="row  items-center q-pa-lg">
+          <!-- <q-card bordered flat class="row  items-center q-pa-lg">
             <div class="q-mx-md text-h6">長袖</div>
-          </q-card>
+          </q-card> -->
+          <div class="col q-mt-md q-mb-lg">
+            <div class="q-mx-md text-h4 text-weight-medium">長袖</div>
+          </div>
         </div>
       </div>
       <div class="row">

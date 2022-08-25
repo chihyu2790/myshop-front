@@ -52,7 +52,10 @@ export const useUserStore = defineStore({
         Swal.fire({
           icon: 'success',
           title: '成功',
-          text: '登入成功'
+          text: '登入成功',
+          padding: '0 0 50px 0',
+          showConfirmButton: false,
+          timer: 1500
         })
         if (this.role === 0) {
           this.router.push('/')
@@ -66,6 +69,7 @@ export const useUserStore = defineStore({
       } catch (error) {
         Swal.fire({
           icon: 'error',
+          // confirmButtonColor: '#f44336',
           title: '失敗',
           text: (error.isAxiosError && error.response.data) ? error.response.data.message : '發生錯誤'
         })

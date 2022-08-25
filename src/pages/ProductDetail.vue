@@ -70,7 +70,7 @@
             <div class="text-h6">關於商品</div>
           </q-card>
         </div>
-        <div class="col-12 col-lg-7">
+        <div class="col-12 col-lg-10">
           <div class="text-body1">{{ product.description }}</div>
         </div>
         <div class="col-12">
