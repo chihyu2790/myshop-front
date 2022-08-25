@@ -69,7 +69,7 @@ const register = async () => {
       title: '成功',
       text: '註冊成功'
     })
-    router.push('/about')
+    router.push('/login')
   } catch (error) {
     Swal.fire({
       icon: 'error',

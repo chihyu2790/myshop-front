@@ -186,6 +186,7 @@ const deletee = async (orderid) => {
       title: '成功',
       text: '刪除成功'
     })
+    init()
   } catch (error) {
     Swal.fire({
       icon: 'error',
@@ -239,7 +240,7 @@ const submitForm = async () => {
       title: '成功',
       text: '編輯成功'
     })
-
+    init()
     form.dialog = false
   } catch (error) {
     Swal.fire({
@@ -254,6 +255,7 @@ const submitForm = async () => {
 const init = async () => {
   try {
     const { data } = await apiAuth.get('/orders/all')
+    orders.splice(0, orders.length)
     orders.push(...data.result.map(order => {
       order.totalPrice = order.products.reduce((a, b) => {
         return a + b.product.price * b.quantity

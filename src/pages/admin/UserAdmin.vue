@@ -65,6 +65,7 @@ const deletee = async (userid) => {
       title: '成功',
       text: '刪除成功'
     })
+    init()
   } catch (error) {
     Swal.fire({
       icon: 'error',
@@ -77,6 +78,7 @@ const deletee = async (userid) => {
 const init = async () => {
   try {
     const { data } = await apiAuth.get('/users/all')
+    users.splice(0, users.length)
     users.push(...data.result)
   } catch (error) {
     Swal.fire({

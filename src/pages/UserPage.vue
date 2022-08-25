@@ -34,7 +34,8 @@
             <div class="text-subtitle1 text-weight-bold">名字:</div>
             <div class="text-subtitle1 q-mb-md">{{ userinfo.name }}</div>
             <div class="text-subtitle1 text-weight-bold">性別:</div>
-            <div class="text-subtitle1 q-mb-md">{{ userinfo.sex }}</div>
+            <div v-if="userinfo.sex == 0" class="text-subtitle1 q-mb-md">女</div>
+            <div v-else class="text-subtitle1 q-mb-md">男</div>
             <div class="text-subtitle1 text-weight-bold">生日:</div>
             <div class="text-subtitle1 q-mb-md">{{ new Date(userinfo.birthday).toLocaleDateString() }}</div>
             <div class="text-subtitle1 text-weight-bold">地址:</div>
