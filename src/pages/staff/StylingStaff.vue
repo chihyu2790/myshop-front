@@ -184,6 +184,9 @@ const submitCart = async () => {
 }
 
 const deleteCart = async () => {
+  editinfo.name = ''
+  editinfo.description = ''
+  editinfo.image = null
   openflag.value = true
   try {
     await apiAuth.patch('/staffs/delete')
@@ -211,7 +214,7 @@ const submitForm = async () => {
       title: '成功',
       text: '新增穿搭成功'
     })
-
+    initStyling()
     openflag.value = true
   } catch (error) {
     Swal.fire({

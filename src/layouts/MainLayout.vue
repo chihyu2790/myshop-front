@@ -5,7 +5,7 @@
         <q-btn class="lt-lg" flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
         <!-- @click="toggleLeftDrawer" -->
         <q-avatar class="gt-md q-mr-md">
-          <img src="https://source.boringavatars.com/beam/200/chih2790" alt="">
+          <img src="https://i.imgur.com/pFm9HbG.png" alt="">
         </q-avatar>
         <q-tabs class="gt-md" shrink indicator-color="red">
           <q-route-tab exact name='/' to='/' label="TOP" />

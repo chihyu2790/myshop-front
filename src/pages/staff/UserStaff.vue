@@ -27,7 +27,8 @@
             <div class="text-subtitle1 text-weight-bold">名字:</div>
             <div class="text-subtitle1 q-mb-md">{{ userinfo.name }}</div>
             <div class="text-subtitle1 text-weight-bold">性別:</div>
-            <div class="text-subtitle1 q-mb-md">{{ userinfo.sex }}</div>
+            <div v-if="userinfo.sex == 1" class="text-subtitle1 q-mb-md">男</div>
+            <div v-else class="text-subtitle1 q-mb-md">女</div>
             <div class="text-subtitle1 text-weight-bold">身高:</div>
             <div class="text-subtitle1 q-mb-md">{{ userinfo.height }}</div>
             <div class="text-subtitle1 q-mb-md text-weight-bold">大頭貼:</div>
@@ -44,12 +45,12 @@
               <div style="max-width: 400px">
                 <div class="text-subtitle1 text-weight-medium">名字:</div>
                 <q-input v-model="editinfo.name" :rules='[rules.required]' color="black" />
-                <div class="text-subtitle1 text-weight-medium">性別:</div>
+                <div class="text-subtitle1 text-weight-medium">性別:{{ editinfo.sex }}</div>
                 <div class="q-my-md">
-                  <q-radio class="text-weight-medium" v-model="editinfo.sex" val="1" label="男" color="black" />
-                  <q-radio class="text-weight-medium" v-model="editinfo.sex" val="0" label="女" color="black" />
+                  <q-radio class="text-weight-medium" v-model="editinfo.sex" :val=1 label="男" color="black" />
+                  <q-radio class="text-weight-medium" v-model="editinfo.sex" :val=0 label="女" color="black" />
                 </div>
-                <div class="text-subtitle1 text-weight-medium">身高:</div>
+                <div class="text-subtitle1 text-weight-medium">身高:{{ editinfo.height }}</div>
                 <q-input v-model.number="editinfo.height" :rules='[rules.required]' color="black" />
                 <div class="text-subtitle1 text-weight-medium q-mb-lg">大頭貼:{{ editinfo.avatar }}</div>
                 <q-file v-model='editinfo.avatar' :rules='[rules.size]' accept='image/*' filled bottom-slots counter>
@@ -63,11 +64,11 @@
                   <template v-slot:hint>
                   </template>
                 </q-file>
-                <div class="text-subtitle1 text-weight-medium q-mb-lg">自我介紹:</div>
+                <div class="text-subtitle1 text-weight-medium q-mb-lg">自我介紹:{{ editinfo.description }}</div>
                 <q-input v-model="editinfo.description" type="textarea" :rules='[rules.required]' filled
                   color="black" />
               </div>
-              <div class="text-subtitle1 text-weight-medium">店鋪位置:</div>
+              <div class="text-subtitle1 text-weight-medium">店鋪位置:{{ editinfo.stores }}</div>
               <div class="q-my-md">
                 <q-radio v-for="(store, idx) in stores" v-model="editinfo.stores" color="black" :val="store._id"
                   :label="store.name" :key="idx" />
@@ -128,17 +129,18 @@ const goEdit = () => {
   editinfo.name = userinfo.name
   editinfo.sex = userinfo.sex
   editinfo.height = userinfo.height
-  // editinfo.avatar = userinfo.avatar
-  editinfo.stores = userinfo.stores
+  editinfo.avatar = null
+  editinfo.stores = userinfo.stores._id
   editinfo.description = userinfo.description
 }
 
 const editForm = async () => {
-  console.log(editinfo)
+  // console.log(editinfo)
   const fd = new FormData()
 
   for (const key in editinfo) {
-    fd.append(key, editinfo[key])
+    if (key === 'image' && editinfo.avatar === null) continue
+    else fd.append(key, editinfo[key])
   }
 
   try {

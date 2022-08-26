@@ -241,7 +241,7 @@ const submitForm = async () => {
       text: '編輯成功'
     })
     init()
-    form.dialog = false
+    dialog.value = false
   } catch (error) {
     Swal.fire({
       icon: 'success',

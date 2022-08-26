@@ -50,7 +50,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-6 col-sm-4 col-2-4 " v-for='product in typeProductsOne' :key='product._id'>
+        <div class="col-6 col-sm-4 col-2-4 " v-for='product in products' :key='product._id'>
           <ProductCard :product='product' />
         </div>
       </div>

@@ -8,7 +8,7 @@ const routes = [
         name: 'home',
         component: () => import('pages/IndexPage.vue'),
         meta: {
-          title: 'home',
+          title: 'No name. | home',
           login: false,
           admin: false
         }
@@ -18,7 +18,7 @@ const routes = [
         name: 'login',
         component: () => import('pages/LoginPage.vue'),
         meta: {
-          title: 'login',
+          title: 'No name. | login',
           login: false,
           admin: false
         }
@@ -28,7 +28,7 @@ const routes = [
         name: 'adminlogin',
         component: () => import('pages/AdminLogin.vue'),
         meta: {
-          title: 'adminlogin',
+          title: 'No name. | adminlogin',
           login: false,
           admin: false
         }
@@ -38,7 +38,7 @@ const routes = [
         name: 'about',
         component: () => import('pages/AboutPage.vue'),
         meta: {
-          title: 'about',
+          title: 'No name. | about',
           login: false,
           admin: false
         }
@@ -49,7 +49,7 @@ const routes = [
         name: 'styling',
         component: () => import('pages/StylingPage.vue'),
         meta: {
-          title: 'styling',
+          title: 'No name. | styling',
           login: false,
           admin: false
         }
@@ -59,7 +59,7 @@ const routes = [
         name: 'styling-detail',
         component: () => import('pages/StylingDetail.vue'),
         meta: {
-          title: 'styling-detail',
+          title: 'No name. | styling-detail',
           login: false,
           admin: false
         }
@@ -69,7 +69,7 @@ const routes = [
         name: 'store',
         component: () => import('pages/StorePage.vue'),
         meta: {
-          title: 'store',
+          title: 'No name. | store',
           login: false,
           admin: false
         }
@@ -79,7 +79,7 @@ const routes = [
         name: 'cart',
         component: () => import('pages/CartPage.vue'),
         meta: {
-          title: 'cart',
+          title: 'No name. | cart',
           login: false,
           admin: false
         }
@@ -89,7 +89,7 @@ const routes = [
         name: 'like',
         component: () => import('pages/LikePage.vue'),
         meta: {
-          title: 'like',
+          title: 'No name. | like',
           login: false,
           admin: false
         }
@@ -99,7 +99,7 @@ const routes = [
         name: 'problem',
         component: () => import('pages/ProblemPage.vue'),
         meta: {
-          title: 'problem',
+          title: 'No name. | problem',
           login: false,
           admin: false
         }
@@ -109,7 +109,7 @@ const routes = [
         name: 'product',
         component: () => import('pages/ProductPage.vue'),
         meta: {
-          title: 'product',
+          title: 'No name. | product',
           login: false,
           admin: false
         }
@@ -119,7 +119,7 @@ const routes = [
         name: 'product-detail',
         component: () => import('pages/ProductDetail.vue'),
         meta: {
-          title: 'product-detail',
+          title: 'No name. | product-detail',
           login: false,
           admin: false
         }
@@ -129,7 +129,7 @@ const routes = [
         name: 'user',
         component: () => import('pages/UserPage.vue'),
         meta: {
-          title: 'user',
+          title: 'No name. | user',
           login: false,
           admin: false
         }
@@ -139,7 +139,7 @@ const routes = [
         name: 'banner',
         component: () => import('pages/BannerPage.vue'),
         meta: {
-          title: 'banner',
+          title: 'No name. | banner',
           login: false,
           admin: false
         }
@@ -149,7 +149,7 @@ const routes = [
         name: 'place',
         component: () => import('pages/PlacePage.vue'),
         meta: {
-          title: 'place',
+          title: 'No name. | place',
           login: false,
           admin: false
         }
@@ -159,7 +159,7 @@ const routes = [
         name: 'order',
         component: () => import('pages/OrderPage.vue'),
         meta: {
-          title: 'order',
+          title: 'No name. | order',
           login: false,
           admin: false
         }
@@ -169,7 +169,7 @@ const routes = [
         name: 'order-detail',
         component: () => import('pages/OrderDetail.vue'),
         meta: {
-          title: 'order-detail',
+          title: 'No name. | order-detail',
           login: false,
           admin: false
         }
@@ -179,7 +179,7 @@ const routes = [
         name: 'test',
         component: () => import('pages/TestPage.vue'),
         meta: {
-          title: 'test',
+          title: 'No name. | test',
           login: false,
           admin: false
         }
@@ -195,7 +195,7 @@ const routes = [
         name: 'admin-home',
         component: () => import('pages/IndexPage.vue'),
         meta: {
-          title: 'admin-home',
+          title: 'No name. | admin-home',
           login: true,
           admin: true
         }
@@ -205,7 +205,7 @@ const routes = [
         name: 'admin-product',
         component: () => import('pages/admin/ProductAdmin.vue'),
         meta: {
-          title: 'admin-product',
+          title: 'No name. | admin-product',
           login: true,
           admin: true
         }
@@ -215,7 +215,7 @@ const routes = [
         name: 'admin-user',
         component: () => import('pages/admin/UserAdmin.vue'),
         meta: {
-          title: 'admin-user',
+          title: 'No name. | admin-user',
           login: true,
           admin: true
         }
@@ -225,7 +225,7 @@ const routes = [
         name: 'admin-order',
         component: () => import('pages/admin/OrderAdmin.vue'),
         meta: {
-          title: 'admin-order',
+          title: 'No name. | admin-order',
           login: true,
           admin: true
         }
@@ -235,7 +235,7 @@ const routes = [
         name: 'admin-store',
         component: () => import('pages/admin/StoreAdmin.vue'),
         meta: {
-          title: 'admin-store',
+          title: 'No name. | admin-store',
           login: true,
           admin: true
         }
@@ -252,7 +252,7 @@ const routes = [
         name: 'staff-home',
         component: () => import('pages/staff/UserStaff.vue'),
         meta: {
-          title: 'staff-home',
+          title: 'No name. | staff-home',
           login: true,
           staff: true,
           admin: false
@@ -263,7 +263,7 @@ const routes = [
         name: 'staff-styling',
         component: () => import('pages/staff/StylingStaff.vue'),
         meta: {
-          title: 'staff-styling',
+          title: 'No name. | staff-styling',
           login: true,
           staff: true,
           admin: false

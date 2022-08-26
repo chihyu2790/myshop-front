@@ -50,7 +50,7 @@
               <q-td :edit="edit">
                 <div class="column">
                   <q-btn class="q-mb-sm" @click='openDialog(edit.row._id, edit.rowIndex)' outline>修改</q-btn>
-                  <q-btn @click='updateCart(edit.row._id)' outline>下架</q-btn>
+                  <q-btn @click='takeDown(edit.row._id, edit.rowIndex)' outline>下架</q-btn>
                 </div>
               </q-td>
             </template>
@@ -119,6 +119,9 @@
                   unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="orange-11"
                   val="orange-11" color="orange-11" />
                 <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="deep-orange-4"
+                  val="deep-orange-4" color="deep-orange-4" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
                   unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="brown-1"
                   val="brown-1" color="brown-1" />
                 <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
@@ -166,6 +169,9 @@
                 <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
                   unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="red-10"
                   val="red-10" color="red-10" />
+                <q-checkbox v-model="form.color" checked-icon="fa-solid fa-circle-dot" keep-color dense
+                  unchecked-icon="fa-solid fa-circle" size="md" class="q-mr-sm q-mb-sm col-1" label="light-green-8"
+                  val="light-green-8" color="light-green-8" />
               </div>
               <!-- <q-checkbox v-model="form.color" class="text-weight-medium" val="black" color="black" label="black" />
               <q-checkbox v-model="form.color" class="text-weight-medium" val="white" color="white" label="white" />
@@ -290,7 +296,7 @@ const openDialog = (_id, idx) => {
   if (idx > -1) {
     form.name = rows[idx].name
     form.price = rows[idx].price
-    form.category = rows[idx].category
+    // form.category = rows[idx].category
     form.sell = rows[idx].sell
     form.description = rows[idx].description
     // form.category = rows[idx].category
@@ -319,6 +325,24 @@ const openDialog = (_id, idx) => {
   form.valid = false
   form.submitting = false
   form.classify.splice(0, form.classify.length)
+  console.log(form)
+}
+
+const takeDown = (_id, idx) => {
+  form._id = _id
+  form.name = rows[idx].name
+  form.price = rows[idx].price
+  form.sell = false
+  form.description = rows[idx].description
+  form.size = rows[idx].size
+  form.color = rows[idx].color
+  chips.value = rows[idx].classify.toString().replace(/,/g, ' ')
+  form.idx = idx
+  form.valid = false
+  form.submitting = false
+  form.classify.splice(0, form.classify.length)
+  console.log(form)
+  submitForm()
 }
 
 const submitForm = async () => {
