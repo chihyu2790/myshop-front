@@ -55,13 +55,25 @@
           </q-card>
         </div>
       </div>
-      <q-separator class="row q-my-xxxl" />
+      <q-separator class="row q-mt-xxxl q-mb-xxl" />
       <div class="row">
         <div class="col-12 flex justify-center q-mb-md">
-          <q-img src="https://i.imgur.com/BLwgTba.jpg" class="pointer object-top" :ratio="4 / 1" @click="toProduct()">
+          <q-img src="https://i.imgur.com/O6SIirE.jpg" class="gt-xs pointer object-top" :ratio="4 / 1"
+            @click="toProduct()">
             <div class="row absolute-bottom text-center ">
-              <div class="col-12 text-h6 q-mb-sm text-weight-light">職場百搭單品 日本同步刊載</div>
+              <div class="col-12 text-h6 q-mb-xs q-mb-lg-sm text-weight-light">職場百搭單品 日本同步刊載</div>
               <div class="col-12 text-h3">Freedom Styling 自由穿搭</div>
+            </div>
+          </q-img>
+          <q-img src="https://i.imgur.com/O6SIirE.jpg" class="lt-sm pointer object-top" :ratio="4 / 2"
+            @click="toProduct()">
+            <div
+              class="row absolute-full justify-center text-center content-center lt-sm transparent-background text-shadow">
+              <div class="col-12 text-h4 q-mb-none q-mb-lg-sm text-weight-bold">>職場百搭單品</div>
+              <div class="col-8">
+                <q-separator class=" q-my-xs bg-white" />
+              </div>
+              <div class="col-12 text-body2 ">Freedom Styling 自由穿搭</div>
             </div>
           </q-img>
         </div>

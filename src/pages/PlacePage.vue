@@ -12,21 +12,21 @@
               <div class="text-h5">取貨方式</div>
 
               <q-separator class="q-my-md" />
-              <div class="q-my-lg column">
+              <div class="q-my-xl column">
                 <q-radio v-model="form.getway" :val=0 label="7-11貨到府款" color="black" />
                 <q-radio v-model="form.getway" :val=1 label="宅配到府" color="black" />
               </div>
               <div class="text-h5">取貨人資訊</div>
               <q-separator class="q-my-md" />
-              <div style="max-width: 600px">
+              <div style="max-width: 600px" class="q-my-xl">
                 <div class="text-subtitle1 text-weight-medium">取貨人名字:</div>
-                <q-input v-model="form.getname" :rules='[rules.required]' color="black" />
+                <q-input class="q-mb-md" v-model="form.getname" :rules='[rules.required]' color="black" />
                 <div class="text-subtitle1 text-weight-medium">取貨人電話:</div>
-                <q-input v-model="form.getphone" :rules='[rules.required]' color="black" />
+                <q-input class="q-mb-md" v-model="form.getphone" :rules='[rules.required]' color="black" />
                 <div class="text-subtitle1 text-weight-medium">取貨人地址:</div>
-                <q-input v-model="form.getaddress" :rules='[rules.required]' color="black" />
+                <q-input class="q-mb-md" v-model="form.getaddress" :rules='[rules.required]' color="black" />
                 <div class="text-subtitle1 text-weight-medium">取貨人e-mail:</div>
-                <q-input class="q-mb-lg" v-model="form.getemail" :rules='[rules.required]' color="black" />
+                <q-input class="q-mb-md" v-model="form.getemail" :rules='[rules.required]' color="black" />
               </div>
               <div class="text-h5">商品資訊</div>
 
