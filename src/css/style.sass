@@ -67,13 +67,39 @@ a, a:hover, a:visited, a:link, a:active
 .q-my-xxl
     margin-top: 60px
     margin-bottom: 60px
-.q-mt-xxl
-    margin-top: 60px
+    
+.q-my-sm-xxl
+    @media (min-width: $breakpoint-xs)
+        margin-top: 60px
+        margin-bottom: 60px    
+
 .q-my-xxxl
     margin-top: 150px
-    margin-bottom: 150px 
+    margin-bottom: 150px
+
+.q-mt-xxl
+    margin-top: 60px    
+
+.q-mt-xxxl
+    margin-top: 150px 
+
+.q-mt-lg-xxxl
+    @media (min-width: $breakpoint-md)
+        margin-top: 150px
+
+.q-mb-xxl
+    margin-bottom: 60px
+
+.q-mb-lg-xxl
+    @media (min-width: $breakpoint-md)
+        margin-bottom: 60px
 .q-mb-xxxl
     margin-bottom: 150px 
+
+.q-mb-lg-xxxl
+    @media (min-width: $breakpoint-md)
+        margin-bottom: 150px
+
 .q-mb-xxxxl
     margin-bottom: 200px
 .q-ma-xxs
@@ -175,6 +201,26 @@ a, a:hover, a:visited, a:link, a:active
         @media (min-width: $breakpoint-md)
             background-position: unset
 
+#indexPage .q-carousel
+    #carousel-slide-1
+        background-position: 15%
+        @media (min-width: $breakpoint-xs)
+            background-position: -1.5%
+        @media (min-width: $breakpoint-md)
+            background-position: unset
+
+#indexPage .q-carousel
+    #carousel-slide-3
+        background-position: 10%
+        @media (min-width: $breakpoint-xs)
+            background-position: -1.5%
+        @media (min-width: $breakpoint-md)
+            background-position: unset
+
+#indexPage .q-carousel
+    #carousel-slide-4
+        background-position: 50%
+
 #indexPage .q-item__label
     overflow: hidden
     display: -webkit-box
@@ -200,6 +246,9 @@ a, a:hover, a:visited, a:link, a:active
         height: 600px
     // .q-carousel__slide
     //     background-position: unset
+
+#productPage .q-carousel #product-slide-4
+    padding: 0px
     
 //------------------------ProductDetail------------------------
 //------------------------ProductDetail------------------------

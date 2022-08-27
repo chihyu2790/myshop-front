@@ -90,40 +90,51 @@
       <router-view />
     </q-page-container>
 
-    <q-footer bordered class="bg-grey-1 text-black gt-md">
+    <!-- gt-md -->
+    <q-footer bordered class="bg-grey-1 text-black ">
       <!-- <q-toolbar>
         <q-toolbar-title>
           <div>Title</div>
         </q-toolbar-title>
       </q-toolbar> -->
       <section class="container">
-        <div class="row q-my-xxl">
-          <div class="col-3 ">
-            <div class="text-h5 q-mb-lg">關於我們</div>
+        <div class="row q-my-xl q-my-sm-xxl">
+          <div class="col-12 lt-sm">
+            <!-- <q-separator class="q-my-sm " /> -->
+            <q-icon class="q-mr-sm" name="fa-brands fa-instagram" size="md" color="grey-9
+" />
+            <q-icon class="q-mr-sm" name="fa-brands fa-twitter" size="md" color="grey-9
+" />
+            <q-icon class="q-mr-sm" name="fa-brands fa-facebook" size="md" color="grey-9
+" />
+            <q-separator class="q-my-md" />
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3 q-mb-none q-mb-sm-md">
+            <div class="text-h5 q-mb-lg gt-xs text-grey-9">關於我們</div>
 
             <div class="text-body1 text-weight-thin q-mb-sm">品牌故事</div>
             <div class="text-body1 text-weight-thin q-mb-sm">店鋪資訊</div>
             <div class="text-body1 text-weight-thin q-mb-sm">隱私權及網站使用條款</div>
           </div>
-          <div class="col-3">
-            <div class="text-h5 q-mb-lg">購物說明</div>
+          <div class="col-12 col-sm-6 col-lg-3 q-mb-none q-mb-sm-md">
+            <div class="text-h5 q-mb-lg gt-xs text-grey-9">購物說明</div>
             <div class="text-body1 text-weight-thin q-mb-sm">購物指南(購前聲明)</div>
             <div class="text-body1 text-weight-thin q-mb-sm">付款方式</div>
             <div class="text-body1 text-weight-thin q-mb-sm">售後服務說明</div>
             <div class="text-body1 text-weight-thin q-mb-sm">運送方式</div>
           </div>
-          <div class="col-3">
-            <div class="text-h5 q-mb-lg">客服資訊</div>
+          <div class="col-12 col-sm-6 col-lg-3 q-mb-none q-mb-sm-md">
+            <div class="text-h5 q-mb-lg gt-xs text-grey-9">客服資訊</div>
             <div class="text-body1 text-weight-thin q-mb-sm">常見問題</div>
             <div class="text-body1 text-weight-thin q-mb-sm">聯絡我們</div>
             <div class="text-body1 text-weight-thin q-mb-sm">防詐騙宣導</div>
             <div class="text-body1 text-weight-thin q-mb-sm">會員權益</div>
           </div>
-          <div class="col-3">
-            <div class="q-mb-lg">
-              <q-icon class="q-mr-sm" name="fa-brands fa-instagram" size="md" />
-              <q-icon class="q-mr-sm" name="fa-brands fa-twitter" size="md" />
-              <q-icon class="q-mr-sm" name="fa-brands fa-facebook" size="md" />
+          <div class="col-12 col-sm-6 col-lg-3 q-mb-none q-mb-sm-md">
+            <div class="q-mb-lg gt-xs">
+              <q-icon class="q-mr-sm" name="fa-brands fa-instagram" size="md" color="grey-9" />
+              <q-icon class="q-mr-sm" name="fa-brands fa-twitter" size="md" color="grey-9" />
+              <q-icon class="q-mr-sm" name="fa-brands fa-facebook" size="md" color="grey-9" />
             </div>
             <div class="text-body1 text-weight-thin q-mb-sm">客服電話 : 02-1234-5678</div>
             <div class="text-body1 text-weight-thin q-mb-sm">服務時間 : 週一至週五，09:30-18:00</div>

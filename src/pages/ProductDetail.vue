@@ -58,7 +58,7 @@
       <q-separator class="row q-my-xxxl" />
       <div class="row">
         <div class="col-12 flex justify-center q-mb-md">
-          <q-img src="https://i.imgur.com/hFiccGF.jpg" class="pointer object-top" :ratio="4 / 1" @click="toProduct()">
+          <q-img src="https://i.imgur.com/BLwgTba.jpg" class="pointer object-top" :ratio="4 / 1" @click="toProduct()">
             <div class="row absolute-bottom text-center ">
               <div class="col-12 text-h6 q-mb-sm text-weight-light">職場百搭單品 日本同步刊載</div>
               <div class="col-12 text-h3">Freedom Styling 自由穿搭</div>

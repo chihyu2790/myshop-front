@@ -1,5 +1,5 @@
 <template>
-  <q-page>
+  <q-page class="q-mb-xxxl">
     <section class="container">
       <div class="row q-mt-xl">
         <div class="col-2">
@@ -43,7 +43,7 @@
                 <div class="text-subtitle1 text-weight-medium q-mb-lg">穿搭描述</div>
                 <q-input v-model="editinfo.description" class="q-mb-xl" type="textarea" filled color="black" />
               </div>
-              <div class="row items-center q-pr-md">
+              <div class="row items-center q-pr-md ">
                 <div class="text-h5">商品資料</div>
                 <q-space />
                 <q-icon name="fa-solid fa-plus" size="xs" class="pointer" @click='prompt = true' />
@@ -60,7 +60,7 @@
                 </div>
               </div>
               <q-separator />
-              <div class="q-mt-xl">
+              <div class="q-my-xxl">
                 <q-btn outline class="q-py-sm q-px-xxl text-subtitle2 q-mr-md" color="black" label="取消"
                   @click="deleteCart()" />
                 <q-btn type='submit' unelevated color="black" class="q-py-sm q-px-xxl text-subtitle2" label="確定" />

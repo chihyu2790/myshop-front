@@ -1,5 +1,5 @@
 <template>
-  <q-page>
+  <q-page class="q-mb-xxl">
     <section class="container">
       <div class="row q-mt-sm q-mt-lg-xl">
         <div class="col-12 col-lg-6">

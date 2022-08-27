@@ -3,7 +3,7 @@
     <section class="container">
       <div class="row q-mb-lg-xl">
         <div class="col-12">
-          <q-img src="https://i.imgur.com/hFiccGF.jpg" class="pointer object-top" :ratio="7 / 1">
+          <q-img src="https://i.imgur.com/RPNU5Ou.jpg" class="pointer object-top" :ratio="7 / 1">
           </q-img>
           <div class="text-h4 text-weight-medium q-my-md">購物車</div>
           <q-separator class="q-my-sm" />

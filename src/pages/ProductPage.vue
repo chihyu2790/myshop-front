@@ -7,22 +7,33 @@
           <q-carousel-slide :name="2" img-src="https://i.imgur.com/Bu3DY18.png" />
           <q-carousel-slide :name="3" img-src="https://i.imgur.com/onIrrST.jpg" />
           <!-- <q-carousel-slide :name="4" img-src="https://i.imgur.com/jLrO7h0.jpg" /> -->
-          <q-carousel-slide :name="4" class="column no-wrap">
+          <q-carousel-slide id="product-slide-4" :name="4" class="column no-wrap">
             <div class="row fit justify-start items-center no-wrap">
-              <q-card class=" col-6 full-height row items-center justify-center q-pa-sm" flat bordered>
+              <q-card class="gt-xs col-6 full-height row items-center justify-center  q-pa-sm-md q-pa-lg-sm" flat
+                bordered>
                 <div>
                   <div class="text-h5 text-weight-bold">夏季新品推薦，讓您的穿搭更有層次</div>
                   <div class="text-body1 ">工作與日常都皆可自由搭配</div>
                 </div>
               </q-card>
-              <q-img class="img-unset col-6 full-height " src="https://i.imgur.com/U950qCi.jpg" />
+              <!-- <q-img class="col-12 img-unset col-sm-6 full-height " src="https://i.imgur.com/swt5GQc.jpg" /> -->
+              <q-img src="https://i.imgur.com/swt5GQc.jpg" class="col-12 img-unset col-sm-6 full-height ">
+                <div
+                  class="row absolute-full justify-center text-center content-center lt-sm transparent-background text-shadow">
+                  <div class="col-12 text-h4 q-mb-none q-mb-lg-sm text-weight-bold">夏季新品推薦</div>
+                  <div class="col-8">
+                    <q-separator class=" q-my-xs bg-white" />
+                  </div>
+                  <div class="col-12 text-body2 ">讓您的穿搭更有層次</div>
+                </div>
+              </q-img>
             </div>
           </q-carousel-slide>
         </q-carousel>
       </div>
     </section>
     <section class="container">
-      <div class="column q-my-xl items-center justify-center">
+      <div class="column q-my-xl items-center justify-center text-center">
 
         <div class="q-mx-md text-h2 text-weight-medium q-mb-lg">百搭服飾</div>
         <div class="q-mx-md text-h5 text-weight-regular q-mb-sm">舒適材質、貼心機能、精心設計</div>

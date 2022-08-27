@@ -1,5 +1,5 @@
 <template>
-  <q-page>
+  <q-page class="q-mb-xxxl">
     <section class="container">
       <div class="row q-mt-xl">
         <div class="col-2">
@@ -10,7 +10,7 @@
           <router-link :to="'/staff/styling'">
             <div class="text-subtitle1 q-my-lg">穿搭管理</div>
           </router-link>
-          <div class="text-subtitle1 q-my-lg pointer" @click="logout">登出</div>
+          <!-- <div class="text-subtitle1 q-my-lg pointer" @click="logout">登出</div> -->
         </div>
         <div class="col-10">
           <div class="flex items-center text-center q-mb-lg">
@@ -37,7 +37,7 @@
             <div class="text-subtitle1 q-mb-md">{{ userinfo.stores?.name }}</div>
             <div class="text-subtitle1 text-weight-bold">自我介紹:</div>
             <div class="text-subtitle1 q-mb-md">{{ userinfo.description }}</div>
-            <q-btn color="black" class="q-py-sm q-px-lg text-subtitle2 q-mt-xl" outline label="修改店員資料"
+            <q-btn color="black" class="q-py-sm q-px-lg text-subtitle2 q-my-xxl" outline label="修改店員資料"
               @click='goEdit()' />
           </q-card>
           <q-card v-else flat bordered class="q-pa-md">
