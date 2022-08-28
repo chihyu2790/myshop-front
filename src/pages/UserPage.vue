@@ -55,11 +55,11 @@
               <q-input v-model="editinfo.name" :rules='[rules.required]' color="black" />
               <div class="text-subtitle1 text-weight-medium">性別:</div>
               <div class="q-my-md">
-                <q-radio class="text-weight-medium" v-model="editinfo.sex" val="1" label="男" color="black" />
-                <q-radio class="text-weight-medium" v-model="editinfo.sex" val="0" label="女" color="black" />
+                <q-radio class="text-weight-medium" v-model="editinfo.sex" :val=1 label="男" color="black" />
+                <q-radio class="text-weight-medium" v-model="editinfo.sex" :val=0 label="女" color="black" />
               </div>
               <div class="text-subtitle1 text-weight-medium">生日:</div>
-              <q-input v-model="editinfo.birthday" :rules='[rules.required]' color="black" />
+              <q-input mask="date" v-model="editinfo.birthday" :rules='[rules.required]' color="black" />
               <div class="text-subtitle1 text-weight-medium">地址:</div>
               <q-input v-model="editinfo.address" :rules='[rules.required]' color="black" />
               <div class="text-subtitle1 text-weight-medium">手機:</div>

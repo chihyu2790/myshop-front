@@ -2,7 +2,7 @@
   <q-page id="productPage" class="q-mb-xxxl">
     <section class="container">
       <div class="q-pa-0">
-        <q-carousel animated v-model="slide" arrows navigation infinite>
+        <q-carousel animated v-model="slide" swipeable arrows navigation infinite>
           <q-carousel-slide :name="1" img-src="https://i.imgur.com/5eEHvYI.png" />
           <q-carousel-slide :name="2" img-src="https://i.imgur.com/Bu3DY18.png" />
           <q-carousel-slide :name="3" img-src="https://i.imgur.com/onIrrST.jpg" />

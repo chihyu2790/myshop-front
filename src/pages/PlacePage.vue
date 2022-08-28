@@ -20,13 +20,13 @@
               <q-separator class="q-my-md" />
               <div style="max-width: 600px" class="q-my-xl">
                 <div class="text-subtitle1 text-weight-medium">取貨人名字:</div>
-                <q-input class="q-mb-md" v-model="form.getname" :rules='[rules.required]' color="black" />
+                <q-input dense class="q-mb-lg" v-model="form.getname" :rules='[rules.required]' color="black" />
                 <div class="text-subtitle1 text-weight-medium">取貨人電話:</div>
-                <q-input class="q-mb-md" v-model="form.getphone" :rules='[rules.required]' color="black" />
+                <q-input dense class="q-mb-lg" v-model="form.getphone" :rules='[rules.required]' color="black" />
                 <div class="text-subtitle1 text-weight-medium">取貨人地址:</div>
-                <q-input class="q-mb-md" v-model="form.getaddress" :rules='[rules.required]' color="black" />
+                <q-input dense class="q-mb-lg" v-model="form.getaddress" :rules='[rules.required]' color="black" />
                 <div class="text-subtitle1 text-weight-medium">取貨人e-mail:</div>
-                <q-input class="q-mb-md" v-model="form.getemail" :rules='[rules.required]' color="black" />
+                <q-input dense class="q-mb-lg" v-model="form.getemail" :rules='[rules.required]' color="black" />
               </div>
               <div class="text-h5">商品資訊</div>
 

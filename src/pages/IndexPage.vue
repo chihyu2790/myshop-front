@@ -3,7 +3,7 @@
     <!-- -----------------------carousel----------------------- -->
     <section>
       <div class=" q-pa-0 ">
-        <q-carousel animated v-model="slide" arrows navigation infinite>
+        <q-carousel animated v-model="slide" swipeable arrows navigation infinite>
 
           <q-carousel-slide id="carousel-slide-1" :name="1" img-src="https://i.imgur.com/Xfp469X.jpg"
             class="relative-position cursor-pointer" @click="toStores()">
@@ -111,7 +111,11 @@
           <q-list>
             <q-item>
               <q-item-section>
-                <q-item-label>【APP 新會員折價券】首次下載 APP 並完成綁定網路會員綁定, 送$50折價券!</q-item-label>
+                <q-item-label>
+                  <router-link :to="'/problem'">
+                    【APP 新會員折價券】首次下載 APP 並完成綁定網路會員綁定, 送$50折價券!
+                  </router-link>
+                </q-item-label>
               </q-item-section>
 
               <q-item-section side>
@@ -123,7 +127,11 @@
 
             <q-item>
               <q-item-section>
-                <q-item-label>【網路商店】會員、訂單、退換貨相關問題</q-item-label>
+                <q-item-label>
+                  <router-link :to="'/problem'">
+                    【網路商店】會員、訂單、退換貨相關問題
+                  </router-link>
+                </q-item-label>
               </q-item-section>
 
               <q-item-section side>
@@ -135,7 +143,11 @@
 
             <q-item>
               <q-item-section>
-                <q-item-label>【網路商店】常見訂單狀態說明</q-item-label>
+                <q-item-label>
+                  <router-link :to="'/problem'">
+                    【網路商店】常見訂單狀態說明
+                  </router-link>
+                </q-item-label>
               </q-item-section>
 
               <q-item-section side>
@@ -150,7 +162,11 @@
           <q-list>
             <q-item>
               <q-item-section>
-                <q-item-label>【ORDER & PICK 新服務】線上訂購選擇實體店舖取貨，最快2小時取貨!!</q-item-label>
+                <q-item-label>
+                  <router-link :to="'/problem'">
+                    【ORDER & PICK 新服務】線上訂購選擇實體店舖取貨，最快2小時取貨!!
+                  </router-link>
+                </q-item-label>
               </q-item-section>
 
               <q-item-section side>
@@ -162,7 +178,11 @@
 
             <q-item>
               <q-item-section>
-                <q-item-label>【顧客服務問卷調查】</q-item-label>
+                <q-item-label>
+                  <router-link :to="'/problem'">
+                    【顧客服務問卷調查】
+                  </router-link>
+                </q-item-label>
               </q-item-section>
 
               <q-item-section side>
