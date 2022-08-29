@@ -65,6 +65,16 @@ const routes = [
         }
       },
       {
+        path: 'clerk/:id',
+        name: 'clerk-detail',
+        component: () => import('pages/clerkDetail.vue'),
+        meta: {
+          title: 'No name. | clerk-detail',
+          login: false,
+          admin: false
+        }
+      },
+      {
         path: 'store',
         name: 'store',
         component: () => import('pages/StorePage.vue'),
@@ -275,7 +285,18 @@ const routes = [
   // but you can also remove it
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue')
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        path: '',
+        name: '404',
+        component: () => import('pages/ErrorNotFound.vue'),
+        meta: {
+          title: 'No name. | 404',
+          login: false,
+          admin: false
+        }
+      }]
   }
 ]
 

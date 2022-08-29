@@ -118,11 +118,19 @@ export const useUserStore = defineStore({
         // console.log(data)
         const { data: resData } = await apiAuth.post('/users/cart', data)
         this.cart = resData.result
-        Swal.fire({
-          icon: 'success',
-          title: '成功',
-          text: '加入購物車成功'
-        })
+        if (this.role === 2) {
+          Swal.fire({
+            icon: 'success',
+            title: '成功',
+            text: '加入穿搭單品成功'
+          })
+        } else {
+          Swal.fire({
+            icon: 'success',
+            title: '成功',
+            text: '加入購物車成功'
+          })
+        }
       } catch (error) {
         Swal.fire({
           icon: 'error',

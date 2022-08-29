@@ -9,12 +9,12 @@
         <div class="q-ml-none q-ml-sm-md q-ml-lg-xl q-mt-lg q-mt-sm-xs col-12 col-sm">
           <div class="row">
             <q-avatar size="60px">
-              <img :src="userInfo.avatar">
+              <img :src="userInfo.avatar" class="cursor-pointer" @click="toStaff(userInfo._id)">
             </q-avatar>
             <div class="q-ml-md column justify-center">
               <div class="text-subtitle1 text-weight-bold">{{ userInfo.name }}</div>
               <div class=" row items-center text-center">
-                <div class="text-subtitle1 ">{{ userInfo.stores.name }}</div>
+                <div class="text-subtitle1 cursor-pointer" @click="toStore()">{{ userInfo.stores.name }}</div>
                 <q-icon class="q-ml-xs" name="fa-solid fa-angle-right" />
               </div>
             </div>
@@ -84,6 +84,14 @@ const toProduct = (productId) => {
   router.push('/product/' + productId)
 }
 
+const toStore = () => {
+  router.push('/store')
+}
+
+const toStaff = (clerkId) => {
+  router.push('/clerk/' + clerkId)
+}
+
 const init = async () => {
   try {
     const { data } = await api.get('/stylings/' + route.params.id)
@@ -124,6 +132,7 @@ const initStaff = async () => {
     router.go(-1)
   }
 }
+
 init()
 
 </script>

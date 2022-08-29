@@ -37,12 +37,13 @@
                             <q-btn outline style="color: black;" :label=order._id :to="'/order/' + order._id" />
                         </q-card-section>
                 </q-card> -->
-          <q-table :grid="$q.screen.md" flat bordered :rows="orders" :columns="columns" row-key="name"
+          <!-- :grid="$q.screen.xs" -->
+          <q-table flat bordered :grid="$q.screen.lt.lg" :rows="orders" :columns="columns" row-key="name"
             :pagination="pagination">
             <template #body-cell-date="date">
               <q-td :date="date">
-                {{ date.row.date }}
-                <!-- {{new Date(date.row.date).toLocaleDateString()}} -->
+                <!-- {{ date.row.date }} -->
+                {{ new Date(date.row.date).toLocaleDateString() }}
               </q-td>
             </template>
             <template #body-cell-totalPrice="totalPrice">
@@ -60,17 +61,17 @@
               </q-td>
             </template>
             <template v-slot:item="edit">
-              <div class="col-6 q-pa-sm">
+              <div class="col-12 col-sm-6 q-pa-sm">
                 <q-card class="q-pa-md" bordered flat>
                   <div class="column">
-                    <div class="text-subtitle1 text-weight-medium">訂單日期</div>
-                    <div class="text-subtitle1 text-weight-medium">{{ new Date(edit.row.date).toLocaleDateString() }}
+                    <div class="text-subtitle1 text-weight-bold">訂單日期</div>
+                    <div class="text-subtitle1 text-weight-regular">{{ new Date(edit.row.date).toLocaleDateString() }}
                     </div>
-                    <div class="text-subtitle1 text-weight-medium">訂單編號</div>
-                    <div class="text-subtitle1 text-weight-medium">{{ edit.row._id }}</div>
-                    <div class="text-subtitle1 text-weight-medium">價錢</div>
-                    <div class="text-subtitle1 text-weight-medium">{{ edit.row.totalPrice }}</div>
-                    <q-btn outline class="q-px-xl " color="black" label="詳細訂單資訊" :to="'/order/' + edit.row._id" />
+                    <div class="text-subtitle1 text-weight-bold">訂單編號</div>
+                    <div class="text-subtitle1 text-weight-regular">{{ edit.row._id }}</div>
+                    <div class="text-subtitle1 text-weight-bold">價錢</div>
+                    <div class="text-subtitle1 text-weight-regular q-mb-lg">{{ edit.row.totalPrice }}</div>
+                    <q-btn outline color="black" label="詳細訂單資訊" :to="'/order/' + edit.row._id" />
                   </div>
                 </q-card>
               </div>

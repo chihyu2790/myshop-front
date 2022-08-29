@@ -64,7 +64,7 @@
             <div class="text-body2 text-weight-regular q-mb-xs">取貨人地址:{{ order.getaddress }}</div>
             <div class="text-body2 text-weight-regular q-mb-xs">取貨人信箱:{{ order.getemail }}</div>
             <q-separator class="q-my-md" />
-            <q-card class="row reverse my-card q-mt-sm q-mt-lg-xl">
+            <q-card class="row reverse my-card q-mt-sm q-mt-lg-xl q-mb-xl">
               <div class="col-12 col-lg-2 q-mt-lg-xl">
                 <div class="row justify-between">
                   <div class="text-subtitle1 text-weight-medium">商品金額</div>

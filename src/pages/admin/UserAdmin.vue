@@ -16,7 +16,7 @@
           <router-link :to="'/admin/order'">
             <div class="text-subtitle1 q-my-lg">訂單管理</div>
           </router-link>
-          <div class="text-subtitle1 q-my-lg">活動管理</div>
+          <!-- <div class="text-subtitle1 q-my-lg">活動管理</div> -->
           <div class="text-subtitle1 q-my-lg pointer" @click="logout">登出</div>
         </div>
         <div class="col-10">

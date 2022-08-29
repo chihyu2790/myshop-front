@@ -16,8 +16,8 @@
           <router-link :to="'/admin/order'">
             <div class="text-subtitle1 q-my-lg">訂單管理</div>
           </router-link>
-          <div class="text-subtitle1 q-my-lg">活動管理</div>
-          <div class="text-subtitle1 q-my-lg">登出</div>
+          <!-- <div class="text-subtitle1 q-my-lg">活動管理</div> -->
+          <div class="text-subtitle1 q-my-lg cursor-pointer" @click="logout">登出</div>
         </div>
         <div class="col-10">
           <div class="flex items-center text-center q-mb-lg">
@@ -29,15 +29,16 @@
           </div>
           <div class="text-body1 q-mb-md">管理商品頁面</div>
 
-          <q-table :grid="$q.screen.xs" flat bordered :rows="rows" :columns="columns" row-key="name" :filter="filter"
+          <!-- :filter="filter" -->
+          <q-table :grid="$q.screen.xs" flat bordered :rows="rows" :columns="columns" row-key="name"
             v-if='!form.dialog'>
-            <template v-slot:top-right>
+            <!-- <template v-slot:top-right>
               <q-input borderless dense debounce="300" v-model="filter" placeholder="Search">
                 <template v-slot:append>
                   <q-icon name="search" />
                 </template>
               </q-input>
-            </template>
+            </template> -->
 
             <template #body-cell-image="image">
               <q-td>
@@ -242,8 +243,12 @@ import { apiAuth } from '../../boot/axios.js'
 import Swal from 'sweetalert2'
 import { useQuasar } from 'quasar'
 
+import { useUserStore } from '../../stores/example-store'
+const user = useUserStore()
+const { logout } = user
+
 const dense = ref(false)
-const filter = ref('')
+// const filter = ref('')
 const $q = useQuasar()
 const chips = ref('')
 

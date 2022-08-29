@@ -16,8 +16,8 @@
           <router-link :to="'/admin/order'">
             <div class="text-subtitle1 q-my-lg">訂單管理</div>
           </router-link>
-          <div class="text-subtitle1 q-my-lg">活動管理</div>
-          <div class="text-subtitle1 q-my-lg">登出</div>
+          <!-- <div class="text-subtitle1 q-my-lg">活動管理</div> -->
+          <div class="text-subtitle1 q-my-lg cursor-pointer" @click="logout">登出</div>
         </div>
         <div class="col-10">
           <div class="flex items-center text-center q-mb-lg">
@@ -80,6 +80,9 @@ import { reactive, ref, computed } from 'vue'
 import { apiAuth, api } from '../../boot/axios.js'
 import Swal from 'sweetalert2'
 import { useRouter } from 'vue-router'
+import { useUserStore } from '../../stores/example-store'
+const user = useUserStore()
+const { logout } = user
 
 const opendialog = ref(false)
 
