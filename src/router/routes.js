@@ -135,6 +135,16 @@ const routes = [
         }
       },
       {
+        path: 'productype/:id',
+        name: 'product-type',
+        component: () => import('pages/ProductType.vue'),
+        meta: {
+          title: 'No name. | product-type',
+          login: false,
+          admin: false
+        }
+      },
+      {
         path: 'user',
         name: 'user',
         component: () => import('pages/UserPage.vue'),

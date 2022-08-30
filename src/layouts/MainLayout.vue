@@ -10,6 +10,65 @@
         <q-tabs class="gt-md" shrink indicator-color="red">
           <q-route-tab exact name='/' to='/' label="TOP" />
           <q-route-tab exact name='/product' to='/product' label="SHOP" />
+          <!-- <q-route-tab exact name='/product' to='/product' label="SHOP">
+            <q-menu class="no-shadow border-all-black" square anchor="bottom end" self="top right" auto-close>
+              <q-list>
+                <q-item color="black" clickable v-close-popup to="/productype/短版">
+                  <q-item-section>
+                    <q-item-label>全部商品</q-item-label>
+                  </q-item-section>
+                </q-item>
+
+                <q-item clickable v-close-popup @click="logout">
+                  <q-item-section>
+                    <q-item-label>登出</q-item-label>
+                  </q-item-section>
+                </q-item>
+              </q-list>
+            </q-menu>
+          </q-route-tab> -->
+          <!-- <q-btn-dropdown stretch flat label="SHOP">
+            <div class="row">
+              <div class="col">
+                <q-card flat bordered square class="row q-pa-sm">
+                  <q-tabs v-model="innertab" class="text-black" active-color="black" indicator-color="black"
+                    narrow-indicator>
+                    <div class="column">
+                      <q-tab name="mails" label="Mails" />
+                      <q-tab name="alarms" label="Alarms" />
+                      <q-tab name="movies" label="Movies" />
+                    </div>
+                  </q-tabs>
+                  <q-separator />
+                  <q-tab-panels v-model="innertab">
+                    <q-tab-panel name="mails">
+                      <div class="text-h6">Mails</div>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </q-tab-panel>
+
+                    <q-tab-panel name="alarms">
+                      <div class="text-h6">Alarms</div>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </q-tab-panel>
+
+                    <q-tab-panel name="movies">
+                      <div class="text-h6">Movies</div>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </q-tab-panel>
+                  </q-tab-panels>
+                </q-card>
+              </div>
+            </div>
+            <q-list>
+              <q-item clickable @click="tab = '上衣'">
+                <q-item-section>短版</q-item-section>
+              </q-item>
+
+              <q-item clickable @click="tab = '針織'">
+                <q-item-section>針織</q-item-section>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown> -->
           <q-route-tab exact name='/store' to='/store' label="STORE" />
           <q-route-tab exact name='/about' to='/about' label="ABOUT" />
           <q-route-tab exact name='/styling' to='/styling' label="STYLING" />
@@ -158,6 +217,8 @@ const { logout } = user
 const { isLogin, isAdmin, cart, isStaff } = storeToRefs(user)
 const leftDrawerOpen = ref(false)
 const text = ref('')
+const tab = ref('')
+const innertab = ref('')
 
 const linksList = reactive([
 
